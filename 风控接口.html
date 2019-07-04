@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>风控接口</title>
+
+<style type="text/css">
+	body {
+		font-size: 14px;
+		line-height: 1.6;
+		padding-bottom: 30px;
+		background-color: white;
+        width: 900px;
+        margin:0 auto;
+	}
+
+	table {
+		padding: 0; border-collapse: collapse;
+	}
+
+	th, td {
+		border: 1px solid #cccccc;
+		margin: 0;
+		padding: 6px 13px;
+		text-align: left;
+		width: 300px;
+		/*width: 30%;*/
+	}
+
+	pre {
+		background-color: #f8f8f8;
+		border: 1px solid #cccccc;
+		font-size: 13px;
+		line-height: 19px;
+		overflow: auto;
+		padding: 6px 10px;
+		border-radius: 3px;
+	}
+
+</style>
+
+<body>
+<h1 style="text-align: center;">风控接口</h1>
+
+
+<h2>接口一</h2>
+<hr>
+
+
+<h3>1、协议、数据格式、请求方法</h3>
+<table>
+	<thead>
+		<tr>
+			<th>协议</th>
+			<th>数据格式</th>
+			<th>请求方法</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Http</td>
+			<td>Json</td>
+			<td>Post</td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+<h3>2、接口地址</h3>
+
+<table>
+	<tr>
+		<th>URL</th>
+		<th>测试serverName</th>
+		<th>生产serverName</th>
+	</tr>
+	<tr>
+		<td>http://<b>serverName</b>/Partner/FengKong/getRiskScore</td>
+		<td>59.110.46.55:8094</td>
+		<td>测试跑通之后，问我方获取</td>
+	</tr>
+</table>
+
+
+
+<h3>3、合作者ID、秘钥</h3>
+
+<table>
+	<tr>
+		<th>变量</th>
+		<th>示例</th>
+		<th>说明</th>
+	</tr>
+	<tr>
+		<td>partnerId</td>
+		<td>1701171101000</td>
+		<td>合作者ID</td>
+	</tr>
+	<tr>
+		<td>secret_key</td>
+		<td>5322965f48a6cfc6bda9a1b53062c3ad</td>
+		<td>密钥</td>
+	</tr>
+</table>
+
+
+
+<h3>4、请求参数</h3>
+
+<table>
+	<tr>
+		<th>变量</th>
+		<th>示例</th>
+		<th>说明</th>
+	</tr>
+	<tr>
+		<td>id_num</td>
+		<td>421083199208260057</td>
+		<td>身份证号码</td>
+	</tr>
+    <tr style="color: #999">
+        <td>is_compress</td>
+        <td>1（1是压缩，不压缩不传该参数）</td>
+        <td>
+            是否压缩（默认不压缩）<br>
+            先gzip压缩，然后用base64处理
+        </td>
+    </tr>
+	<tr>
+		<td>mobile</td>
+		<td>13641478771</td>
+		<td>手机号码</td>
+	</tr>
+	<tr>
+		<td>partner_id</td>
+		<td>1701171101000</td>
+		<td>合作者ID</td>
+	</tr>
+	<tr>
+		<td>timestamp</td>
+		<td>1556270585</td>
+		<td>时间戳(秒)</td>
+	</tr>
+	<tr>
+		<td>zw_order</td>
+		<td>SYS15093599498138</td>
+		<td>订单号 全局唯一</td>
+	</tr>
+	<tr>
+		<td>sign</td>
+		<td>f5e327ec9fea9518567b78a81d66f28a</td>
+		<td>签名（见第5条）[sign不参与签名]</td>
+	</tr>
+</table>
+
+
+
+<h3>5、签名</h3>
+
+<p>
+	（1）对请求参数进行ASCII排序<br>
+	（2）将排序后的数据，按照（“变量名=值&变量名=值&…”）格式拼接成字符串<br>
+	（3）在上面的字符串后，拼接密钥的值secret_key<br>
+	（4）对上述最终字符串进行md5 处理<br>
+</p>
+
+
+
+
+
+<h3>6、请求示例</h4>
+
+<p>请求参数</p>
+<pre>
+<code>{
+    "id_num"     : "421083199208260057",                //身份证号
+    <span style="color: #999">"is_compress": "1",                                 //是否压缩：是</span>
+    "mobile"     : "13641478771",                       //手机号
+    "partner_id" : "1701171101000",                     //合作者ID
+    "timestamp"  : "1556270585",                        //请求时间戳(精确到秒)
+    "zw_order"   : "SYS15093599498138",                 //订单号 全局唯一
+}</code>
+</pre>
+<p>生成签名</p>
+<p>
+string sign = MD5("id_num=421083199208260057<span style="color: #999">&is_compress=1</span>&mobile=13641478771&partner_id=1701171101000&timestamp=1556270585&zw_order=SYS150935994981385322965f48a6cfc6bda9a1b53062c3ad")
+<br>
+<br>
+签名结果：f5e327ec9fea9518567b78a81d66f28a
+</p>
+<p>最终请求参数</p>
+<pre>
+<code>{
+    "id_num"     : "421083199208260057",                //身份证号
+    <span style="color: #999">"is_compress": "1",                                 //是否压缩：是</span>
+    "mobile"     : "13641478771",                       //手机号
+    "partner_id" : "1701171101000",                     //合作者ID
+    "timestamp"  : "1556270585",                        //请求时间戳(精确到秒)
+    "zw_order"   : "SYS15093599498138",                 //订单号 全局唯一
+    "sign"       : "f5e327ec9fea9518567b78a81d66f28a",  //签名
+}</code>
+</pre>
+
+
+
+<h3>7、返回示例</h4>
+
+<p>成功示例</p>
+<pre>
+<code>{
+    "code" : "1000",
+    "msg"  : "success",
+    "data" : {
+        "score": "707.0"
+    }
+}</code>
+</pre>
+
+<p>失败示例</p>
+<pre>
+<code>{
+    "code" : 4002,
+    "msg"  : "请先配置回调地址！"
+}</code>
+</pre>
+
+
+
+<h3>8、附录一（返回值）</h3>
+
+<table>
+	<tr>
+		<th>code</th>
+		<th>msg</th>
+		<th>desc</th>
+	</tr>
+	<tr>
+		<td>100</td>
+		<td>签名不匹配</td>
+		<td>签名错误</td>
+	</tr>
+	<tr>
+		<td>1000</td>
+		<td>success</td>
+		<td>请求成功</td>
+	</tr>
+	<tr>
+		<td>2001</td>
+		<td>参数错误</td>
+		<td>参数缺失，或部分参数为空等</td>
+	</tr>
+	<tr>
+		<td>4001</td>
+		<td>请求到上限</td>
+		<td>测试环境有请求次数限制</td>
+	</tr>
+	<tr>
+		<td>4002</td>
+		<td>请先配置回调地址</td>
+		<td><b>看下文：需要合作方提供地址(接口二)</b></td>
+	</tr>
+	<tr>
+		<td>4005</td>
+		<td>回调数据缺失，请自检</td>
+		<td>合作方提供的地址没有数据，或某字段为空</td>
+	</tr>
+	<tr>
+		<td>4006</td>
+		<td>订单信息不存在</td>
+		<td>查询历史分数的时候，订单号不存在</td>
+	</tr>
+	<tr>
+		<td>4007</td>
+		<td>该订单查询达上限</td>
+		<td>查询历史分数，达到次数限制</td>
+	</tr>
+	<tr>
+		<td>9001</td>
+		<td>请求失败，请检测参数</td>
+		<td>请求数据有问题</td>
+	</tr>
+	<tr>
+		<td>9002</td>
+		<td>该订单号已存在，请勿重复提交</td>
+		<td>同一订单号返回分数后，只能请求一次</td>
+	</tr>
+	<tr>
+		<td>9003</td>
+		<td>非法返回，请联系相关人员核查</td>
+		<td>返回数据校验失败</td>
+	</tr>
+</table>
+
+
+<h3>9、附录二（分数划分）</h3>
+<p>
+1、不同渠道，用户的质量不一样，准入分也不一样 <br>
+2、自然渠道 650 通过率 15~20% <br>
+3、导流渠道 630 通过率 15~20% <br>
+4、前期上线先用650，好的渠道可以630 <br>
+5、具体准入分定630或者650你们要跑一段时间看贷后数据
+</p>
+
+
+
+<h3>10、附录三（异常分数）</h3>
+
+<p>
+"score" : -666666.0   :模型异常 <br>
+"score" : -77777.0    :模型异常 <br><br>
+
+说明：常见原因 <br>
+1、运营商报告或运营商原始数据缺失； <br>
+2、运营商报告和运营商原始数据放反； <br>
+3、运营商报告和运营商原始数据过时；
+</p>
+
+
+
+
+
+
+
+
+
+<br><br><br>
+<h2>接口二</h2>
+<hr>
+<p>注意 : 需要你们提供一个回调接口（我方调用）</p>
+
+
+<h3>1、协议、数据格式、请求方法</h3>
+<table>
+	<tr>
+		<th>请求方式</th>
+		<td>Http/Https + Get</td>
+	</tr>
+	<tr>
+		<th>请求参数</th>
+		<td>手机号，订单号（身份证号等）</td>
+	</tr>
+	<tr>
+		<th>加密方式</th>
+		<td>自定义（可不加）</td>
+	</tr>
+</table>
+
+
+
+<h3>2、请求格式、示例</h3>
+<p>
+格式 : http://www.example.com/callback?mobile=手机号&id_num=身份证号&zw_order=订单号&.... <br>
+示例 : http://www.example.com/callback?mobile=13066668888&zw_order=ZF_123456789
+</p>
+
+
+
+
+
+<h3>3、返回数据</h3>
+<pre>
+<code>{
+    "returnCode": "SUCCESS",
+    "data": {
+        //用户基本信息
+        "customer_info": {
+            "real_name"     : "范文龙",                                        //姓名 （必）
+            "gender"        : "男",                                           //性别 （必）
+            "device_id"     : "00be399bf943133348b9b84ae744c9c9",             //手机唯一ID（选）
+            "app_type"      : "3",                                            //手机类型 （选） 1:安卓 3:iOS
+            "phone_type"    : "iPhone10,2",                                   //手机型号 （选）
+            "birthplace"    : "河南省新乡市卫滨区胜利中街169号姜庄小区5号楼1单元2号", //身份证地址 （选）
+            "add_time"      : "1529200758"                                    //用户注册时间（选）
+            "nation"        : "汉",                                           //民族 （选）
+        },
+        //用户扩展信息
+        "customer_extra_info": {
+            "user_address"   : "广东省-东莞市-东莞市市辖区-塘厦镇环市东路碧桂园天麓山", //用户住地址 （必）
+            "relation1"      : "父母",                                          //关系--联系人1 （必）
+            "name1"          : "安冬霞",                                        //姓名--联系人1 （必）
+            "phone1"         : "13523845067",                                  //电话--联系人1 （必）
+            "relation2"      : "朋友",                                          //关系--联系人2 （必）
+            "name2"          : "魏碧江",                                        //姓名--联系人2 （必）
+            "phone2"         : "13353676606"                                   //电话--联系人2 （必）
+            "company_address": "广东省-东莞市-东莞市市辖区-塘厦镇塘龙东路美华中心602", //公司地址 （选）
+            "company_name"   : "东莞市塘厦时间映画摄影店",                         //公司名称 （选）
+            "company_phone"  : "076982252823",                                 //公司电话 （选）
+        },
+        //申请渠道
+        "channel_id": "AppStore",     //渠道来源 （必）
+        //绑卡信息
+        "customer_bank_info": {
+            "card_user_name"  : "范文龙",               //绑卡姓名（选）
+            "reserved_mobile" : "13729911290",         //预留电话（选）
+            "gate_id"         : "CCB",                 //银行编号（选）如：'CCB'=>'建设银行'
+            "card_num"        : "6210812500002451140", //银行卡号（选）
+            "add_time"        : "1534747276"           //绑卡时间（选）
+        },
+        //订单信息
+        "consume_info": {
+            "consume_amount" : "100000",      //订单金额 （选）
+            "add_time"       : "1535007231"   //订单生成时间 （选）
+        },
+        //产品天数
+        "loan_days" : "7" , //7天、28天（默认：7天）
+        //运营商类型
+        "loan_type" : "mx", //魔蝎（mx）;数聚魔盒（sjmh）; 融360（r360）; 聚信立（jxl）;（默认：魔蝎）；
+        //运营商报告
+        "loanBangData": {"report":[{"key":"data_type","value":"运营商"},……} （必）
+        //运营商原始数据
+        "originalLoanBangData": {"mobile":"13788330752","code":0,"message":"正常","name":"洪*",……} （必）
+}</code>
+</pre>
+
+
+
+
+
+<br><br><br>
+<h2>接口三</h2>
+<hr>
+<p>
+说明： <br>
+1、功能：根据订单号查询历史分数; <br>
+2、方式：http + post + json; <br>
+3、地址：http:// <b> SERVERNAME</b> /Partner/FengKong/getHistoryScores
+</p>
+
+
+<h3>1、请求参数</h3>
+
+<table>
+	<tr>
+		<th>变量</th>
+		<th>示例</th>
+		<th>说明</th>
+	</tr>
+	<tr>
+		<td>partner_id</td>
+		<td>1701171101000</td>
+		<td>合作者ID</td>
+	</tr>
+	<tr>
+		<td>zw_order</td>
+		<td>SYS15093599498138</td>
+		<td>订单号</td>
+	</tr>
+	<tr>
+		<td>sign</td>
+		<td>d0a92ef3bf626308189e7c47af5bd757</td>
+		<td>签名 <b>（签名规则见接口一）</b></td>
+	</tr>
+</table>
+
+<h3>2、请求参数</h3>
+<pre>
+<code>{
+    "partner_id": "1701171101000",
+    "zw_order"  : "SYS15093599498138",
+    "sign"      : "d0a92ef3bf626308189e7c47af5bd757"
+}</code>
+</pre>
+
+
+<h3>3、返回结果</h3>
+<pre>
+<code>{
+    "code"   : "1000",
+    "msg"    : "success",
+    "scores" : "401.52"
+}</code>
+</pre>
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+

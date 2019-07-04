@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style type="text/css">
+            #logo {
+                font-weight: 600;
+                font-size: 28px;
+                font-family: "黑体";
+                color: #8c888b;
+                background: -webkit-linear-gradient(0deg, red, blue, yellow, green, orange);
+                /*background: -webkit-linear-gradient(0deg, #70f7fe, #fbd7c6, #fdefac, #bfb5dd, #bed5f5);*/
+                /*-moz-linear-gradient(45deg, #70f7fe, #fbd7c6, #fdefac, #bfb5dd, #bed5f5);*/
+                /*-ms-linear-gradient(45deg, #70f7fe, #fbd7c6, #fdefac, #bfb5dd, #bed5f5);*/
+                color: transparent;
+                /*设置字体颜色透明*/
+                -webkit-background-clip: text;
+                /*背景裁剪为文本形式*/
+                animation: ran 40s linear infinite;
+                /*动态10s展示*/
+            }
+
+            @keyframes ran {
+                from {
+                    backgroud-position: 0 0;
+                }
+                to {
+                    background-position: 2000px 0;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <a id="logo" href="#">电审成功&nbsp;&nbsp;</a>
+    </body>
+
+</html>

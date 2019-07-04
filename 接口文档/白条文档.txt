@@ -1,0 +1,179 @@
+商城接口文档（部分）
+
+
+1、白条支付
+接口：Goods/getConsumeHistoryById
+参数：customer_id
+返回值（示例）：
+stdClass Object
+(
+    [code] => 0
+    [msg] => 成功
+    [res] => stdClass Object
+        (
+            [add_time] => 2018-06-09
+            [repayment_time] => 2018-06-15
+            [is_over] => 1
+            [day] => 10
+            [amount] => 135000
+        )
+
+)
+add_time：        下单时间
+repayment_time：  应还时间
+is_over：         是否预期：1是、0否
+day：             逾期天数 or 还款倒计时
+amount：          应还金额
+
+
+
+2、订单详情 + 订单状态
+接口：Goods/getGoodsOrder
+参数：customer_id:用户ID
+返回值（示例）：
+stdClass Object
+(
+    [code] => 0
+    [msg] => 成功
+    [order_info] => stdClass Object
+        (
+            [goods_name] => 超级牛逼无敌好用实惠高级完美清晰音效动听
+            [goods_description] => 超级牛逼无敌好用实惠高级完美清晰音效动听干净好用苹果耳机1
+            [goods_thumb] => http://cdn.laitixian.com/goods_image/2018-06-22/a2dbd592-3c62-4900-a6b2-a853ba69fd6b
+            [total_price] => 1500.00
+            [oid] => 6
+            [status] => 4
+        )
+
+    [order_status] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [code] => 4
+                    [title] => 退款申请
+                    [desc] => 您的申请正在审核中
+                    [add_time] => 2018-06-27 15:17:24
+                )
+
+            [1] => stdClass Object
+                (
+                    [code] => 3
+                    [title] => 确认支付
+                    [desc] => 您已经支付成功，已发货
+                    [add_time] => 2018-06-27 15:17:22
+                )
+
+        )
+
+)
+order_info：（订单商品详情）
+	goods_name：商品名称
+	goods_description：商品描述
+	goods_thumb：商品图片
+	total_price：商品总价
+	oid：订单ID
+	status：订单状态
+		1:立即下单--------------【order_id 写死：0】
+		2:提交订单--------------【order_id 写死：0】
+		3:确认支付--------------【生成订单后，返回订单ID，跟踪商品订单】
+		4:白条成功--------------【白条成功，跟踪商品记录】
+		5:提交申请--------------【提交申请，跟踪订单记录】
+		6:开始审核--------------【开始审核，跟踪订单记录】
+		7:没有通过--------------【如审核未通过，跟踪订单记录】
+		8:审核通过（待放款…）-----【审核通过之后，跟踪订单记录】
+		9:放款失败--------------【如若放款失败，跟踪订单记录】
+		10:放款成功（待还款……）---【放款成功之后，跟踪订单记录】
+		11:还款成功-------------【用户还款之后，跟踪订单记录】
+order_status：（订单步骤状态）
+	code：状态码
+	title：标题
+	desc：描述
+	add_time：添加时间
+
+
+
+3、订单跟踪记录：
+说明：用户点击前两步（1，2）的时候，只记录操作，不跟踪商品订单；第三步（3，4，5）开始跟踪商品订单；提交之后（5，6，7，8，9，10）系统记录
+接口：Goods/addGoodsOrderStatus
+参数：	customer_id：用户ID
+	order_id：订单ID
+	goods_id: 商品ID
+	status：操作状态
+		（状态码参数）
+		1:立即下单--------------【order_id 写死：0】
+		2:提交订单--------------【order_id 写死：0】
+		3:确认支付--------------【生成订单后，返回订单ID，跟踪商品订单】
+		4:白条成功--------------【白条成功，跟踪商品记录】
+		5:提交申请--------------【提交申请，跟踪订单记录】
+		6:开始审核--------------【开始审核，跟踪订单记录】
+		7:没有通过--------------【如审核未通过，跟踪订单记录】
+		8:审核通过（待放款…）-----【审核通过之后，跟踪订单记录】
+		9:放款失败--------------【如若放款失败，跟踪订单记录】
+		10:放款成功（待还款……）---【放款成功之后，跟踪订单记录】
+		11:还款成功-------------【用户还款之后，跟踪订单记录】
+返回值（示例）：
+stdClass Object
+(
+    [code] => 0
+    [msg] => 成功
+)
+
+
+
+4、系统消息（列表）
+接口：Goods/get_system_message
+参数：type：平台ID
+返回值（示例）：
+stdClass Object
+(
+    [code] => 0
+    [msg] => 成功
+    [res] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => 消息2
+                    [message] => 您好，这是第二条消息……
+                    [add_time] => 2018-06-26 17:34:50
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => 消息1
+                    [message] => 您好，这是第一条消息……
+                    [add_time] => 2018-06-26 17:34:24
+                )
+
+        )
+
+)
+id：消息ID
+title：消息标题
+message：消息内容
+add_time：添加时间
+
+
+
+5、系统消息（详情）
+接口：Goods/get_system_message_one
+参数：sys_id：消息ID
+返回值（示例）：
+stdClass Object
+(
+    [code] => 0
+    [msg] => 成功
+    [res] => stdClass Object
+        (
+            [id] => 2
+            [title] => 消息2
+            [message] => 您好，这是第二条消息……
+            [add_time] => 2018-06-26 17:34:50
+        )
+
+)
+id：消息ID
+title：消息标题
+message：消息内容
+add_time：添加时间

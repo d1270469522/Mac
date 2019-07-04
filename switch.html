@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="switch,honeySwitch,switch button">
+    <meta name="author" content="Li Dong" qq="906556946" description="欢迎技术交流">
+    <title>Honey Switch</title>
+
+	<script src="lib/jquery.js"></script>
+
+	<!--必要样式-->
+	<link rel="stylesheet" href="lib/honeySwitch.css">
+
+	<script src="lib/honeySwitch.js"></script>
+
+	<style>
+
+
+		.cell-left, .cell-right {
+			width: 60px;
+			height: 40px;
+			float: left;
+			line-height: 50px;
+		}
+		.cell-right {
+			text-align: right;
+		}
+		.switch-on, .switch-off {
+			margin-top: 9px;
+		}
+
+	</style>
+
+  </head>
+  <body>
+
+		<div class="cell-left">蓝牙</div><div class="cell-right"><span class="switch-off" id="bluetooth"></span></div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=3&id=2059156892&auto=1&height=66"></iframe>
+<iframe src="http://www.google.cn/maps/search/33.6858497,94.0506626"></iframe>
+<!-- <iframe src="http://www.google.cn/maps/search/{{$device->map_lat}},{{$device->map_lng}}"></iframe> -->
+
+
+
+<script type="text/javascript">
+
+function accAdd(arg1,arg2){
+    var r1,r2,m;
+    try{r1=arg1.toString().split(".")[1].length}catch(e){r1=0}
+    try{r2=arg2.toString().split(".")[1].length}catch(e){r2=0}
+    m=Math.pow(10,Math.max(r1,r2))
+    return ((arg1*m+arg2*m)/m).toFixed(2);
+}
+// var aa1 = (116.439685 * 1000 - 1.000) / 1000;
+var aa1 = 116.439685;
+alert(aa1);
+    alert(accAdd(0.001000,aa1));
+</script>
+
+  </body>
+</html>
+

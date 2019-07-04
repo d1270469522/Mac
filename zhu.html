@@ -1,0 +1,110 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>综合图</title>
+
+
+<!-- jquery文件，不多说 -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<!-- 柱状图、扇形图js文件 -->
+<script type="text/javascript" src="js/highcharts.js"></script>
+<!-- 下载图片、PDF的js文件 -->
+<script type="text/javascript" src="js/exporting.js"></script>
+
+<script type="text/javascript">
+
+    $(function () {
+        $('#container').highcharts({
+            chart: {
+
+            },
+
+            // 柱状图的标题
+            title: {
+                text: '综合图'
+            },
+
+            // x轴的坐标
+            xAxis: {
+                categories: ['8月', '9月', '10月', '11月', '12月']
+            },
+            tooltip: {
+                formatter: function() {
+                    var s;
+                    if (this.point.name) { // the pie chart
+                        s = ''+
+                        this.point.name +': '+ this.y +' 11';
+                    } else {
+                        s = ''+
+                        this.x  +': '+ this.y;
+                    }
+                    return s;
+                }
+            },
+            labels: {
+                items: [{
+                    html: '扇形图',
+                    style: {
+                        left: '40px',
+                        top: '8px',
+                        color: 'black'
+                    }
+                }]
+            },
+            series: [
+                {
+                    type: 'column',
+                    name: '注册量',
+                    data: [3, 5, 8, 5, 7]
+                }, {
+                    type: 'column',
+                    name: '通过量',
+                    data: [2, 3, 7, 3, 6]
+                }, {
+                    type: 'column',
+                    name: '触发量',
+                    data: [2, 1, 3, 1, 2]
+                }, {
+                    type: 'spline',
+                    name: '平均值',
+                    data: [3, 2.67, 3, 6.33, 3.33],
+                    marker: {
+                        lineWidth: 2,
+                        lineColor: Highcharts.getOptions().colors[3],
+                        fillColor: 'white'
+                    }
+                }, {
+                    type: 'pie',
+                    name: 'Total consumption',
+                    data: [
+                        {
+                            name: '注册量',
+                            y: 13,
+                            color: Highcharts.getOptions().colors[0] // Jane's color
+                        }, {
+                            name: '下单量',
+                            y: 23,
+                            color: Highcharts.getOptions().colors[1] // John's color
+                        }, {
+                            name: '通过量',
+                            y: 19,
+                            color: Highcharts.getOptions().colors[2] // Joe's color
+                        }
+                    ],
+                    center: [100, 80], //扇形图的偏移位置
+                    size: 100, // 扇形图的半径
+                    showInLegend: false,
+                    dataLabels: {
+                        enabled: false
+                    }
+                }
+            ]
+        });
+    });
+</script>
+
+</head>
+<body>
+	<div id="container" style="width:850px;height:500px;margin:0 auto"></div>
+</body>
+</html>

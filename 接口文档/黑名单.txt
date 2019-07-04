@@ -1,0 +1,39 @@
+协议、数据格式 HTTP+json
+
+生产环境serverName: api.risk.zhangfujr.com
+
+接口地址: http://serverName/Partner/BlackList/Verifyblack
+
+partnerId	: 1701171101000 			//合作者ID
+secret_key	: 5322965f48a6cfc6bda9a1b53062c3ad 	//秘钥
+
+请求参数：
+{
+    "partner_id"	: "1701171101005",  			//(string) 合作者ID
+    "timestamp"		: "1484719215",  			//(string) 请求时间戳(精确到秒)
+    "name"		: "王天伟",  				//(string) 姓名
+    "id_num"		: "610103197604041613",  		//(string) 身份证号
+    "mobile"		: "13802800429",  			//(string) 手机号
+    "sign"		: "ed9fd3943c626923c1039c68abde218a" 	//(string) 签名(32位小写)
+}
+
+返回参数：
+没有命中黑名单
+{
+    "code": 1000,
+    "msg": "accept"
+}
+
+命中黑名单
+{
+    "code": 1002,
+    "msg": "reject"
+}
+
+sign规则 
+sign MD5算法: String sign = md5(身份证号 + 手机号 + 姓名 + 合作者ID + 时间戳 + secret_key)
+
+例: String sign = md5("id_num=身份证号&mobile=手机号&name=姓名&partner_id=合作者ID&timestamp=时间戳965bc0e71033ec965af315c7ee66b4cc");
+
+
+

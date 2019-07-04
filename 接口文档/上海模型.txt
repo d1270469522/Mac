@@ -1,0 +1,240 @@
+{
+	"name": "秦德文",
+	"mobile": "18887749973",
+	"idNum": "450331199511070613",
+	"cardSetAddr": "广西荔浦县新坪镇凤岗村新村屯173号",
+	"gender": "男",
+	"nation": "汉",
+	"live_addr": "广西壮族自治区桂林市荔浦县大发商贸城4栋1单元",
+	"company_addr": "广西壮族自治区桂林市荔浦县中园路286号",
+	"company_phone": "07737228686",
+	"company_name": "皓通美车会所",
+	"operate_system":"android",
+	"device_mode":"vivo X5F",
+	"device_id":"2308471082983479",
+	"apply_channel":"rong360",
+	"renew_loan":0,
+	"installment":0,
+	"apply_amount":"1000.00",
+	"apply_time":"2001-01-01 12:12:12"
+	"credit_card":"12563255236",
+	"credit_card_reserved_mobile":"18887749973",
+	"debit_card":"12563255236",
+	"debit_card_reserved_mobile":"18887749973",
+	"behavior": {
+            "download_list":[{
+                       "channel": "rong360",
+                       "download_time": "2010-01-01 12:12:12"
+                   }],
+            "card_add_list":[{
+                       " reserved_mobile ": "13299332222",
+                       " bank_short_name": "ICBC",
+                       " bank_card_type ": "debitcard",
+                       "add_time ": "2010-01-01 12:12:12"
+                   }],
+            "his_order_list":[{
+                       "order_id": "1234",
+                       "order_time": "2010-01-01 12:12:12",
+                       "apply_amount": "1000.00",
+                       "loan_time": "2010-01-01 12:12:23",
+                       "plan_repay_time": "2010-02-01 12:12:12",
+                       "actual_repay_time": "2010-03-01 12:12:12",
+                       "loan_amount": "1000.00",
+                       "plan_repay_amount": "1100.00",
+                       "actual_repay_amount": "1100.00"
+                   }]}
+	"score": [
+	    {
+		    "name": "芝麻分",
+			"score" : 654
+		}
+		{
+		    "name": "同盾分",
+			"score" : 0
+		},
+		....
+	]
+	"emergency_contacts": [
+	    {
+			"relation": "父亲",
+			"name": "秦世伦",
+			"phone": "18677392163"
+		},
+		{
+			"relation": "朋友",
+			"name": "曹武飞",
+			"phone": "13878384615"
+		},
+	],
+	"contact_list": [
+		{
+			"phone": "13059228902",
+			"name": "陈皮"
+		},
+		{
+			"phone": "13077636776",
+			"name": "乐乐"
+		},
+		.....
+	],
+	"sms_list": [
+		{
+			"phone": "13059228902",
+			"name": "陈皮",
+			"type":"发送",
+			"content":"什么时候过来？",
+			"time":"2010-03-01 12:12:12"
+		},
+		{
+			"phone": "13077636776",
+			"name": "乐乐",
+			"type":"接收",
+			"content":"好的",
+			"time":"2010-03-01 12:12:12"
+		},
+		.....
+	],
+	"callrecord_list": [
+	{
+		"phone": "13059228902",
+		"name": "陈皮",
+		"type":"呼入",
+		"start_time":"2010-03-01 12:12:12",
+		"end_time":"2010-03-01 12:12:42",
+		"use_time":"30"
+	},
+	{
+		"phone": "13077636776",
+		"name": "乐乐",
+		"type":"呼出",
+		"start_time":"2010-03-01 12:18:12",
+		"end_time":"2010-03-01 12:18:19",
+		"use_time":"7"
+		
+	},
+	.....
+	],
+	"app_list": [
+	0：微信
+	1：QQ
+	2：支付宝
+	.....
+	],	
+	"position": [
+		{
+			"coordinate": "24.50,110.40",
+			"recording_time": "2017-09-12 18:37:25",
+			"address": "广西壮族自治区桂林市荔浦县兴发巷270"
+		},
+		{
+			"coordinate": "24.35,109.55",
+			"recording_time": "2017-09-14 19:04:21",
+			"address": "广西壮族自治区柳州市鹿寨县G72(泉南高速)"
+		}	
+	]
+	"scorpionAccessReport": "...",
+	"scorpionOriginalData": "...",	
+}
+
+name: 姓名(必填)
+mobile: 手机号(必填)
+idNum: 身份证号(必填)
+cardSetAddr: 身份证地址（非必填，有的话建议填写）
+gender: 性别(必填)
+nation: 民族（非必填，有的话建议填写）
+live_addr: 用户填写的居住地址(必须是用户填写的.省市区+详细居住地址)(必填)
+company_addr: 工作单位地址（非必填，有的话建议填写）
+company_phone: 工作单位电话（非必填，有的话建议填写）
+company_name: 工作单位名称（非必填，有的话建议填写）
+operate_system:手机操作系统 ios/android（最新）（非必填，有的话建议填写）
+device_mode:手机型号（最新）（非必填，有的话建议填写）
+device_id:设备ID（最新）（非必填，有的话建议填写）
+apply_channel:申请渠道（必填）
+apply_amount:本次申请借款金额（非必填，有的话建议填写）
+apply_time:本次申请借款时间（非必填，有的话建议填写）
+credit_card:绑定的信用卡（非必填，有的话建议填写）
+credit_card_reserved_mobile:信用卡银行预留电话（非必填，有的话建议填写）
+debit_card:绑定的储蓄卡（非必填，有的话建议填写）
+debit_card_reserved_mobile:储蓄卡银行预留电话（非必填，有的话建议填写）
+installment:是否分期产品(1为分期产品 0为payday 必填)
+renew_loan:首复贷类型（1复贷 0首贷 必填）
+behavior: 行为信息（复贷用户填写）
+		download_list:历史下载信息（非必填）
+				   channel: 下载渠道
+				   download_time: 下载时间
+		card_add_list:银行卡添加记录（必填）
+				    reserved_mobile : 银行预留手机号
+				    bank_short_name: 开户银行代码（大写）
+				    bank_card_type : 银行卡类型(debitcard/creditcard  小写)
+				    add_time : 添加时间
+		his_order_list:历史借款信息（必填）
+				   order_id: 订单id
+				   order_time:借款申请时间
+				   apply_amount:借款申请金额
+				   loan_time:借款放款时间（未成功则为空）
+				   plan_repay_time:应还款时间（未成功放开则为空）
+				   actual_repay_time: 实际还款时间（未成功放款或未还款则为空）
+				   loan_amount:实际放款金额（未放款则为0）
+				   plan_repay_amount:应还款金额（逾期为：放款金额+逾期金额，未放款则为0）
+				   actual_repay_amount: 1100.00（实际还款金额，未放款未还款则为0）
+score: 第三方评分（非必填，有的话建议填写）
+	name: 评分名称
+	score: 评分值
+emergency_contacts: 紧急联系人(至少2个)(必填)
+	relation: 关系
+	name: 姓名
+	phone: 电话
+contact_list: 手机上爬取的通讯录（非必填，有的话建议填写）
+	name: 姓名
+	phone: 电话	
+sms_list: 手机上爬取的短信（非必填，有的话建议填写）
+	name: 姓名
+	phone: 电话
+	type:类型（发送/接收）
+	time:时间
+	content:短信内容
+callrecord_list: 手机上爬取的通话记录（非必填，有的话建议填写）
+	name: 姓名
+	phone: 电话	
+	type:类型（呼入/呼出/未接/拒接）
+	start_time:电话开始时间
+	end_time:电话结束时间（未接或未接通则空）
+	use_time:通话时长（未接通为0，未接和拒接显示响铃次数（如有，否则也为0））
+app_list:手机上爬取的app列表（非必填，有的话建议填写）
+	0：app名字
+	1：app名字
+position: 定位信息（非必填，有的话建议填写）
+	coordinate: 定位坐标(经度，纬度)
+	recording_time: 定位时间
+	address: 定位地址
+
+如为魔蝎：
+scorpionAccessReport: 魔蝎报告数据，字符串格式(必填)
+scorpionOriginalData: 魔蝎原始详单数据，字符串格式(必填)
+
+如为聚信立：
+jxlAccessReport: 聚信立报告数据，字符串格式(必填)
+jxlOriginalData: 聚信立原始详单数据，字符串格式(必填)
+
+如为贷后邦：
+loanBondAccessReport: 贷后邦报告数据，字符串格式(必填)
+loanBondOriginalData: 贷后邦原始详单数据，字符串格式(必填)
+
+如为融360：
+rong360OriginalData: 融360原始详单数据，字符串格式(必填)
+rong360AccessReport: 融360报告数据，字符串格式(必填)
+
+如为白骑士
+bqsOriginalData: 运营商原始数据
+
+bqsReportData:  运营商报告数据
+
+如为数聚魔盒：
+datamhOriginalData":详单
+datamhReportData:报告
+
+
+
+
+
+
