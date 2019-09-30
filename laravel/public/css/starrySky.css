@@ -1,0 +1,35 @@
+/*
+* @Author: 天尽头流浪
+* @Date:   2019-07-16 17:52:03
+* @Last Modified by:   天尽头流浪
+* @Last Modified time: 2019-07-17 19:23:30
+*/
+
+body {
+    margin:0 auto;
+    overflow:hidden;
+    background-color:#000;
+}
+
+/*=============第一页=============*/
+
+canvas {
+    width:100%;
+    height: 100%;
+    display:inline-block;
+    vertical-align:baseline;
+    z-index:-1;
+}
+
+.layui-form-pane {
+    position:fixed;
+    z-index:10;
+    top:50%;
+    margin-top: -100px;
+    left: 43%;
+}
+
+.layui-btn {
+    width: 100%;
+}
+
