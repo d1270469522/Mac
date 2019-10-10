@@ -1,0 +1,512 @@
+
+备忘录
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+腾讯云:
+
+    地址：https://dev.tencent.com/user/account/setting/relevance
+    账号：d1270469522
+    密码：Dpf416331
+
+百度云：
+
+    账号：13051822580
+    密码：Dpf416331
+
+QQ：
+    账号：1270469522
+    密码：1+2+3+4=10
+
+GitHub：
+    账号：1270469522@qq.com
+    密码：Dpf416331
+
+laravel社区：
+    账号：1270469522@qq.com
+    密码：Dpf416331
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+后台管理：
+
+    掌富贷boss（测试）：http://testboss.zfd.kdcaopan.com
+    掌富贷boss（正式）：http://syspro.dai.zhangfujr.com
+
+        账号：admin
+        密码：Hsb@@123456
+
+    印尼系统（测试）：
+
+        地址：http://39.96.161.37:8080
+        账号：admin
+        密码：gojet@2019
+
+    印尼系统（正式）：
+
+        地址：http://149.129.251.98:8082
+        账号：admin
+        密码：gojet@2019
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+数据库：
+
+    急贷宝 | 掌富贷 | SAAS
+
+        地址：http://59.110.46.55/2phpmyadmin2
+        账号：rdsdb_root
+        密码：1@AbED#4%eA4y03&45$5F7*d8D
+
+    SAAS ⻛风控地址  | 回调数据
+
+        地址：http://59.110.46.55/1phpmyadmin1/
+        账号：paydaydb_root
+        密码：D#4%eA4y01@AbE3&48D5$5F7*d
+
+    海外测试：
+
+        地址：http://www.jiexiangtech.com/2phpmyadmin2
+        账号：root
+        密码：localR@@T
+
+    海外正式：
+
+        地址：http://149.129.251.98:8082/2phpmyadmin2
+        账号：rds_root
+        密码：LHm1$2Hm1$*d3Ab&b5#1
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Git仓库：
+
+    急贷宝boss：git@101.201.154.89:/data/git/maibei7-admin.git
+    急贷宝api： git@101.201.154.89:/data/git/maibei7-backend.git
+
+    掌富贷boss：git@101.201.154.89:/data/git/maibei-admin.git
+    掌富贷api： git@101.201.154.89:/data/git/maibei-backend.git
+
+    淘多多H5： git@101.201.154.89:/data/git/taoduoduomall.git
+    saas前台： git@101.201.154.89:/data/git/paydayloan-backend.git
+    saas后台： git@101.201.154.89:/data/git/paydayloan-admin.git
+
+    海外项⽬admin：https://git.coding.net/lihuangde/UangBagus-console.git
+    海外项目home： https://git.coding.net/lihuangde/UangBagus-api.git
+
+    海外项目：风控和任务仓库：https://git.dev.tencent.com/lihuangde/UangBagus-Jobs.git
+
+    改多国语言：https://git.dev.tencent.com/lihuangde/saas-backend.git
+    改多国语言：https://git.dev.tencent.com/lihuangde/saas-admin.git
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+服务器登陆：
+
+    急贷宝 | 掌富贷 | saas
+
+        地址: 59.110.46.55
+        账号: root
+        密码: 5#H1b&L3#siz*he&lAnm
+
+    saas⻛控服务器 | 51易易借
+
+        地址: 47.94.235.248
+        账号: root
+        密码: asdf.123456
+
+    海海外项⽬（测试）：
+
+        地址: 39.96.161.37
+        账号: root
+        密码: asdf.123456
+
+    海海外项⽬（正式）：
+
+        地址：149.129.251.98
+        账号：dev_user01
+        密码：15*TB5@1m1$FoN#d4F9
+        位置：/srv/console/
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Git打tag：
+
+    1、列出已有的tag：git tag
+
+    2、加上-l命令可以使用通配符来过滤tag：git tag -l 'v1.*'
+
+    3、新建tag：git tag v1.0
+
+        还可以加上-a参数来创建一个带备注的tag，备注信息由-m指定。如果你未传入-m则创建过程系统会自动为你打开编辑器让你填写备注信息。
+
+        git tag -a v1.0 -m "my tag"
+
+    4、查看tag详细信息：git show v1.0
+
+    5、给指定的某个commit号加tag
+
+        打tag不必要在head之上，也可在之前的版本上打，这需要你知道某个提交对象的校验和（通过git log获取，取校验和的前几位数字即可）。
+
+        git tag -a v1.2 9fceb02 -m "my tag"
+
+    6、将tag同步到远程服务器
+
+        同提交代码后，使用git push来推送到远程服务器一样，tag也需要进行推送才能到远端服务器。
+        使用git push origin [tagName]推送单个分支。
+
+        git push origin v1.0
+
+        推送本地所有tag，使用git push origin --tags。
+
+    7、切换到某个tag
+
+        跟分支一样，可以直接切换到某个tag去。这个时候不位于任何分支，处于游离状态，可以考虑基于这个tag创建一个分支。
+
+        git checkout v.1.2
+
+    8、删除某个tag
+
+        本地删除
+
+        git tag -d v0.1.2
+
+        远端删除
+        git push origin :refs/tags/<tagName>
+
+        git push origin :refs/tags/v0.1.2
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Git版本回退：
+
+    1. 使⽤用 git log 命令历史版本记录回退版本 
+
+        git reset --hard f6a7c803a6931a9eca011d4e097389e0845cbe49
+
+    2. 推送到远程git
+
+        push -f -u origin master
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Sublime相关插件，快捷键：
+
+    Sublime Txt 基础配置
+    {
+        "always_show_minimap_viewport": true,
+        "draw_minimap_border": true,
+        "ensure_newline_at_eof_on_save": true,
+        "find_selected_text": true,
+        "font_size": 15,
+        "highlight_line": true,
+        "highlight_modified_tabs": true,
+        "ignored_packages":
+        [
+            "Vintage"
+        ],
+        "line_padding_top": 0,
+        "show_line_endings": true,
+        "translate_tabs_to_spaces": true,
+        "trim_trailing_white_space_on_save": true
+    }
+
+    插件：
+
+    教程：https://learnku.com/docs/laravel-development-environment/6.x/editor-selection/5513
+
+    Alignment 
+
+        功能：”=”号对齐，多行选择和多项选择超简单的对齐。
+        简介：变量定义太多，长短不一，可一键对齐
+        使用：默认快捷键Ctrl+Alt+A和QQ截屏冲突，可设置其他快捷键如：Ctrl+Shift+Alt+A；先选择要对齐的文本
+
+    Bracket Highlighter
+
+        功能：代码匹配
+        简介：可匹配[], (), {}, “”, ”, <tag></tag>，高亮标记，便于查看起始和结束标记
+        使用：点击对应代码即可
+        自定义：http://www.360doc.com/content/14/1111/15/15077656_424301780.shtml（颜色）
+
+    Doc​Blockr
+
+        功能：生成优美注释
+        简介：标准的注释，包括函数名、参数、返回值等，并以多行显示，手动写比较麻烦
+        使用：输入/*、/**然后回车，还有很多用法，请参照 https://sublime.wbond.net/packages/DocBlockr
+
+    ConvertToUTF8
+
+        功能：文件转码成utf-8
+        简介：通过本插件，您可以编辑并保存目前编码不被 Sublime Text 支持的文件，特别是中日韩用户使用的 GB2312，GBK，BIG5，EUC-KR，EUC-JP ，ANSI等。
+        使用：安装插件后自动转换为utf-8格式
+
+    AutoFileName
+
+        功能：快捷输入文件名，自动完成文件路径
+        简介：自动完成文件名的输入，如图片选取
+        使用：输入”/”即可看到相对于本项目文件夹的其他文件
+
+    Trailing Spaces
+
+        功能：检测并一键去除代码中多余的空格，高亮尾部的空格，并在瞬间将其删除。
+        简介：发现多余空格、一键删除空格、保存时自动删除多余空格，让你的代码规范清爽起来
+        使用：安装插件并重启，即可自动提示多余空格。
+
+            修改配置：保存的时候自动删除
+            "trailing_spaces_trim_on_save": true,
+
+        一键删除多余空格：CTRL+SHITF+T（需配置），更多配置请点击标题。
+        快捷键配置：在Preferences / Key Bindings – User加上代码（数组内）
+
+            {"keys":["ctrl+shift+t"],"command":"delete_trailing_spaces"}
+
+    SideBarEnhancements
+
+        功能说明：侧栏菜单扩充功能。
+
+    SublimeCodeIntel
+
+        SublimeCodeIntel 作为一个代码提示和补全插件，是 Sublime Text 自带代码提示功能基础上一个更好的扩展，
+        自带代码提示功能只可提示系统代码，而SublimeCodeIntel则可以提示用户自定义代码。
+        SublimeCodeIntel支持跳转到变量、函数定义的功能，另外还有自动补全的功能，十分方便。
+
+    All Autocomplete
+
+        自动补全变量等
+        Sublime Text 默认的 Autocomplete 功能只考虑当前的文件，而 AllAutocomplete 插件会搜索所有打开的文件来寻找匹配的提示词。
+
+    SCSS
+        使用说明：支持SCSS语法高亮
+
+    LESS
+        使用说明：支持less语法高亮
+
+
+    ApplySyntax          快速检测语法。
+    EditorConfig         编码格式
+
+
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+工作周报：
+
+    周五下班前邮件发给各项目负责人并抄送金阁，不要漏，周报和考勤一样会影响绩效。
+
+    金阁   lijinge@zhangfujr.com
+    现金贷 lihuangde@zhangfujr.com
+    操盘   zhengxingfeng@zhangfujr.com
+    融帮   xieyingqian@zhangfujr.com
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Mac本地开发环境：
+
+    Apache服务：
+
+        编辑内容：sudo vim /etc/apache2/httpd.conf
+        重新启动：sudo apachectl restart
+
+    Mac安装nginx：
+
+        https://www.cnblogs.com/meng1314-shuai/p/8335140.html
+
+    Mac下nginx重启：/usr/local/Cellar/nginx/1.17.1/bin/nginx -s reload
+    Mac下nginx配置：/usr/local/etc/nginx/servers
+
+    Mac 终端 oh-my-zsh 配置：
+        https://www.jianshu.com/p/64344229778a
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Mac ssh 自动登陆设置：
+
+    1.首先找到 .ssh 目录 一般在用户名（～）目录下。
+
+        ls -a查看，如果没有就重新创建一个
+
+    2.然后在 .ssh目录下创建文件 config 文件
+
+        touch config
+
+    通过vim打开config文件
+
+        vim config
+
+    格式如下
+
+        Host test              #别名 ssh+别名运行即可
+        HostName 88.16.120.2   #ip地址
+        User u1                #用户名
+        Port 22                #端口号
+
+        Host test2
+        HostName 12.96.120.13
+        User u2
+        Port 22
+
+    3.输入 ssh test
+
+        会提示输入服务器的密码输入即可。
+
+    4.在本地的 .ssh 文件下创建密钥，生成一次即可
+
+        方法如下
+
+        ssh-keygen  #生成了rsa密钥 和公钥
+
+    5.把公钥传入到服务器，每登陆一台机器传输一次
+
+        ssh-copy-id  -i ~/.ssh/id_rsa.pub test
+
+        传公钥的时候输入一次密码。
+
+    6.以后直接
+
+        ssh test
+
+        就可以登陆了。
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+传包：
+
+    地址：https://portal.qiniu.com/
+    账号：hanyaokeji@126.com
+    密码：ycwl.1234
+
+    步骤：
+        1 对象存储，存储空间列表点击uangbagus
+        2 点内容管理->上传文件
+        3 设置路径前缀:  apk/    选择文件上传
+        4 上传成功列表最上面一条 复制外链，发给相关的人
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+上架：
+
+    1 后台渠道列表，增加渠道Loueme2
+
+    2 将连接补全字段（追加&referrer=pid%3DLoueme2%26anid%3Dadmob）
+
+        https://play.google.com/store/apps/details?id=co.dompetemas.cepat&referrer=pid%3DLoueme2%26anid%3Dadmob
+
+    3 问一下这个渠道是否只推白名单
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ab面的切换：
+
+    api下 .env文件，最后一行
+
+    SIDEB_ARR = ["UangPohon1.0.1","UangCepatMax1.0.6","UangCepatMax1.0.7","UangPetir1.0.1","UangCheetah1.0.3","UangPetir1.0.3","UangMitra1.0.3","UangMitra1.0.4","UangMitra1.0.8","DompetBus1.0.8","DompetRaja1.0.3"]
+
+    a -> b 添加 【包名 版本号】
+    a <- b 删除 【包名 版本号】
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+删除注册：
+
+    update `tb_user_basic_info` set `phone_number`='05574670577',`phone`='05574670577' WHERE uid in(SELECT user_id FROM tb_user_access WHERE `platform`='UangPanda' and `phone`='85574670577');
+
+    update `tb_user_access` set `phone` ='05574670577' WHERE `platform`='UangPanda' and `phone`='85574670577';
+
+    delete FROM `tb_order_refuse_time` WHERE `ktp_number`='3603281301870006';
+    delete FROM `tb_refuse_delay_record` WHERE `ktp_number`='3603281301870006';
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+修改表名：
+
+    TO 或AS都可以，也以省略掉
+
+    ALTER TABLE user111 RENAME TO user222;
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+nginx启动错误：
+
+    登陆服务器之后进到nginx使用./nginx -s reload重新读取配置文件
+    发现报nginx: [error] open() "/usr/local/nginx/logs/nginx.pid" failed (2: No such file or directory)错误，
+
+    　　[root@localhost sbin]# ./nginx -s reload
+    　　nginx: [error] open() "/usr/local/nginx/logs/nginx.pid" failed (2: No such file or directory)
+
+    解决方法：
+
+    　　[root@localhost nginx]# /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
+        使用nginx -c的参数指定nginx.conf文件的位置
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+执行计划任务：
+
+    /usr/bin/php /data/wwwroot/UangBagus-console/artisan AutoOrderStatus
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+图片服务器 | 文件系统：
+
+    查找进程：
+
+        ps -ef | grep fdfs
+
+    停止tracker和storage：
+
+        /usr/local/fastdfs-5.05/stop.sh  /etc/fdfs/storage.conf
+        /usr/local/fastdfs-5.05/stop.sh  /etc/fdfs/tracker.conf
+
+    编辑配置文件：
+
+        vim /etc/fdfs/storage.conf
+        vim /etc/fdfs/tracker.conf
+
+    启动tracker和storage：
+
+        /usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf
+        /usr/bin/fdfs_storaged /etc/fdfs/storage.conf
+
+    重启tracker和storage：
+
+        /usr/local/fastdfs-5.05/restart.sh /usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf
+        /usr/local/fastdfs-5.05/restart.sh /usr/bin/fdfs_storaged /etc/fdfs/storage.conf
+
+    监控状态：
+
+        fdfs_monitor /etc/fdfs/storage.conf
+
+    文件上传：
+
+        fdfs_test /etc/fdfs/client.conf upload /root/图片/zidana.jpg
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+composer 无法在root下运行
+
+    [root@123 download]# useradd kermit
+    [root@123 download]# passwd kermit
+
+    然后切换用户
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

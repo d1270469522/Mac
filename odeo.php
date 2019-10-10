@@ -21,7 +21,7 @@ $signature = base64_encode(hash_hmac('sha256', $stringToSign, $signingKey, true)
 $headers = [
   'X-Odeo-Timestamp' => $timestamp,
   'X-Odeo-Signature' => $signature,
-  'Authorization' => "Bearer $accessToken"
+  'Authorization'    => "Bearer $accessToken"
 ];
 
 $res = $client->request($method, "api.v2.staging.odeo.co.id/$path", [
