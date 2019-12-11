@@ -3,36 +3,76 @@
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+支付宝：
+
+    账号：13051822580
+    密码：D********（通用）
+
 腾讯云:
 
-    地址：https://dev.tencent.com/user/account/setting/relevance
+    地址：https://dev.tencent.com
     账号：d1270469522
-    密码：Dpf416331
+    密码：D********（通用）
 
 百度云：
 
     账号：13051822580
-    密码：Dpf416331
+    密码：D********（通用）
+
+阿里云：
+
+    账号：天尽头流浪 | 13051822580 | 1270469522@qq.com
+    密码：D********（通用）
+
+服务器：
+
+    地址：39.106.191.79
+    密码：D********（通用）
+
+华为云：
+
+    账号：tianjintouliulang | 13051822580 | 1270469522@qq.com
+    密码：D********（通用）
 
 QQ：
+
     账号：1270469522
-    密码：1+2+3+4=10
+    密码：1+2+3+4***
 
 GitHub：
+
     账号：1270469522@qq.com
-    密码：Dpf416331
+    密码：D********（通用）
 
 laravel社区：
+
     账号：1270469522@qq.com
-    密码：Dpf416331
+    密码：D********（通用）
+
+坚果VPN:
+
+    地址：https://nutsvpn.in
+    账号：13051822580
+    密码：D********（通用）
+
+Google:
+
+    账号：d1270469522@gmail.com
+    密码：D********（通用）
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 后台管理：
 
-    掌富贷boss（测试）：http://testboss.zfd.kdcaopan.com
-    掌富贷boss（正式）：http://syspro.dai.zhangfujr.com
+    国内系统（测试）
 
+        地址：http://testboss.zfd.kdcaopan.com
+        账号：admin
+        密码：Hsb@@123456
+
+    国内系统（正式）
+
+        地址：http://syspro.dai.zhangfujr.com
         账号：admin
         密码：Hsb@@123456
 
@@ -47,6 +87,12 @@ laravel社区：
         地址：http://149.129.251.98:8082
         账号：admin
         密码：gojet@2019
+
+    KSP
+        job.makmurabadiin.com
+        cdn.makmurabadiin.com
+        api.makmurabadiin.com
+        console.makmurabadiin.com
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -76,6 +122,13 @@ laravel社区：
         账号：rds_root
         密码：LHm1$2Hm1$*d3Ab&b5#1
 
+    海外 KSP：
+
+        地址：http://149.129.251.98:8082/2phpmyadmin2
+        账号：rds_root
+        密码：LHm1$2Hm1$*d3Ab&b5#1
+        库名：uangbagus_ksp_pro
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Git仓库：
@@ -86,17 +139,9 @@ Git仓库：
     掌富贷boss：git@101.201.154.89:/data/git/maibei-admin.git
     掌富贷api： git@101.201.154.89:/data/git/maibei-backend.git
 
-    淘多多H5： git@101.201.154.89:/data/git/taoduoduomall.git
-    saas前台： git@101.201.154.89:/data/git/paydayloan-backend.git
-    saas后台： git@101.201.154.89:/data/git/paydayloan-admin.git
-
-    海外项⽬admin：https://git.coding.net/lihuangde/UangBagus-console.git
-    海外项目home： https://git.coding.net/lihuangde/UangBagus-api.git
-
-    海外项目：风控和任务仓库：https://git.dev.tencent.com/lihuangde/UangBagus-Jobs.git
-
-    改多国语言：https://git.dev.tencent.com/lihuangde/saas-backend.git
-    改多国语言：https://git.dev.tencent.com/lihuangde/saas-admin.git
+    海外项⽬boss：https://git.coding.net/lihuangde/UangBagus-console.git
+    海外项目api： https://git.coding.net/lihuangde/UangBagus-api.git
+    海外项目jobs：https://git.dev.tencent.com/lihuangde/UangBagus-Jobs.git
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -114,18 +159,137 @@ Git仓库：
         账号: root
         密码: asdf.123456
 
-    海海外项⽬（测试）：
+    海外项⽬（测试）：
 
         地址: 39.96.161.37
         账号: root
         密码: asdf.123456
 
-    海海外项⽬（正式）：
+    海外项⽬（正式）：
 
         地址：149.129.251.98
         账号：dev_user01
         密码：15*TB5@1m1$FoN#d4F9
         位置：/srv/console/
+
+    海外项⽬（KSP）：
+
+        地址：149.129.247.105
+        账号：dev_user01
+        密码：15*TB5@1m1$FoN#d4F9
+        位置：/srv/wwwroot/
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+添加新平台：
+
+    1、boss 后台添加 platform；
+    2、tb_product 表添加2条记录；
+
+    INSERT INTO `tb_product` (`own_platform`, `user_type`, `min_amount`, `max_amount`, `range`, `normal_type`, `normal_rate`, `loan_period`, `loan_days`, `overdue_rate`, `charge_type`, `charge_rate`, `repayment_charge_rate`, `template_id`, `status`, `created_at`, `updated_at`) VALUES
+    ('Kreditpedia', 2, 800000, 1600000, 200000, 2, '0.008', 1, 7, '0.05', 1, '0.300', '0.000', 2, 1, '2019-09-18 05:28:01', '2019-09-18 05:28:01'),
+    ('Kreditpedia', 1, 800000, 1600000, 200000, 2, '0.008', 1, 7, '0.05', 1, '0.300', '0.000', 2, 1, '2019-09-18 05:28:01', '2019-09-18 05:28:01');
+
+
+    3、添加支付通道；
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+上架：传包（七牛云）：
+
+    地址：https://portal.qiniu.com/
+    账号：hanyaokeji@126.com
+    密码：ycwl.1234
+
+    步骤：
+        1 对象存储，存储空间列表点击uangbagus
+        2 点内容管理->上传文件
+        3 设置路径前缀:  apk/    选择文件上传
+        4 上传成功列表最上面一条 复制外链，发给相关的人
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+增加推广渠道：
+
+
+    1 后台渠道列表，增加渠道Loueme2
+
+    2 将连接补全字段（追加&referrer=pid%3DLoueme2%26anid%3Dadmob）
+
+        https://play.google.com/store/apps/details?id=co.dompetemas.cepat&referrer=pid%3DLoueme2%26anid%3Dadmob
+
+    3 问一下这个渠道是否只推白名单
+
+    @天尽头流浪
+    渠道：Loueme3
+    产品：DompetKaya
+    包名：co.dompetkaya.cepat
+    谷歌原始链接：https://play.google.com/store/apps/details?id=co.uangtas.cepat&referrer=pid%3DLoueme4%26anid%3Dadmob
+    请出渠道链接，短链接
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ab面的切换：
+
+    api下 .env文件，最后一行
+
+    SIDEB_ARR = ["UangPohon1.0.1","UangCepatMax1.0.6","UangCepatMax1.0.7","UangPetir1.0.1","UangCheetah1.0.3","UangPetir1.0.3","UangMitra1.0.3","UangMitra1.0.4","UangMitra1.0.8","DompetBus1.0.8","DompetRaja1.0.3"]
+
+    a -> b 添加 【包名 版本号】记账面
+    a <- b 删除 【包名 版本号】现金贷
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+隐私链接：
+
+    地址：/home/wwwroot/default/protocol/
+
+        cp DompetEmas.html UangParty.html
+
+    最终生成的链接：http://jiexiangtech.com/protocol/DompetEmas.html
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+删除注册：
+
+    update `tb_user_basic_info` set `phone_number`='05574670577',`phone`='05574670577' WHERE uid in(SELECT user_id FROM tb_user_access WHERE `platform`='UangM' and `phone`='85966324769');
+
+    update `tb_user_access` set `phone` ='05574670577' WHERE `platform`='UangM' and `phone`='85966324769';
+
+    delete FROM `tb_order_refuse_time` WHERE `ktp_number`='3201022507880004';
+    delete FROM `tb_refuse_delay_record` WHERE `ktp_number`='3201022507880004';
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+执行计划任务：
+
+    /usr/bin/php /data/wwwroot/UangBagus-console/artisan AutoOrderStatus
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Nginx 配置位置：
+
+    正式
+
+        /usr/local/software/nginx-1.15.3/conf/conf.d
+
+    测试
+
+        /usr/local/nginx/conf/vhost
+
+    KSP
+
+        /usr/local/software/nginx/1.14.2/conf/conf.d/rc
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Git 新建仓库，上传远程：
+
+    git init
+    git add -A
+    git commit -m "Initial commit"
+    git remote add origin git@github.com:your_username/hello_laravel.git
+    git push -u origin master
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -178,7 +342,7 @@ Git打tag：
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-Git版本回退：
+Git 版本回退：
 
     1. 使⽤用 git log 命令历史版本记录回退版本 
 
@@ -186,7 +350,35 @@ Git版本回退：
 
     2. 推送到远程git
 
-        push -f -u origin master
+        git push -f -u origin master
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Git放弃修改，强制覆盖本地代码
+
+    git fetch --all
+    git reset --hard origin/master
+    git pull
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Git 本地新建分支：
+
+    git checkout -b test
+
+Git 把本地新建分支推送远程（创建并推送）：
+
+    git push -u origin test
+
+    （注意：如果远程没有会报错：git push --set-upstream origin test）
+
+Git 删除本地分支：
+
+    git branch -d test
+
+Git 删除远程分支：
+
+    git push origin --delete test
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -233,6 +425,10 @@ Sublime相关插件，快捷键：
         功能：生成优美注释
         简介：标准的注释，包括函数名、参数、返回值等，并以多行显示，手动写比较麻烦
         使用：输入/*、/**然后回车，还有很多用法，请参照 https://sublime.wbond.net/packages/DocBlockr
+
+        {
+            "jsdocs_extra_tags":["@Author 你的名字","@DateTime {{datetime}}"]
+        }
 
     ConvertToUTF8
 
@@ -285,38 +481,53 @@ Sublime相关插件，快捷键：
     ApplySyntax          快速检测语法。
     EditorConfig         编码格式
 
-
-
-
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 工作周报：
 
-    周五下班前邮件发给各项目负责人并抄送金阁，不要漏，周报和考勤一样会影响绩效。
+    @all 研发周报发新邮箱
+    操盘业务@张志超 @原罪 @.Lamar
+    lihuangde@bit-dream.cn
+    抄送 lijinge@bit-dream.cn
 
-    金阁   lijinge@zhangfujr.com
-    现金贷 lihuangde@zhangfujr.com
-    操盘   zhengxingfeng@zhangfujr.com
-    融帮   xieyingqian@zhangfujr.com
+    印尼业务@董鹏飞 @A-OK @焱
+    lihuangde@bit-dream.cn
+    抄送 lijinge@bit-dream.cn
+
+    菲律宾业务 @左闯 @郑
+    lijinge@bit-dream.cn
+    抄送 lihuangde@bit-dream.cn
+
+    周报每周按时发不要漏，和绩效有关务必重视
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Mac本地开发环境：
 
-    Apache服务：
+    Apache 服务：
 
         编辑内容：sudo vim /etc/apache2/httpd.conf
         重新启动：sudo apachectl restart
 
-    Mac安装nginx：
+    Mac 安装 nginx：
 
         https://www.cnblogs.com/meng1314-shuai/p/8335140.html
 
-    Mac下nginx重启：/usr/local/Cellar/nginx/1.17.1/bin/nginx -s reload
-    Mac下nginx配置：/usr/local/etc/nginx/servers
+    Mac 下 nginx 重启：
+
+        /usr/local/Cellar/nginx/1.17.1/bin/nginx -s reload
+
+    Mac 下 nginx 配置：
+
+        /usr/local/etc/nginx/servers
 
     Mac 终端 oh-my-zsh 配置：
+
         https://www.jianshu.com/p/64344229778a
+
+    Mac 配置的环境变量才生效：
+
+        source ~/.bash_profile
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -350,7 +561,7 @@ Mac ssh 自动登陆设置：
 
         会提示输入服务器的密码输入即可。
 
-    4.在本地的 .ssh 文件下创建密钥，生成一次即可
+    4.在本地的 .ssh 文件下创建密钥，生成一次即可（有的话，不生成）
 
         方法如下
 
@@ -370,51 +581,19 @@ Mac ssh 自动登陆设置：
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-传包：
+RSA 密钥的生成
 
-    地址：https://portal.qiniu.com/
-    账号：hanyaokeji@126.com
-    密码：ycwl.1234
+    1、Mac 端打开终端 输入如下命令
 
-    步骤：
-        1 对象存储，存储空间列表点击uangbagus
-        2 点内容管理->上传文件
-        3 设置路径前缀:  apk/    选择文件上传
-        4 上传成功列表最上面一条 复制外链，发给相关的人
+        openssl
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    2、使用openssl 生成SK (private_key)
 
-上架：
+        genrsa -out rsa_private_key.pem 1024
 
-    1 后台渠道列表，增加渠道Loueme2
+    3、使用openssl 生成PK (public_key)
 
-    2 将连接补全字段（追加&referrer=pid%3DLoueme2%26anid%3Dadmob）
-
-        https://play.google.com/store/apps/details?id=co.dompetemas.cepat&referrer=pid%3DLoueme2%26anid%3Dadmob
-
-    3 问一下这个渠道是否只推白名单
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-ab面的切换：
-
-    api下 .env文件，最后一行
-
-    SIDEB_ARR = ["UangPohon1.0.1","UangCepatMax1.0.6","UangCepatMax1.0.7","UangPetir1.0.1","UangCheetah1.0.3","UangPetir1.0.3","UangMitra1.0.3","UangMitra1.0.4","UangMitra1.0.8","DompetBus1.0.8","DompetRaja1.0.3"]
-
-    a -> b 添加 【包名 版本号】
-    a <- b 删除 【包名 版本号】
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-删除注册：
-
-    update `tb_user_basic_info` set `phone_number`='05574670577',`phone`='05574670577' WHERE uid in(SELECT user_id FROM tb_user_access WHERE `platform`='UangPanda' and `phone`='85574670577');
-
-    update `tb_user_access` set `phone` ='05574670577' WHERE `platform`='UangPanda' and `phone`='85574670577';
-
-    delete FROM `tb_order_refuse_time` WHERE `ktp_number`='3603281301870006';
-    delete FROM `tb_refuse_delay_record` WHERE `ktp_number`='3603281301870006';
+        rsa -in rsa_private_key.pem -pubout -out rsa_public_key.pem
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -441,11 +620,31 @@ nginx启动错误：
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-执行计划任务：
+composer 无法在root下运行
 
-    /usr/bin/php /data/wwwroot/UangBagus-console/artisan AutoOrderStatus
+    [root@123 download]# useradd dong
+    [root@123 download]# passwd dong
+
+    然后切换用户
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Artisan 命令
+
+    php artisan key:generate     生成 App Key
+    php artisan make:controller  生成控制器
+    php artisan make:model       生成模型
+    php artisan make:policy      生成授权策略
+    php artisan make:seeder      生成 Seeder 文件
+    php artisan migrate          执行迁移
+    php artisan migrate:rollback 回滚迁移
+    php artisan migrate:refresh  重置数据库
+    php artisan db:seed          填充数据库
+    php artisan tinker  进入      tinker 环境
+    php artisan route:list       查看路由列表
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 
 图片服务器 | 文件系统：
 
@@ -483,15 +682,24 @@ nginx启动错误：
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-composer 无法在root下运行
-
-    [root@123 download]# useradd kermit
-    [root@123 download]# passwd kermit
-
-    然后切换用户
+df -h  查看剩余空间
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+印尼业务，如果图片服务如果出现异常无法上传，可切到B方案
+线上服务器直接FTP修改以下文件名
+
+    /srv/cdn/app/Http/Controllers/UploadController.php
+    改成
+    /srv/cdn/app/Http/Controllers/UploadController.php1
+
+
+    /srv/cdn/app/Http/Controllers/UploadController.php.bak
+    改成
+    /srv/cdn/app/Http/Controllers/UploadController.php
+
+B方案已测试，没有问题
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

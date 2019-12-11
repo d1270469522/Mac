@@ -1,0 +1,143 @@
+    "Refuse": [
+      {
+        "group": false,
+        "id": "RC_REFUSE_PULL_BLACKLIST_WHEN_RISK_OCCUPATION",
+        "prefix": "PullBlackListWhenRiskOccupation",
+        "params": {
+          "risk_occupation": [
+            10,
+            13,
+            33,
+            36,
+            37,
+            38,
+            40
+          ]
+        },
+        "operator": "",
+        "desc": "危险职业直接拒绝拉黑"
+      },
+      {
+        "group": false,
+        "id": "RC_REFUSE_WHETHER_TO_AUTHORIZE_THIRDPARTY_DATA",
+        "prefix": "WhetherToAuthorizeThirdpartyData",
+        "params": {
+          "extras": [
+            "npwp",
+            "lazada",
+            "tokopeida",
+            "telkomsel",
+            "gojek"
+          ],
+          "num": 0
+        },
+        "operator": ""
+      },
+      {
+        "group": false,
+        "id": "RC_REFUSE_CHECK_RISK_AREA",
+        "prefix": "CheckRiskArea",
+        "params": [
+          "kalimantan",
+          "papua",
+          "sulawesi",
+          "sumatra",
+          "medan",
+          "West Papua"
+        ],
+        "operator": "居住地"
+      },
+      {
+        "group": false,
+        "id": "RC_REFUSE_CHECK_AGE",
+        "prefix": "CheckAge",
+        "params": {
+          "min": 20,
+          "max": 55
+        },
+        "operator": ""
+      },
+      {
+        "group": false,
+        "id": "RC_REFUSE_CHECK_RISK_OCCUPATION",
+        "prefix": "CheckRiskOccupation",
+        "params": [
+          13,
+          10,
+          24,
+          28,
+          32,
+          36,
+          38
+        ],
+        "operator": ""
+      },
+      {
+        "group": false,
+        "id": "RC_REFUSE_CHECK_MARITAL_STATUS",
+        "prefix": "CheckMaritalStatus",
+        "params": [],
+        "operator": "",
+        "desc": "检查婚姻状态"
+      },
+      {
+        "group": false,
+        "id": "RC_REFUSE_CHECK_DEGREE",
+        "prefix": "CheckDegree",
+        "params": [
+          4
+        ],
+        "operator": "",
+        "desc": "检查学位"
+      },
+      {
+        "group": false,
+        "id": "RC_REFUSE_CHECK_CHILD_NUM",
+        "prefix": "CheckChildNum",
+        "params": [
+          5,
+          6
+        ],
+        "operator": "",
+        "desc": "检查孩子数量"
+      },
+      {
+        "group": false,
+        "id": "RC_REFUSE_CHECK_RESIDENCE_LENGTH",
+        "prefix": "CheckResidenceLength",
+        "params": [
+          1,
+          2
+        ],
+        "operator": "",
+        "desc": "检查居住时长"
+      },
+      {
+        "group": false,
+        "id": "RC_REFUSE_CHECK_WORKING_LIFE",
+        "prefix": "CheckWorkingLife",
+        "params": [
+          1
+        ],
+        "operator": "",
+        "desc": "检查工作时长"
+      },
+      {
+        "group": false,
+        "id": "RC_REFUSE_CHECK_PAYDAY",
+        "prefix": "CheckPayday",
+        "params": [],
+        "operator": "",
+        "desc": "检查发薪日"
+      },
+      {
+        "group": false,
+        "id": "RC_CHECK_IMCOME_LEVEL",
+        "prefix": "CheckIncomeLevel",
+        "params": [
+          1
+        ],
+        "operator": "",
+        "desc": "检查收水平"
+      }
+    ],

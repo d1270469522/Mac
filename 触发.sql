@@ -1,8 +1,6 @@
 
 
 
-
-
 /************************************************************\
  **                                                        **
  **                       还款情况                          **
@@ -270,6 +268,11 @@ SELECT
         WHEN order_status = 25  THEN '当天到期'
         ELSE '无'
     END AS '订单状态',
+    CASE
+        WHEN user_type = 1   THEN '首贷'
+        WHEN user_type = 2   THEN '续贷'
+        ELSE '无'
+    END AS '订单状态',
     IFNULL(create_time,'无')         AS '注册时间',
     IFNULL(order_time,'无')          AS '下单时间',
     IFNULL(payment_date,'无')        AS '放款时间',
@@ -277,12 +280,12 @@ SELECT
     IFNULL(loan_repayment_date,'无') AS '实还时间'
 FROM tb_user_access AS a
 LEFT JOIN tb_loan_order AS b ON a.user_id = b.uid
+LEFT JOIN tb_order_product_info AS c ON b.id = c.order_id
 WHERE phone IN (
     select distinct phone from tb_sms_post where type = 2 and status = 2 and create_time > '2019-09-01'
 )
+and c.user_type = 1
 
-LEFT JOIN tb_order_product_info AS c ON b.id = c.order_id
-WHERE c.user_type = 1
 
 
 
@@ -611,6 +614,23 @@ SELECT
         WHEN reason_code = 107   THEN '职业'
         WHEN reason_code = 108   THEN '其他：用户说不用了、骗子'
 
+        -- WHEN reason_code = 201   THEN 'OK'
+        -- WHEN reason_code = 202   THEN '联系人核验用户信息不一致'
+        -- WHEN reason_code = 203   THEN '联系人信息虚假'
+        -- WHEN reason_code = 204   THEN '通讯录中无关键联系人（父母/爱人/兄弟姐妹）'
+        -- WHEN reason_code = 205   THEN '合作骗我们/联系人'
+        -- WHEN reason_code = 206   THEN '公司信息虚假（公司不存在）'
+        -- WHEN reason_code = 207   THEN '公司不认识用户'
+        -- WHEN reason_code = 208   THEN '用户作假自己接电话/公司 '
+        -- WHEN reason_code = 209   THEN '用户作假自己接电话/联系人'
+        -- WHEN reason_code = 210   THEN '用户一直无人接听'
+        -- WHEN reason_code = 211   THEN '用户失联（停机/关机/空号）'
+        -- WHEN reason_code = 212   THEN '无通讯录'
+        -- WHEN reason_code = 213   THEN '通讯录核实虚假'
+        -- WHEN reason_code = 214   THEN '职业不符合要求'
+        -- WHEN reason_code = 215   THEN '用户不借款了'
+        -- WHEN reason_code = 216   THEN '其他'
+
         WHEN reason_code = 201   THEN 'OK'
         WHEN reason_code = 202   THEN '联系人核验用户信息不一致'
         WHEN reason_code = 203   THEN '联系人信息虚假'
@@ -627,6 +647,8 @@ SELECT
         WHEN reason_code = 214   THEN '职业不符合要求'
         WHEN reason_code = 215   THEN '用户不借款了'
         WHEN reason_code = 216   THEN '其他'
+        WHEN reason_code = 217   THEN '两日本人未接通'
+        WHEN reason_code = 218   THEN '两日公司未接通'
 
         WHEN reason_code = 301   THEN 'OK'
         WHEN reason_code = 302   THEN '黑名单'
@@ -639,19 +661,34 @@ SELECT
         WHEN reason_code = 309   THEN '其他'
 
         ELSE '无'
-    END AS '审核原因'
+    END AS '审核原因',
+
+    SUBSTRING(
+        REPLACE(work, '}' , ','),
+        LOCATE('dian_reason1":"', REPLACE(work, '}' , ',') ) + CHAR_LENGTH('dian_reason1":"'),
+        LOCATE('",' ,REPLACE(work, '}' , ','), LOCATE('dian_reason1":"', REPLACE(work, '}' , ',')) + CHAR_LENGTH('dian_reason1":"'))-(LOCATE('dian_reason1":"' ,REPLACE(work,'}' ,',')) + CHAR_LENGTH('dian_reason1":"'))
+    ) AS 'dian_reason1',
+
+    SUBSTRING(
+        REPLACE(peason, '}' , ','),
+        LOCATE('dian_reason2":"', REPLACE(peason, '}' , ',') ) + CHAR_LENGTH('dian_reason2":"'),
+        LOCATE('",' ,REPLACE(peason, '}' , ','), LOCATE('dian_reason2":"', REPLACE(peason, '}' , ',')) + CHAR_LENGTH('dian_reason2":"'))-(LOCATE('dian_reason2":"' ,REPLACE(peason,'}' ,',')) + CHAR_LENGTH('dian_reason2":"'))
+    ) AS 'dian_reason2'
 
 FROM tb_user_access AS a
 LEFT JOIN tb_loan_order             AS b ON a.user_id = b.uid
 
 -- LEFT JOIN tb_loan_trial_info_record AS c ON b.id = c.order_id
--- WHERE b.id in(SELECT order_id FROM `tb_order_status` where status = 20 and substr(created_at,1,10) > '2019-07-01')
+-- WHERE b.id in(SELECT order_id FROM `tb_order_status` where status = 20
+-- and substr(created_at,1,10) > '2019-07-01')
 
--- LEFT JOIN tb_loan_trial_phone_record AS c ON b.id = c.order_id
--- WHERE b.id in(SELECT order_id FROM `tb_order_status` where status = 22 and substr(created_at,1,10) > '2019-07-01')
+LEFT JOIN tb_loan_trial_phone_record AS c ON b.id = c.order_id
+WHERE b.id in(SELECT order_id FROM `tb_order_status` where status = 22
+and substr(created_at,1,10) >= '2019-10-21'
+and substr(created_at,1,10) <= '2019-10-26')
 
-LEFT JOIN tb_loan_trial_final AS c ON b.id = c.order_id
-WHERE b.id in(SELECT order_id FROM `tb_order_status` where status = 5 and substr(created_at,1,10) > '2019-07-01')
+-- LEFT JOIN tb_loan_trial_final AS c ON b.id = c.order_id
+-- WHERE b.id in(SELECT order_id FROM `tb_order_status` where status = 5 and substr(created_at,1,10) > '2019-07-01')
 
 order by b.id
 
@@ -716,6 +753,33 @@ from
 group by tmp2.贷款次数
 
 
+INSERT INTO `tb_blacklist` (`admin_id`, `name`, `ktp`, `phone`, `device`, `result`, `type`, `status`, `create_time`, `update_time`) VALUES
+(1, 'Mitia Wardhani', '3275024810920012', '87884965824', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Wahyudi', '3174031703900006', '85691286183', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Rangga Randana', '3173063005930005', '87784447071', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Samuel Giamto', '3171041804950002', '81213520711', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Devita Dian Angraini', '3275026206920012', '81299600955', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Amos Parlin Rio S', '3175090309889008', '82238991716', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Fajar kristianto', '3276033012910006', '81280130963', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Rizki Suprianto', '3172050405890004', '85891452214', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Gianda Verma', '1304131304910001', '82126407459', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Euis Handayani', '3171047007920001', '87888995223', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Dodi Raendra', '3171061701920001', '85763696369', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Jesika Simbolon', '1210016705950003', '82160267991', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Marthin Luther Saragi', '3175071010950001', '82112596140', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Ady Murpy', '3174010301950004', '85921624375', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Panji Putra Perdana', '3175013009960004', '89512082806', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Muhammad Dava', '3175021606931001', '87860845154', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Kusminarti', '3201066212910003', '82213657773', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Fury Widya Ningrum', '3172026309970002', '85219000114', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Arby Wicaksono', '3275010812950026', '81398888727', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Hadi Yunanto', '3171031206980003', '83893123297', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Miftahul Jannah', '3175034610930004', '81382665823', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Rudi Rachmadi', '3275013003940008', '895334258401', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Vidya Paramitha', '3275035002870014', '81212899322', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Yogo Abiyadi', '3275021407910017', '81281773264', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Pahira Hardiyani Novianty', '3172036811010003', '85779054042', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49'),
+(1, 'Alfi Kori', '3172021002880006', '89678560323', '', '2', 6, 1, '2019-10-23 04:50:48', '2019-10-23 04:53:49');
 
 
 select
@@ -745,4 +809,144 @@ from
     ) as tmp2
 group by tmp2.贷款次数 asc , tmp2.每个用户正常还款单量 asc
 WITH ROLLUP
+
+#逾期用户，手机型号统计
+select mobileType, count(*) as cc from
+    (
+        select * from
+        (
+            select t.phone, t.mobileType from
+            (
+                SELECT phone,mobileType FROM `tb_user_access_log` order by id desc
+            ) as t group by t.phone
+        ) as t2
+        where t2.phone in
+        (
+            SELECT phone FROM `tb_user_access` where user_id in
+            (
+                SELECT uid FROM `tb_loan_order` where order_status = 12 and loan_repayment_date < loan_overdue_date
+            )
+        )
+    ) as t3
+group by mobileType order by cc desc
+
+
+select
+    tb_loan_order.order_number,
+    tb_loan_order.order_time,
+    tb_loan_order.platform,
+    tb_user_access.channel
+from tb_loan_order
+left join tb_user_access on tb_loan_order.uid = tb_user_access.user_id
+
+where channel = 'cashcash'
+and order_time between '2019-11-01 00:00:00' and '2019-12-01 00:00:00'
+order by tb_loan_order.order_time
+
+
+SELECT
+    order_number,
+    CASE
+        WHEN order_status = 1   THEN '创建订单'
+        WHEN order_status = 2   THEN '2分钟内取消'
+        WHEN order_status = 3   THEN '待自动放款'
+        WHEN order_status = 4   THEN ''
+        WHEN order_status = 5   THEN '终审失败'
+        WHEN order_status = 6   THEN '终审成功'
+        WHEN order_status = 7   THEN '放款审核未通过'
+        WHEN order_status = 8   THEN '放款中'
+        WHEN order_status = 9   THEN ''
+        WHEN order_status = 10  THEN ''
+        WHEN order_status = 11  THEN '已逾期'
+        WHEN order_status = 12  THEN '已还清'
+        WHEN order_status = 13  THEN '部分还款'
+        WHEN order_status = 14  THEN '待还款'
+        WHEN order_status = 15  THEN '放款失败'
+        WHEN order_status = 16  THEN '风控队列中'
+        WHEN order_status = 17  THEN '风控成功，待信审'
+        WHEN order_status = 18  THEN '风控失败'
+        WHEN order_status = 19  THEN '信审成功'
+        WHEN order_status = 20  THEN '信审失败'
+        WHEN order_status = 21  THEN '电审成功'
+        WHEN order_status = 22  THEN '电审失败'
+        WHEN order_status = 23  THEN '用户确认失败'
+        WHEN order_status = 24  THEN '终止放款'
+        WHEN order_status = 25  THEN '当天到期'
+        ELSE '无'
+    END AS '订单状态',
+    order_time,
+    IF(b.user_type = 1, '首贷', '续贷') AS '用户类型'
+FROM `tb_loan_order` as a
+left join tb_order_product_info as b on a.id = b.order_id
+where platform = 'DompetPinjaman' and substr(order_time,1,10) >= '2019-11-11' and substr(order_time,1,10) <= '2019-11-13'
+
+
+update tb_sms_post set is_audit = 0
+where phone (
+    select phone from tb_collect_record where id in (
+        select max(id) from tb_collect_record where phone in (
+            SELECT phone FROM `tb_sms_post`  where platform = 'UangTas' and is_audit = 1
+        )
+        group by phone
+    ) and status = 2
+)
+and is_audit = 1
+and platform = 'UangTas'
+
+
+select
+    order_number,
+    order_time,
+    CASE
+        WHEN order_status = 1   THEN '创建订单'
+        WHEN order_status = 2   THEN '2分钟内取消'
+        WHEN order_status = 3   THEN '待自动放款'
+        WHEN order_status = 4   THEN ''
+        WHEN order_status = 5   THEN '终审失败'
+        WHEN order_status = 6   THEN '终审成功'
+        WHEN order_status = 7   THEN '放款审核未通过'
+        WHEN order_status = 8   THEN '放款中'
+        WHEN order_status = 9   THEN ''
+        WHEN order_status = 10  THEN ''
+        WHEN order_status = 11  THEN '已逾期'
+        WHEN order_status = 12  THEN '已还清'
+        WHEN order_status = 13  THEN '部分还款'
+        WHEN order_status = 14  THEN '待还款'
+        WHEN order_status = 15  THEN '放款失败'
+        WHEN order_status = 16  THEN '风控队列中'
+        WHEN order_status = 17  THEN '风控成功，待信审'
+        WHEN order_status = 18  THEN '风控失败'
+        WHEN order_status = 19  THEN '信审成功'
+        WHEN order_status = 20  THEN '信审失败'
+        WHEN order_status = 21  THEN '电审成功'
+        WHEN order_status = 22  THEN '电审失败'
+        WHEN order_status = 23  THEN '用户确认失败'
+        WHEN order_status = 24  THEN '终止放款'
+        WHEN order_status = 25  THEN '当天到期'
+        ELSE '无'
+    END AS '订单状态',
+    CASE
+        WHEN phone_status = 0   THEN '未接通'
+        WHEN phone_status = 1   THEN '接通'
+        ELSE '无'
+    END AS '外呼',
+    payment_date,
+    loan_repayment_date
+
+from tb_loan_order
+left join tb_order_product_info on tb_loan_order.id = tb_order_product_info.order_id
+left join tb_loan_trial_phone_contact on tb_loan_order.id = tb_loan_trial_phone_contact.order_id
+
+where order_time > '2019-11-01 00:00:00'
+and user_type = 1
+and platform = 'DompetPinjaman'
+
+
+
+
+
+
+
+
+
 
