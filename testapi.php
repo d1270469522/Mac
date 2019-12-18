@@ -1,8 +1,5 @@
 <?php
 
-// header("Content-type: text/html; charset=utf-8");
-// header("Content-type: text/html; charset=gbk");
-
 
 /***
  *
@@ -58,14 +55,33 @@
  * └─────┴────┴────┴───────────────────────┴────┴────┴────┴────┘ └───┴───┴───┘ └───────┴───┴───┘
  */
 
+// header("Content-type: text/html; charset=utf-8");
+// header("Content-type: text/html; charset=gbk");
 
-$a = file_get_contents('http://149.129.251.98:8099/Library/baijiayoumi/rsa_private_key.pem');
 
 
-// $a = file_get_contents('http://39.96.161.37:8099/Library/baijiayoumi/rsa_private_key.pem');
+$data = [
+    'id'     => 1,
+    'status' => 'ACTIVE',
+];
+
+$data['appId'] = 'appId1';
+$data['nonce'] = 'd6tvz4UFIcuxdVhqKVUDj6enIHQ9WgBU';
+
+ksort($data);
+
+$str = json_encode($data).'secret=abc';
+
+echo ($str);
+echo '<hr>';
+echo sha1($str);die;
+
+
+// $a = file_get_contents('http://149.129.251.98:8099/Library/baijiayoumi/rsa_private_key.pem');
 print_r($a);die;
 
-/**===================    Access Token   ================**/
+
+/**===================    Kreditpedia  参数生成   ================**/
 
 $test_arr_001 = [
     'mobile'      => '13878888888',
