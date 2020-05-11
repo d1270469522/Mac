@@ -1,31 +1,15 @@
 
 备忘录
 
-
-
-
-
-                    .::::.
-                  .::::::::.
-                 :::::::::::  FUCK YOU
-             ..:::::::::::'
-           '::::::::::::'
-             .::::::::::
-        '::::::::::::::..
-             ..::::::::::::.
-           ``::::::::::::::::
-            ::::``:::::::::'        .:::.
-           ::::'   ':::::'       .::::::::.
-         .::::'     :::::     .::::::::::::.
-        .:::'       :::::  .:::::::::''':::::.
-       .::'        :::::.::::::::::'     '::::.
-      .::'        .::::::::::::::'         '::::.
-  ...:::          :::::::::::::'             ':::.
- ```` ':.          ::::::::::'                 ::::..
-                    '.:::::'                   ':'````..
-
-
-
+  █████░▒██   ██  ▄████▄   ██ ▄█▀       ██████╗ ██╗   ██╗ ██████╗
+ ▓██   ▒ ██  ▓██▒▒██▀ ▀█   ██▄█▒        ██╔══██╗██║   ██║██╔════╝
+ ▒████ ░▓██  ▒██░▒▓█    ▄ ▓███▄░        ██████╔╝██║   ██║██║  ███╗
+ ░▓█▒  ░▓▓█  ░██░▒▓▓▄ ▄██▒▓██ █▄        ██╔══██╗██║   ██║██║   ██║
+ ░▒█░   ▒▒█████▓ ▒ ▓███▀ ░▒██▒ █▄       ██████╔╝╚██████╔╝╚██████╔╝
+  ▒ ░   ░▒▓▒ ▒ ▒ ░ ░▒ ▒  ░▒ ▒▒ ▓▒       ╚═════╝  ╚═════╝  ╚═════╝
+  ░     ░░▒░ ░ ░   ░  ▒   ░ ░▒ ▒░
+  ░ ░    ░░░ ░ ░ ░        ░ ░░ ░
+           ░     ░ ░      ░  ░
 
 ┌───┐   ┌───┬───┬───┬───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┐ ┌───┬───┬───┬───┐
 │Esc│   │ F1│ F2│ F3│ F4│ │ F5│ F6│ F7│ F8│ │ F9│F10│F11│F12│ │P/S│S L│P/B│ │ F │ U │ C │ K │
@@ -42,13 +26,114 @@
 │ Ctrl│    │Alt │         Space         │ Alt│    │    │Ctrl│ │ ← │ ↓ │ → │ │   0   │ . │←─┘│
 └─────┴────┴────┴───────────────────────┴────┴────┴────┴────┘ └───┴───┴───┘ └───────┴───┴───┘
 
-
-
-
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
+有用的网站：
+
+    17素材：
+
+        https://www.17sucai.com/
+
+    懒人图库：
+
+        https://www.lanrentuku.com/
+
+    实用工具：
+
+        https://tool.lu/
+
+    短网址：
+
+        http://url.tool.cc/
+
+    七牛：
+
+        https://sso.qiniu.com/
+
+    腾讯云：
+
+        https://dev.tencent.com/
+
+    阿里云：
+
+        https://account.aliyun.com
+
+    企业邮箱：
+
+        https://exmail.qq.com/
+
+    百度翻译：
+
+        http://api.fanyi.baidu.com/
+
+    极光推送：
+
+        https://www.jiguang.cn/
+
+    163邮箱：
+
+        https://email.163.com
+
+    Mac应用：
+
+        https://xclient.info/
+
+    CSDN：
+
+        https://mp.csdn.net
+
+    GitHub：
+
+        https://github.com/d1270469522
+
+    菜鸟教程：
+
+        https://www.runoob.com/
+
+    PHP中文网：
+
+        https://www.php.cn
+
+    酷壳：
+
+        https://coolshell.cn/featured
+
+    W3school：
+
+        https://www.w3school.com.cn/index.html
+
+    laravel社区：
+
+        https://learnku.com
+
+    laravel学院：
+
+        https://xueyuanjun.com/
+
+    layui文档：
+
+        https://www.layui.com/doc/
+
+    Element资源：
+
+        https://element.eleme.cn/#/zh-CN/resource
+
+    Element组件：
+
+        https://element.eleme.cn/#/zh-CN/component/installation
+
+    vue后台：
+
+        https://panjiachen.github.io/vue-element-admin/#/login?redirect=%2Fdashboard
+
+    vue文档：
+
+        https://panjiachen.github.io/vue-element-admin-site/zh/guide/
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 支付宝：
 
@@ -84,7 +169,7 @@
 QQ：
 
     账号：1270469522
-    密码：1+2+3+4***
+    密码：D********（反转）
 
 GitHub：
 
@@ -105,6 +190,12 @@ laravel社区：
 
     地址：https://nutsvpn.in
     账号：13051822580
+    密码：D********（通用）
+
+极光推送：
+
+    地址：https://www.jiguang.cn/
+    账号：1270469522@qq.com
     密码：D********（通用）
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -136,10 +227,23 @@ laravel社区：
         密码：gojet@2019
 
     KSP
+
         job.makmurabadiin.com
         cdn.makmurabadiin.com
         api.makmurabadiin.com
         console.makmurabadiin.com
+
+    智投测试BOSS：
+
+        地址：http://testztadmin2.jiexiangtech.com/
+        账号：admin@heshuibar.com
+        密码：zhang235
+
+    智投正式BOSS：
+
+        地址：http://ztadmin.67network.com
+        账号：yls
+        密码：ygh123456@
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -176,6 +280,12 @@ laravel社区：
         密码：LHm1$2Hm1$*d3Ab&b5#1
         库名：uangbagus_ksp_pro
 
+    操盘：（测试库zhitou_dev）
+
+        地址：http://59.110.24.151/phpmyadmin21
+        账号：rdsdb_root
+        密码：1@AbED#4%eA4y03&45$5F7*d8D
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Git仓库：
@@ -189,6 +299,11 @@ Git仓库：
     海外项⽬boss：https://git.coding.net/lihuangde/UangBagus-console.git
     海外项目api： https://git.coding.net/lihuangde/UangBagus-api.git
     海外项目jobs：https://git.dev.tencent.com/lihuangde/UangBagus-Jobs.git
+
+    牛牛BOSS：https://e.coding.net/lihuangde/niuniu-admin.git
+    智投BOSS：https://e.coding.net/lihuangde/jinrizhitou_admin.git
+    智投API：https://e.coding.net/lihuangde/jinrizhitou_api.git
+
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -226,17 +341,24 @@ Git仓库：
         密码：15*TB5@1m1$FoN#d4F9
         位置：/srv/wwwroot/
 
+    智投服务器（测试）：
+
+        地址：47.94.235.248
+        账号：root
+        密码：asdf.1234!@#$
+        路径：/data/wwwroot/zttest/jinrizhitou_admin/
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 添加新平台：
 
     1、boss 后台添加 platform；
+
     2、tb_product 表添加2条记录；
 
     INSERT INTO `tb_product` (`own_platform`, `user_type`, `min_amount`, `max_amount`, `range`, `normal_type`, `normal_rate`, `loan_period`, `loan_days`, `overdue_rate`, `charge_type`, `charge_rate`, `repayment_charge_rate`, `template_id`, `status`, `created_at`, `updated_at`) VALUES
-    ('Kreditpedia', 2, 800000, 1600000, 200000, 2, '0.008', 1, 7, '0.05', 1, '0.300', '0.000', 2, 1, '2019-09-18 05:28:01', '2019-09-18 05:28:01'),
-    ('Kreditpedia', 1, 800000, 1600000, 200000, 2, '0.008', 1, 7, '0.05', 1, '0.300', '0.000', 2, 1, '2019-09-18 05:28:01', '2019-09-18 05:28:01');
-
+    ('RupiahSuper', 2, 800000, 1600000, 200000, 2, '0.008', 1, 7, '0.05', 1, '0.300', '0.000', 2, 1, '2019-09-18 05:28:01', '2019-09-18 05:28:01'),
+    ('RupiahSuper', 1, 800000, 1600000, 200000, 2, '0.008', 1, 7, '0.05', 1, '0.300', '0.000', 2, 1, '2019-09-18 05:28:01', '2019-09-18 05:28:01');
 
     3、添加支付通道；
 
@@ -263,16 +385,10 @@ Git仓库：
 
     2 将连接补全字段（追加&referrer=pid%3DLoueme2%26anid%3Dadmob）
 
-        https://play.google.com/store/apps/details?id=co.dompetemas.cepat&referrer=pid%3DLoueme2%26anid%3Dadmob
+        https://play.google.com/store/apps/details?id=co.dompetemas.cepat&referrer=pid%3D  Loueme2  %26anid%3Dadmob
+        https://play.google.com/store/apps/details?id=com.kspgemilangusahaberdikari.rupiahsuper&referrer=pid%3DWhite%26anid%3Dadmob
 
     3 问一下这个渠道是否只推白名单
-
-    @天尽头流浪
-    渠道：Loueme3
-    产品：DompetKaya
-    包名：co.dompetkaya.cepat
-    谷歌原始链接：https://play.google.com/store/apps/details?id=co.uangtas.cepat&referrer=pid%3DLoueme4%26anid%3Dadmob
-    请出渠道链接，短链接
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -299,18 +415,93 @@ ab面的切换：
 
 删除注册：
 
-    update `tb_user_basic_info` set `phone_number`='05574670577',`phone`='05574670577' WHERE uid in(SELECT user_id FROM tb_user_access WHERE `platform`='DompetBesar' and `phone`='85574670577');
+    update `tb_user_basic_info` set `phone_number`='05574670577',`phone`='05574670577' WHERE uid in(SELECT user_id FROM tb_user_access WHERE `platform`='RupiahSuper' and `phone`='85574670577');
 
-    update `tb_user_access` set `phone` ='05574670577' WHERE `platform`='DompetBesar' and `phone`='85574670577';
+    update `tb_user_access` set `phone` ='05574670577' WHERE `platform`='RupiahSuper' and `phone`='85574670577';
 
-    delete FROM `tb_order_refuse_time` WHERE `ktp_number`='3603281301870006';
-    delete FROM `tb_refuse_delay_record` WHERE `ktp_number`='3603281301870006';
+    delete FROM `tb_order_refuse_time` WHERE `ktp_number`='3713291402910005';
+    delete FROM `tb_refuse_delay_record` WHERE `ktp_number`='3713291402910005';
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 执行计划任务：
 
     /usr/bin/php /data/wwwroot/UangBagus-console/artisan AutoOrderStatus
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+图片服务器 | 文件系统：
+
+    查找进程：
+
+        ps -ef | grep fdfs
+
+    停止tracker和storage：
+
+        /usr/local/fastdfs-5.05/stop.sh  /etc/fdfs/storage.conf
+        /usr/local/fastdfs-5.05/stop.sh  /etc/fdfs/tracker.conf
+
+    编辑配置文件：
+
+        vim /etc/fdfs/storage.conf
+        vim /etc/fdfs/tracker.conf
+
+    启动tracker和storage：
+
+        /usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf
+        /usr/bin/fdfs_storaged /etc/fdfs/storage.conf
+
+    重启tracker和storage：
+
+        /usr/local/fastdfs-5.05/restart.sh /usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf
+        /usr/local/fastdfs-5.05/restart.sh /usr/bin/fdfs_storaged /etc/fdfs/storage.conf
+
+    监控状态：
+
+        fdfs_monitor /etc/fdfs/storage.conf
+
+    文件上传：
+
+        fdfs_test /etc/fdfs/client.conf upload /root/图片/zidana.jpg
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+印尼业务，如果图片服务如果出现异常无法上传，可切到B方案
+线上服务器直接FTP修改以下文件名
+
+    /srv/cdn/app/Http/Controllers/UploadController.php
+    改成
+    /srv/cdn/app/Http/Controllers/UploadController.php1
+
+
+    /srv/cdn/app/Http/Controllers/UploadController.php.bak
+    改成
+    /srv/cdn/app/Http/Controllers/UploadController.php
+
+B方案已测试，没有问题
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+工作周报：
+
+    @all 研发周报发新邮箱
+    操盘业务@张志超 @原罪 @.Lamar
+    lihuangde@bit-dream.cn
+    抄送 lijinge@bit-dream.cn
+
+    印尼业务@董鹏飞 @A-OK @焱
+    lihuangde@bit-dream.cn
+    抄送 lijinge@bit-dream.cn
+
+    菲律宾业务 @左闯 @郑
+    lijinge@bit-dream.cn
+    抄送 lihuangde@bit-dream.cn
+
+    周报每周按时发不要漏，和绩效有关务必重视
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+df -h  查看剩余空间
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -401,7 +592,30 @@ Git 版本回退：
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-git checkout -f 的作用是将在暂存区的更改文件进行强制撤销。
+（暂存区）作用是将在暂存区的更改文件进行强制撤销
+
+    git add -A
+    git checkout -f
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+（未到暂存区）放弃所有文件修改
+
+    git checkout .
+    git reset --hard
+
+    单个文件的时候
+    检出还原 PagesController：
+
+    $ git checkout app/Http/Controllers/PagesController.php
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+（未到暂存区）放弃所有文件修改
+
+    git clean -f -d
+
+    命令 git clean 作用是清理项目，-f 是强制清理文件的设置，-d 选项命令连文件夹一并清除。
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -430,6 +644,36 @@ Git 删除本地分支：
 Git 删除远程分支：
 
     git push origin --delete test
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+查看某个文件的修改历史
+
+    1、在git中查看历史的命令主要是git log，要查看某个文件的修改历史可以这样：
+
+        $ git log -- begin.txt
+
+    2、可以添加不同的选项让输出的内容或格式有所不同。
+
+        $ git log -p -- begin.txt
+
+    3、-p 选项可以输出每次提交中的diff， 但个人感觉会把输出搞得很长、很乱，不容易找到重点。
+    个人比较喜欢的方式是：
+
+        $ git log --pretty=oneline -- filename
+
+        在log 命令中加入 --pretty=oneline 选项会让结果看起来清爽一些，但是只能看到comments，看不到提交的用户和日期。
+        这也能够让我们集中注意力快速找到关注的提交记录。
+
+    4、然后使用 git show命令查看完整的提交内容。
+
+
+查看历史中的文件内容
+
+    1、当我们使用 git log 命令找到了某次提交，并且想看看这次提交时文件的完整内容。
+       这时，我们需要使用 git show 命令：
+
+        $ git show xxxxx:filename
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -531,25 +775,6 @@ Sublime相关插件，快捷键：
 
     ApplySyntax          快速检测语法。
     EditorConfig         编码格式
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-工作周报：
-
-    @all 研发周报发新邮箱
-    操盘业务@张志超 @原罪 @.Lamar
-    lihuangde@bit-dream.cn
-    抄送 lijinge@bit-dream.cn
-
-    印尼业务@董鹏飞 @A-OK @焱
-    lihuangde@bit-dream.cn
-    抄送 lijinge@bit-dream.cn
-
-    菲律宾业务 @左闯 @郑
-    lijinge@bit-dream.cn
-    抄送 lihuangde@bit-dream.cn
-
-    周报每周按时发不要漏，和绩效有关务必重视
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -708,79 +933,6 @@ composer 无法在root下运行
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-Artisan 命令
-
-    php artisan key:generate     生成 App Key
-    php artisan make:controller  生成控制器
-    php artisan make:model       生成模型
-    php artisan make:policy      生成授权策略
-    php artisan make:seeder      生成 Seeder 文件
-    php artisan migrate          执行迁移
-    php artisan migrate:rollback 回滚迁移
-    php artisan migrate:refresh  重置数据库
-    php artisan db:seed          填充数据库
-    php artisan tinker  进入      tinker 环境
-    php artisan route:list       查看路由列表
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
-图片服务器 | 文件系统：
-
-    查找进程：
-
-        ps -ef | grep fdfs
-
-    停止tracker和storage：
-
-        /usr/local/fastdfs-5.05/stop.sh  /etc/fdfs/storage.conf
-        /usr/local/fastdfs-5.05/stop.sh  /etc/fdfs/tracker.conf
-
-    编辑配置文件：
-
-        vim /etc/fdfs/storage.conf
-        vim /etc/fdfs/tracker.conf
-
-    启动tracker和storage：
-
-        /usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf
-        /usr/bin/fdfs_storaged /etc/fdfs/storage.conf
-
-    重启tracker和storage：
-
-        /usr/local/fastdfs-5.05/restart.sh /usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf
-        /usr/local/fastdfs-5.05/restart.sh /usr/bin/fdfs_storaged /etc/fdfs/storage.conf
-
-    监控状态：
-
-        fdfs_monitor /etc/fdfs/storage.conf
-
-    文件上传：
-
-        fdfs_test /etc/fdfs/client.conf upload /root/图片/zidana.jpg
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-df -h  查看剩余空间
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-印尼业务，如果图片服务如果出现异常无法上传，可切到B方案
-线上服务器直接FTP修改以下文件名
-
-    /srv/cdn/app/Http/Controllers/UploadController.php
-    改成
-    /srv/cdn/app/Http/Controllers/UploadController.php1
-
-
-    /srv/cdn/app/Http/Controllers/UploadController.php.bak
-    改成
-    /srv/cdn/app/Http/Controllers/UploadController.php
-
-B方案已测试，没有问题
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 Linux 下全局安装 composer 方法
 
     1、下载 composer
@@ -803,6 +955,26 @@ Linux 下全局安装 composer 方法
         \____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
                             /_/
         Composer version 1.9.1 2019-11-01 17:20:17
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+composer 执行内存超出问题解决
+
+    解决办法：
+
+    1、修改 php.ini
+
+        修改 php.ini 中 memory_limit 配置，但是需要相关的权限服务器操作权限。
+        可以通过这个命令：php -r “echo ini_get(‘memory_limit’).PHP_EOL;” 查看设置是否生效。
+
+    2、使用命令
+
+        直接使用命令 php -d memory_limit=-1 `which composer` update/install -vvv， 去掉内存限制。
+        当然也可以指定固定大小如：php -d memory_limit=1024 `which composer` update/install -vvv。
+
+    附：（使用命令的时候，根据自身情况酌情修改）
+
+        php -d memory_limit=4096M `which composer` require overtrue/laravel-query-logger --dev -vvv
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -829,6 +1001,686 @@ sudo
     由于 root 用户很多情况下不会交由个人管理，因此需要管理员进行授权操作。
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记
+
+    执行 seeder 命令出现 class *** does not exist
+
+    我已经确保
+
+        seeder文件和全局database seeder是在同一个seeder目录下
+        在DatabaseSeeder的run方法里
+
+        $this->call(RolesAndPermissionsSeeder::class)
+
+    仍然会出现这个问题的原因是 我们需要清理下之前执行生成的classmap信息。
+
+    在控制台中执行`composer dump-autoload`,然后再执行`php artisan db:seed`.
+
+    Ok，完美解决。
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记（Artisan 命令）
+
+    php artisan key:generate     生成 App Key
+    php artisan make:controller  生成控制器
+    php artisan make:model       生成模型
+    php artisan make:policy      生成授权策略
+    php artisan make:seeder      生成 Seeder 文件
+    php artisan migrate          执行迁移
+    php artisan migrate:rollback 回滚迁移
+    php artisan migrate:refresh  重置数据库
+    php artisan db:seed          填充数据库
+    php artisan tinker  进入      tinker 环境
+    php artisan route:list       查看路由列表
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记（Artisan 命令）
+
+    如果需要在创建模型的同时顺便创建数据库迁移，则可以使用 --migration 或 -m 选项
+
+    php artisan make:model Models/Article -m
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记（Artisan 命令）
+
+    migrate:refresh 命令来重置数据库，之后再使用 db:seed 执行数据填充。
+
+    如果我们要单独指定执行 UserTableSeeder 数据库填充文件，则可以这么做：
+
+    $ php artisan migrate:refresh
+    $ php artisan db:seed --class=UsersTableSeeder
+
+    你也可以使用下面一条命令来同时完成数据库的重置和填充操作：
+
+    $ php artisan migrate:refresh --seed
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记（Artisan 命令）
+
+    [添加字段]
+    在生成迁移文件时，带上 --table 选项可以为指定数据表生成迁移文件。现在，让我们运行下面命令来为用户表新增管理员字段。
+
+    $ php artisan make:migration add_is_admin_to_users_table --table=users
+
+    [新增表]
+    我们需要为粉丝关系表生成一个迁移文件。
+
+    $ php artisan make:migration create_followers_table --create="followers"
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记（Artisan 命令）
+
+    可以使用以下命令来新建一个中间件：
+
+    $ php artisan make:middleware EnsureEmailIsVerified
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记（rest风格路由）
+
+    Route::resource('users', 'UsersController');
+
+    上面代码将等同于：
+
+    Route::get('/users', 'UsersController@index')->name('users.index');
+    Route::get('/users/create', 'UsersController@create')->name('users.create');
+    Route::get('/users/{user}', 'UsersController@show')->name('users.show');
+    Route::post('/users', 'UsersController@store')->name('users.store');
+    Route::get('/users/{user}/edit', 'UsersController@edit')->name('users.edit');
+    Route::patch('/users/{user}', 'UsersController@update')->name('users.update');
+    Route::delete('/users/{user}', 'UsersController@destroy')->name('users.destroy');
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记（blade语法）
+
+    Blade 支持所有的循环语句和条件判断语句，如 @if, @elseif, @else, @for, @foreach, @while 等等，
+    应用在 Blade 中的表达式都需要以 @ 开头。
+
+    Laravel 授权策略提供了 @can Blade 命令，允许我们在 Blade 模板中做授权判断
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记（blade语法）
+
+    在调用 paginate 方法获取用户列表之后，便可以通过以下代码在用户列表页上渲染分页链接。
+
+    {!! $users->render() !!}
+
+    由 render 方法生成的 HTML 代码默认会使用 Bootstrap 框架的样式，
+    渲染出来的视图链接也都统一会带上 ?page 参数来设置指定页数的链接。
+    另外还需要注意的一点是，渲染分页视图的代码必须使用 {!! !!} 语法，而不是 {{　}}，这样生成 HTML 链接才不会被转义。
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记（CSRF）
+
+    在我们使用 POST 方法提交表单时，Laravel 为了安全考虑，
+    会让我们提供一个 token（令牌）来防止我们的应用受到 CSRF（跨站请求伪造）的攻击。
+
+    第一种：
+    {{ csrf_field() }}
+
+    上面这段代码转换为 HTML 如下所示：
+
+    <input type="hidden" name="_token" value="fhcxqT67dNowMoWsAHGGPJOAWJn8x5R5ctSwZrAq">
+
+    第二种：
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    csrf-token 标签是为了方便前端的 JavaScript 脚本获取 CSRF 令牌。
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记（语言包）
+
+    接下来让我们使用 Composer 来安装 laravel-lang（语音包）。
+    https://github.com/overtrue/laravel-lang/blob/master/README_CN.md
+
+    composer require "overtrue/laravel-lang:~3.0"
+
+    安装成功后，在 config/app.php 文件中将以下这一行：
+
+    Illuminate\Translation\TranslationServiceProvider::class,
+
+    替换为：
+
+    Overtrue\LaravelLang\TranslationServiceProvider::class,
+
+    最后，我们还需要将项目语言设置为中文。
+
+    config/app.php
+
+        'locale' => 'zh-CN',
+
+    Laravel Lang 同自定义语言包一样，都是根据 config/app.php 里 locale 的选项来选择语言的。
+
+    值得一提的是，如果你想修改扩展包提供的语言文件，可以使用以下命令发布语言文件到项目里：
+
+    $ php artisan lang:publish zh-CN
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记（Debugbar 调试）
+
+    此刻我们的页面存在很大的 性能隐患，为了能更直观地看到问题，我们先安装 Laravel 开发者工具类 - laravel-debugbar。
+    安装 Debugbar
+
+    使用 Composer 安装：
+
+    $ composer require "barryvdh/laravel-debugbar:~3.2" --dev
+
+    最后 Composer 安装时 --dev 参数是指明只在 开发环境 中使用，
+    这样上线代码到 生产环境 时，我们可使用 composer install --no-dev 命令来排除这些扩展包的安装。
+
+    生成配置文件，存放位置 config/debugbar.php：
+
+    $ php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"
+
+    打开 config/debugbar.php，将 enabled 的值设置为：
+
+    'enabled' => env('APP_DEBUG', false),
+
+    修改完以后，Debugbar 分析器的启动状态将由 .env 文件中 APP_DEBUG 值决定。
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记（refresh 和 fresh）
+
+    用过 migrate:refresh 命令的人就知道，它不仅会回滚数据库的所有迁移，还会接着运行 migrate 命令。
+    这对程序早期开发过程中对重建数据库有需求的人能起到很大的帮助。
+
+    Laravel 5.5 对此作了改进，创建了一个新的命令：migrate:fresh。
+    refresh 和 fresh 之间的区别在于，fresh 是跳过了所有的 down () 方法或者回滚，
+    直接删除了所有的表，再运行 up () 方法重建数据库。
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记（时间友好显示）
+
+    $status->created_at->diffForHumans()
+
+    该方法的作用是将日期进行友好化处理，我们可以使用 tinker 来查看该方法的具体输出情况。
+
+    $ php artisan tinker
+
+    在 tinker 中输出第一位用户的创建时间如下。
+
+    >>> $created_at = App\Models\User::first()->created_at
+    => Carbon\Carbon {#704
+         +"date": "1998-12-06 03:15:31.000000",
+         +"timezone_type": 3,
+         +"timezone": "UTC",
+       }
+
+    在 tinker 中调用 diffForHumans 方法来输出，结果如下。
+
+    >>> $created_at->diffForHumans()
+    => "17年前"
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记（注册脚手架）
+
+    Laravel 自带了用户认证功能，我们将利用此功能来快速构建我们的用户中心。
+
+    首先执行认证脚手架命令，生成代码：
+
+    $ php artisan ui:auth
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记（验证码）
+
+    我们将以第三方扩展包 mews/captcha 作为基础来实现 Laravel 中的验证码功能。
+
+    使用 Composer 安装：
+
+    $ composer require "mews/captcha:~3.0"
+
+    运行以下命令生成配置文件 config/captcha.php：
+
+    $  php artisan vendor:publish --provider='Mews\Captcha\CaptchaServiceProvider'
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记（throttle频率限制）
+
+    $this->middleware('throttle:6,1')->only('verify', 'resend');
+
+    对 verify 和 resend 动作做了频率限制，throttle 中间件是框架提供的访问频率限制功能，
+    throttle 中间件会接收两个参数，这两个参数决定了在给定的分钟数内可以进行的最大请求数。
+    在这个例子中，我们限定了这两个动作访问频率是 1 分钟内不能超过 6 次。
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记 表单请求验证（FormRequest）
+
+    表单请求验证（FormRequest） 是 Laravel 框架提供的用户表单数据验证方案，
+    此方案相比手工调用 validator 来说，能处理更为复杂的验证逻辑，更加适用于大型程序。
+    在本课程中，我们将统一使用 表单请求验证来处理表单验证逻辑。
+
+    接下来我们创建 UserRequest ，使用以下命令：
+
+    $ php artisan make:request UserRequest
+
+    执行成功后会生成以下文件：
+
+    app/Http/Requests/UserRequest.php
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记 （.env新增变量）
+
+    每当我们在 .env 中新增键值时，都必须在 .env.example 文件中新增相应的键：
+
+    BAIDU_TRANSLATE_APPID=
+    BAIDU_TRANSLATE_KEY=
+
+    因为 .env 文件被我们排除 Git 跟踪（可以查看 .gitignore 文件），
+    文件 .env.example 是作为项目环境变量的初始化文件而存在。
+    当项目在新环境中安装时，只需要执行 cp .env.example .env 命令，
+    并在 .env 填入对应的值，即可完成对项目环境变量的配置
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记 （app容器）
+
+    $topic->slug = app(SlugTranslateHandler::class)->translate($topic->title);
+    app() 允许我们使用 Laravel 服务容器 ，此处我们用来生成 SlugTranslateHandler 实例。
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记 （路由参数可选）
+
+    Route::get('topics/{topic}/{slug?}', 'TopicsController@show')->name('topics.show');
+
+    URI 参数 topic 是 『隐性路由模型绑定』 的提示，将会自动注入 ID 对应的话题实体。
+
+    URI 最后一个参数表达式 {slug?} ，? 意味着参数可选，这是为了兼容我们数据库中 Slug 为空的话题数据。这种写法可以同时兼容以下两种链接：
+
+    http://larabbs.test/topics/115
+    http://larabbs.test/topics/115/slug-translation-test
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记 （消息通知系统）
+
+    Laravel 自带了一套极具扩展性的消息通知系统，尤其还支持多种通知频道，我们将利用此套系统来向用户发送消息提醒。
+    什么是通知频道？
+
+    通知频道是通知传播的途径，Laravel 自带的有数据库、邮件、短信（通过 Nexmo）以及 Slack。本章节中我们将使用数据库通知频道，后面也会使用到邮件通知频道。
+    1. 准备数据库
+
+    数据通知频道会在一张数据表里存储所有通知信息。包含了比如通知类型、JSON 格式数据等描述通知的信息。我们后面会通过查询这张表的内容在应用界面上展示通知。但是在这之前，我们需要先创建这张数据表，Laravel 自带了生成迁移表的命令，执行以下命令即可：
+
+    $ php artisan notifications:table
+
+    2. 生成通知类
+
+    Laravel 中一条通知就是一个类（通常存在 app/Notifications 文件夹里）。看不到的话不要担心，运行一下以下命令即可创建：
+
+    $ php artisan make:notification TopicReplied
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+PHP 扩展 fileinfo
+
+    1、查找 fileinfo
+
+        [root@linux /]# find / -name fileinfo
+        /usr/local/src/php-7.3.12/ext/fileinfo
+
+    2、进入目录
+
+        [root@linux /]# cd /usr/local/src/php-7.3.12/ext/fileinfo
+
+    3、查找 phpize
+
+        [root@linux fileinfo]# find / -name phpize
+        /usr/local/php/bin/phpize
+        /usr/local/src/php-7.3.12/scripts/phpize
+
+    4、初始化扩展安装
+
+        [root@linux fileinfo]# /usr/local/php/bin/phpize
+        Configuring for:
+        PHP Api Version:         20180731
+        Zend Module Api No:      20180731
+        Zend Extension Api No:   320180731
+
+    5、生成编译配置
+
+        [root@linux fileinfo]# ./configure --with-php-config=/usr/local/php/bin/php-config
+
+    6、编译并安装
+
+        [root@linux fileinfo]# make && make install
+
+    7、修改 php.ini
+
+        extension=fileinfo.so
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+PHP 扩展 phpredis
+
+    1、官网下载 redis 扩展压缩包
+
+        http://pecl.php.net/package/redis
+        上传到你的服务器（我下载的是 redis-5.2.0）
+
+    2、进入目录
+
+        [root@linux /]# cd /usr/local/src/redis-5.2.0
+
+    3、查找 phpize（你的 PHP 配置）
+
+        [root@linux redis-5.2.0]# find / -name phpize
+        /usr/local/php/bin/phpize
+        /usr/local/src/php-7.3.12/scripts/phpize
+
+    4、初始化扩展安装
+
+        [root@linux redis-5.2.0]# /usr/local/php/bin/phpize
+        Configuring for:
+        PHP Api Version:         20180731
+        Zend Module Api No:      20180731
+        Zend Extension Api No:   320180731
+
+    5、生成编译配置
+
+        [root@linux redis-5.2.0]# ./configure --with-php-config=/usr/local/php/bin/php-config
+
+    6、编译并安装
+
+        [root@linux redis-5.2.0]# make && make install
+
+    7、修改 php.ini
+
+        extension=redis.so
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Linux 安装 redis
+
+    1、官网下载 redis 压缩包
+
+        http://download.redis.io/releases
+        上传到你的服务器（我下载的是 redis-5.0.9）
+
+    2、进入目录
+
+        [root@linux /]# cd /usr/local/src/redis-5.0.9
+
+    3、编译
+
+        [root@linux redis-5.0.9]# make
+
+        [root@linux redis-5.0.9]# make install PREFIX=/usr/local/redis
+
+    4、复制配置文件
+
+        [root@linux redis-5.0.9]# cp redis.conf /usr/local/redis/bin
+
+    5、启动 redis
+
+        进入 bin 目录
+
+            [root@linux redis-5.0.9]# cd /usr/local/redis/bin
+
+        5.1 前端启动
+
+            [root@linux redis]# ./redis-server
+
+        5.2 后端启动
+
+            编辑 redis.conf
+
+            [root@linux redis]# vim redis.conf
+
+            把 deamonize no 改成 yes
+
+            [root@linux redis]# ./redis-server ./redis.conf
+
+            查看启动进程:(挂载配置文件）
+
+            [root@linux redis]# ps -ef | grep -i redis
+
+    6、启动示例
+
+                        _._
+                   _.-``__ ''-._
+              _.-``    `.  `_.  ''-._           Redis 5.0.9 (00000000/0) 64 bit
+          .-`` .-```.  ```\/    _.,_ ''-._
+         (    '      ,       .-`  | `,    )     Running in standalone mode
+         |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+         |    `-._   `._    /     _.-'    |     PID: 15396
+          `-._    `-._  `-./  _.-'    _.-'
+         |`-._`-._    `-.__.-'    _.-'_.-'|
+         |    `-._`-._        _.-'_.-'    |           http://redis.io
+          `-._    `-._`-.__.-'_.-'    _.-'
+         |`-._`-._    `-.__.-'    _.-'_.-'|
+         |    `-._`-._        _.-'_.-'    |
+          `-._    `-._`-.__.-'_.-'    _.-'
+              `-._    `-.__.-'    _.-'
+                  `-._        _.-'
+                      `-.__.-'
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+编译安装内存不足
+
+    virtual memory exhausted: Cannot allocate memory，开启swap内存交换空间即可解决。
+
+    1、先用free -m查看是否有swap空间：
+
+        [root@linux /]# free -m
+                      total        used        free      shared  buff/cache   available
+        Mem:            990         352         439          54         199         442
+        Swap:             0           0           0
+
+        Swap: 0 0 0 如果这行是这样的情况可以往下走
+
+    2、创建用于交换分区的文件
+
+        [root@linux /]# dd if=/dev/zero of=/mnt/swap bs=1M count=2048
+        记录了2048+0 的读入
+        记录了2048+0 的写出
+        2147483648字节(2.1 GB)已复制，18.4505 秒，116 MB/秒
+
+    3、设置交换分区文件
+
+        [root@linux /]# mkswap /mnt/swap
+        正在设置交换空间版本 1，大小 = 2097148 KiB
+        无标签，UUID=92a508e6-944e-4d74-8c94-441c8c96a255
+
+    4、立即启用交换分区文件
+
+        [root@linux /]# swapon /mnt/swap
+        swapon: /mnt/swap：不安全的权限 0644，建议使用 0600。
+
+    5、查看 /etc/rc.local
+
+        如果在/etc/rc.local中有swapoff -a 需要修改为swapon -a, 没有的话忽略即可。
+
+        [root@linux /]# cat /etc/rc.local
+        #!/bin/bash
+        # THIS FILE IS ADDED FOR COMPATIBILITY PURPOSES
+        #
+        # It is highly advisable to create own systemd services or udev rules
+        # to run scripts during boot instead of using this file.
+        #
+        # In contrast to previous versions due to parallel execution during boot
+        # this script will NOT be run after all other services.
+        #
+        # Please note that you must run 'chmod +x /etc/rc.d/rc.local' to ensure
+        # that this script will be executed during boot.
+
+        touch /var/lock/subsys/local
+        swapoff -a
+
+    附录：
+
+    1. 关闭删除分区
+
+        swapoff /mnt/swap
+        rm /mnt/swap
+
+    2、设置开机时自启用swap分区
+
+        需要修改文件 /etc/fstab 中的 swap 行，如果没有增加一行即可。
+        添加 /mnt/swap swap swap defaults 0 0
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+HTTP 正确使用状态码
+
+    HTTP 提供了丰富的状态码供我们使用，正确的使用状态码可以让响应数据更具可读性。
+
+    200 OK - 对成功的 GET、PUT、PATCH 或 DELETE 操作进行响应。也可以被用在不创建新资源的 POST 操作上
+    201 Created - 对创建新资源的 POST 操作进行响应。应该带着指向新资源地址的 Location 头
+    202 Accepted - 服务器接受了请求，但是还未处理，响应中应该包含相应的指示信息，告诉客户端该去哪里查询关于本次请求的信息
+    204 No Content - 对不会返回响应体的成功请求进行响应（比如 DELETE 请求）
+    304 Not Modified - HTTP 缓存 header 生效的时候用
+    400 Bad Request - 请求异常，比如请求中的 body 无法解析
+    401 Unauthorized - 没有进行认证或者认证非法
+    403 Forbidden - 服务器已经理解请求，但是拒绝执行它
+    404 Not Found - 请求一个不存在的资源
+    405 Method Not Allowed - 所请求的 HTTP 方法不允许当前认证用户访问
+    410 Gone - 表示当前请求的资源不再可用。当调用老版本 API 的时候很有用
+    415 Unsupported Media Type - 如果请求中的内容类型是错误的
+    422 Unprocessable Entity - 用来表示校验错误
+    429 Too Many Requests - 由于请求频次达到上限而被拒绝访问
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+patch 与 put 的区别为：
+
+    put 替换某个资源，需提供完整的资源信息；
+    patch 部分修改资源，提供部分资源信息。
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+测试号信息
+
+    appID  wxe0ce018bd20554c7
+    appsecret  7acd5afe1b84026aae33b52aab81c6d4
+
+开发者工具 获取code
+
+    https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe0ce018bd20554c7&redirect_uri=http://larabbs.test&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
+
+    注意链接中有几个变量需要替换
+
+        APPID 测试账号中的 appID，填写自己账号的 appID
+        REDIRECT_URI 用户同意授权后的回调地址，填写 http://larabbs.test
+        SCOPE 应用授权作用域，填写 snsapi_userinfo
+        STATE 随机参数，可以不填，我们保持 STATE 即可。
+
+
+请求以下链接获取 access_token：
+
+    https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxe0ce018bd20554c7&secret=7acd5afe1b84026aae33b52aab81c6d4&code=081cvJnG1kTeZ50L0dkG1NDTnG1cvJnK&grant_type=authorization_code
+
+    需要替换的变量
+
+        APPID 测试账号中的 appID，填写自己账号的 appID
+        SECRET 测试账号中的 secret，填写自己账号的 secret
+        code 上一步获取的 code
+
+    使用 PostMan 访问该链接，获取到了 access_token，注意微信同时返回了 open_id，微信 access_token 和 open_id 一起请求用户信息。
+
+通过 access_token 获取个人信息
+
+    https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN
+
+    替换链接中的 ACCESS_TOKEN 和 OPENID，使用 PostMan 访问
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Laravel 笔记（计划任务）
+
+    在过去，开发者必须为每个需要调度的任务生成单独的 Cron 项目。然而令人头疼的是任务调度不受版本控制，并且需要 SSH 到服务器上来增加 Cron 条目。
+
+    Laravel 命令调度器允许你在 Laravel 中对命令调度进行清晰流畅的定义，并且仅需要在服务器上增加一条 Cron 项目即可。
+    调度在 app/Console/Kernel.php 文件的 schedule 方法中定义。
+    在该方法内包含了一个简单的例子，你可以随意增加调度到 Schedule 对象中。
+
+    使用调度器时，我们需要修改系统的 Cron 计划任务配置信息，运行以下命令：
+
+    $ export EDITOR=vi && crontab -e
+
+    复制下面这一行：
+
+    * * * * * php /home/vagrant/Code/larabbs/artisan schedule:run >> /dev/null 2>&1
+
+    此时进入 VI 编辑器界面：
+
+        按大写的 G （或者按方向键）将光标移动到最底端；
+        然后按键盘上的 『小写 o 键』进入 INSERT 模式；
+        黏贴上面这一行；
+        黏贴成功后按下键盘左上角的『ESC 键』进入 VI 的命令模式；
+        键盘输入 :wq 并敲击回车键保存退出。
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Linux 修改主机名
+
+    1.查看当前的主机名
+
+        [root@localhost datas]# hostname
+        localhost
+        [root@localhost datas]# hostnamectl
+           Static hostname: localhost.localdomain
+        Transient hostname: localhost
+                 Icon name: computer-vm
+                   Chassis: vm
+                Machine ID: f1d9ecb6c6bd4e02b58e19bba402056c
+                   Boot ID: 91603e0798814b54a928e70fd2a2754f
+            Virtualization: vmware
+          Operating System: CentOS Linux 7 (Core)
+               CPE OS Name: cpe:/o:centos:centos:7
+                    Kernel: Linux 3.10.0-693.el7.x86_64
+              Architecture: x86-64
+
+    2.修改主机名
+
+        修改配置文件 /etc/hostname 保存退出
+
+        [root@localhost /]# vi /etc/hostname
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+理解 Import 和 Export
+
+    上面的代码中使用到了 Export/Import，对于不熟悉 JS 的同学可能会感到陌生，export 和 import 是构成模块功能主要由两个命令：
+
+        export 命令用于规定模块的对外接口；
+        import 命令用于输入其他模块提供的功能。
+
+    一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。
+    如果你希望外部能够读取模块内部的某个变量，就必须使用 export 关键字输出该变量；
+    使用 export 命令定义了模块的对外接口以后，其他 JS 文件就可以通过 import 命令加载这个模块。
+
+    简单的说 export 用于定义一个模块，import 用于引入一个模块。
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -838,35 +1690,21 @@ sudo
 
                     .::::.
                   .::::::::.
-                 :::::::::::  FUCK YOU
-             ..:::::::::::'
-           '::::::::::::'
-             .::::::::::
-        '::::::::::::::..
-             ..::::::::::::.
-           ``::::::::::::::::
-            ::::``:::::::::'        .:::.
-           ::::'   ':::::'       .::::::::.
-         .::::'     :::::     .::::::::::::.
-        .:::'       :::::  .:::::::::''':::::.
-       .::'        :::::.::::::::::'     '::::.
-      .::'        .::::::::::::::'         '::::.
-  ...:::          :::::::::::::'             ':::.
- ```` ':.          ::::::::::'                 ::::..
-                    '.:::::'                   ':'````..
+                 .:::::::::'  FUCK YOU
+               .:::::::::'
+           ':::::::::::''
+       .      .::::::::
+        ':::::::::::::::
+           `''::::::::::::.
+           ``:::::::::::::::
+            :::::``::::::::'        .:::.
+           ::::'    :::::'       .::::::::.
+          ::::'     :::::     .::::::::::::.
+         :::'       :::::  .:::::::::''':::::.
+        :::        :::::.::::::::::'     '::::.
+      .::'        .::::::::::::::'         '::::
+    .:::'         :::::::::::::'             ':::.
+ ``````':.         ::::::::::'                 ':::.
+                    '.:::::'                   ':'':::..
 
 
-┌───┐   ┌───┬───┬───┬───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┐ ┌───┬───┬───┬───┐
-│Esc│   │ F1│ F2│ F3│ F4│ │ F5│ F6│ F7│ F8│ │ F9│F10│F11│F12│ │P/S│S L│P/B│ │ F │ U │ C │ K │
-└───┘   └───┴───┴───┴───┘ └───┴───┴───┴───┘ └───┴───┴───┴───┘ └───┴───┴───┘ └───┴───┴───┴───┘
-┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───────┐ ┌───┬───┬───┐ ┌───┬───┬───┬───┐
-│~ `│! 1│@ 2│# 3│$ 4│% 5│^ 6│& 7│* 8│( 9│) 0│_ -│+ =│ BacSp │ │Ins│Hom│PUp│ │N L│ / ││ - │
-├───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─────┤ ├───┼───┼───┤ ├───┼───┼───┼───┤
-│ Tab │ Q │ W │ E │ R │ T │ Y │ U │ I │ O │ P │{ [│} ]│ | \ │ │Del│End│PDn│ │ 7 │ 8 │ 9 │   │
-├─────┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴─────┤ └───┴───┴───┘ ├───┼───┼───┤ + │
-│ Caps │ A │ S │ D │ F │ G │ H │ J │ K │ L │: ;│" '│ Enter  │               │ 4 │ 5 │ 6 │   │
-├──────┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴────────┤     ┌───┐     ├───┼───┼───┼───┤
-│ Shift  │ Z │ X │ C │ V │ B │ N │ M │< ,│> .│? /│  Shift   │     │ ↑ │     │ 1 │ 2 │ 3 │   │
-├─────┬──┴─┬─┴──┬┴───┴───┴───┴───┴───┴──┬┴───┼───┴┬────┬────┤ ┌───┼───┼───┐ ├───┴───┼───┤ E││
-│ Ctrl│    │Alt │         Space         │ Alt│    │    │Ctrl│ │ ← │ ↓ │ → │ │   0   │ . │←─┘│
-└─────┴────┴────┴───────────────────────┴────┴────┴────┴────┘ └───┴───┴───┘ └───────┴───┴───┘

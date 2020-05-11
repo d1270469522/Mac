@@ -187,6 +187,8 @@ AND mobile IN ()
 \************************************************************/
 SELECT
     a.phone,
+    a.platform,
+    a.channel,
     IF(b.ktp_number = 0, '没有填写', b.ktp_number)         AS '个人信息',
     IF(d.career = '', '没有填写', d.career)                AS '工作信息',
     IF(b.face_url = '','没有认证','认证')                 AS '活体认证',
@@ -196,7 +198,7 @@ FROM `tb_user_access`        AS a
 LEFT JOIN tb_user_basic_info AS b ON a.user_id = b.uid
 LEFT JOIN tb_loan_order      AS c ON a.user_id = c.uid
 LEFT JOIN tb_user_work_info  AS d ON a.user_id = d.uid
-where a.create_time >= '2019-08-23 00:00:00'
+where a.create_time >= '2020-02-26 00:00:00'
 AND a.create_time <= '2019-08-24 00:00:00'
 
 
@@ -272,7 +274,7 @@ SELECT
         WHEN user_type = 1   THEN '首贷'
         WHEN user_type = 2   THEN '续贷'
         ELSE '无'
-    END AS '订单状态',
+    END AS '用户类型',
     IFNULL(create_time,'无')         AS '注册时间',
     IFNULL(order_time,'无')          AS '下单时间',
     IFNULL(payment_date,'无')        AS '放款时间',
@@ -469,15 +471,224 @@ from tb_loan_order
 left join tb_order_product_info on tb_loan_order.id = tb_order_product_info.order_id
 left join tb_loan_trial_phone_contact on tb_loan_order.id = tb_loan_trial_phone_contact.order_id
 
-where order_time > '2019-11-25 00:00:00'
+where order_time > '2019-12-01 00:00:00'
 and user_type = 1
 and platform = 'DompetPinjaman'
 
 
+/*******************************************************************************************************************************\
+ **                                                                                                                           **
+ **                                                        印尼系统                                                            **
+ **                                                                                                                           **
+ **                                                      DompetSaku  分数                                                      **
+ **                                                                                                                           **
+\*******************************************************************************************************************************/
+
+SELECT
+    a.user_id  AS '用户ID',
+    a.phone    AS '注册手机号',
+    a.platform AS '平台',
+    a.channel  AS '渠道',
+    IF(b.order_number IS NULL, '未下单', b.order_number) AS '是否下单',
+    IF(d.extend_score IS NULL, '无', d.extend_score) AS '分数',
+    IF(d.v_type IS NULL, '无', d.v_type) AS '版本',
+    CASE
+        WHEN b.order_status = 1   THEN '创建订单'
+        WHEN b.order_status = 2   THEN '2分钟内取消'
+        WHEN b.order_status = 3   THEN '待自动放款'
+        WHEN b.order_status = 4   THEN ''
+        WHEN b.order_status = 5   THEN '终审失败'
+        WHEN b.order_status = 6   THEN '终审成功'
+        WHEN b.order_status = 7   THEN '放款审核未通过'
+        WHEN b.order_status = 8   THEN '放款中'
+        WHEN b.order_status = 9   THEN ''
+        WHEN b.order_status = 10  THEN ''
+        WHEN b.order_status = 11  THEN '已逾期'
+        WHEN b.order_status = 12  THEN '已还清'
+        WHEN b.order_status = 13  THEN '部分还款'
+        WHEN b.order_status = 14  THEN '待还款'
+        WHEN b.order_status = 15  THEN '放款失败'
+        WHEN b.order_status = 16  THEN '风控队列中'
+        WHEN b.order_status = 17  THEN '风控成功，待信审'
+        WHEN b.order_status = 18  THEN '风控失败'
+        WHEN b.order_status = 19  THEN '信审成功'
+        WHEN b.order_status = 20  THEN '信审失败'
+        WHEN b.order_status = 21  THEN '电审成功'
+        WHEN b.order_status = 22  THEN '电审失败'
+        WHEN b.order_status = 23  THEN '用户确认失败'
+        WHEN b.order_status = 24  THEN '终止放款'
+        WHEN b.order_status = 25  THEN '当天到期'
+        ELSE '无'
+    END AS '订单状态',
+    CASE
+        WHEN user_type = 1   THEN '首贷'
+        WHEN user_type = 2   THEN '续贷'
+        ELSE '无'
+    END AS '用户类型',
+    IFNULL(a.create_time,'无')         AS '注册时间',
+    IFNULL(b.order_time,'无')          AS '下单时间',
+    IFNULL(b.payment_date,'无')        AS '放款时间',
+    IFNULL(b.loan_deadline,'无')       AS '应还时间',
+    IFNULL(b.loan_repayment_date,'无') AS '实还时间'
+FROM tb_user_access AS a
+LEFT JOIN tb_loan_order AS b ON a.user_id = b.uid
+LEFT JOIN tb_order_product_info AS c ON b.id = c.order_id
+LEFT JOIN tb_fengkong_log AS d ON b.id = d.order_id
+WHERE a.create_time >= '2020-02-26 00:00:00'
+WHERE a.platform = 'UangTas' and a.channel = 'uangcash'
+and b.platform in ('DompetSaku', 'DompetPinjaman')
+
+
+/*******************************************************************************************************************************\
+ **                                                                                                                           **
+ **                                                        印尼系统                                                            **
+ **                                                                                                                           **
+ **                                                  DompetPinjaman  整月数据                                                   **
+ **                                                                                                                           **
+\*******************************************************************************************************************************/
+SELECT phone,a.create_time,order_number,b.order_time
+FROM `tb_user_access` as a
+left join tb_loan_order as b on a.user_id = b.uid
+WHERE a.platform = 'DompetPinjaman' and a.create_time >='2020-02-01 00:00:00'
 
 
 
 
+/*******************************************************************************************************************************\
+ **                                                                                                                           **
+ **                                                        印尼系统                                                            **
+ **                                                                                                                           **
+ **                                                  DOKU 还款银行和方式                                                       **
+ **                                                                                                                           **
+\*******************************************************************************************************************************/
+SELECT order_number,order_status,bank_name,bank_id,bank_number,create_time FROM `tb_user_bank_info` as a
+left join tb_loan_order as b on a.oid = b.id
+where a.id in (
+    select max(id) as bank_id from tb_user_bank_info
+    where oid in (
+        select order_id from (SELECT order_id FROM `tb_loan_repayment_flow`  order by id desc limit 30) as tt
+    )
+    group by oid
+)
+
+
+
+
+
+
+
+#最近7天续贷应还，每个用户的贷款次数，包括是否还款
+SELECT *,
+(
+    SELECT count(*) AS cc
+    FROM tb_loan_order AS t1
+    INNER JOIN tb_order_product_info AS t2 ON t1.id = t2.order_id
+    WHERE t1.uid = tt.用户ID
+    AND t2.user_type = 2
+    AND t1.order_time <= tt.下单时间
+) AS '续贷次数'
+ FROM
+(
+    SELECT
+    c.phone               AS '手机号',
+    c.user_id             AS '用户ID',
+    c.platform            AS '平台',
+    c.channel             AS '渠道',
+    a.order_number        AS '订单号',
+    a.order_time          AS '下单时间',
+    a.payment_date        AS '放款时间',
+    a.loan_deadline       AS '应还时间',
+    a.loan_repayment_date AS '实还时间',
+    CASE
+        WHEN a.order_status = 1   THEN '创建订单'
+        WHEN a.order_status = 2   THEN '2分钟内取消'
+        WHEN a.order_status = 3   THEN '待自动放款'
+        WHEN a.order_status = 4   THEN ''
+        WHEN a.order_status = 5   THEN '终审失败'
+        WHEN a.order_status = 6   THEN '终审成功'
+        WHEN a.order_status = 7   THEN '放款审核未通过'
+        WHEN a.order_status = 8   THEN '放款中'
+        WHEN a.order_status = 9   THEN ''
+        WHEN a.order_status = 10  THEN ''
+        WHEN a.order_status = 11  THEN '已逾期'
+        WHEN a.order_status = 12  THEN '已还清'
+        WHEN a.order_status = 13  THEN '部分还款'
+        WHEN a.order_status = 14  THEN '待还款'
+        WHEN a.order_status = 15  THEN '放款失败'
+        WHEN a.order_status = 16  THEN '风控队列中'
+        WHEN a.order_status = 17  THEN '风控成功，待信审'
+        WHEN a.order_status = 18  THEN '风控失败'
+        WHEN a.order_status = 19  THEN '信审成功'
+        WHEN a.order_status = 20  THEN '信审失败'
+        WHEN a.order_status = 21  THEN '电审成功'
+        WHEN a.order_status = 22  THEN '电审失败'
+        WHEN a.order_status = 23  THEN '用户确认失败'
+        WHEN a.order_status = 24  THEN '终止放款'
+        WHEN a.order_status = 25  THEN '当天到期'
+        ELSE '无'
+    END AS '订单状态',
+    CASE
+        WHEN user_type = 1   THEN '首贷'
+        WHEN user_type = 2   THEN '续贷'
+        ELSE '无'
+    END AS '用户类型'
+    FROM tb_loan_order AS a
+    LEFT JOIN tb_order_product_info AS b ON a.id = b.order_id
+    LEFT JOIN tb_user_access AS c ON a.uid = c.user_id
+    WHERE b.user_type = 2
+    AND a.loan_deadline >= '2020-01-22 00:00:00'
+    AND a.order_status IN (11,12,13,14,25)
+    ORDER BY a.loan_deadline, a.order_time
+) AS tt
+
+
+# 从数据库统计下KSP后台3月26日之后，每个催收人员的催回金额
+
+SELECT user.admin_username, sum(c.repayment_amount)
+FROM tb_loan_order as a
+left join tb_loan_order_track as b on a.id = b.order_id
+left join tb_loan_repayment_flow as c on a.id = c.order_id
+left join tb_admin_user as user on b.admin_id = user.id
+left join tb_admin_role_info as role on user.id = role.aid
+where user.is_del = 0
+and user.admin_status = 0
+and user.group_id = 1
+and role.status = 0
+and role.rid = 4
+and is_remind = 0
+and repayment_status = 1
+and c.created_at >= '2020-03-26'
+group by b.admin_id
+
+
+select * from
+(
+    SELECT
+    GROUP_CONCAT( user_id ) ,
+    COUNT( id ) AS cc,
+    COUNT( distinct user_id ) AS cc2,
+    COUNT( distinct trade_type ) AS cc3,
+    SUBSTR( FROM_UNIXTIME( `build_time` ) , 1, 16 ) ,
+    `goods_id` ,
+    `trade_deposit`
+
+    FROM `user_order`
+    WHERE SUBSTR( FROM_UNIXTIME( `build_time` ) , 1, 10 ) = '2020-04-08'
+    GROUP BY `goods_id` , `trade_deposit` , SUBSTR( FROM_UNIXTIME( `build_time` ) , 1, 16 )
+
+) as tt where tt.cc > 1  and cc3 = 2
+ORDER BY tt.cc DESC
+
+
+
+# 销量前十的产品排序
+select t.cat_id,t.goods_num, top from (
+    select t1.*, (
+          select count(*) + 1 from order_goods t2
+          where t2.cat_id = t1.cat_id and t2.goods_num > t1.goods_num
+    ) top
+    from order_goods t1
+) t where top <=10 order by t.cat_id, top;
 
 
 

@@ -33,154 +33,29 @@ use Cache; #控制器中使用缓存
 class TestController extends Controller
 {
 
+    /**
+     * [ 对外接口，调用下面的方法 ]
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
     public function test (Request $request)
     {
-        $this->phoneMcrypter();
+
+        $this->OrderTrack();
     }
 
 
+    /**
+     * [ 检查通讯录中 通讯录数量，app数量，app中三方贷款的数量 ]
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
     public function test20181122 (Request $request)
     {
         $order_numbers = [
             '19102110364606919132',
             '19102112140644375870',
             '19102117050010608614',
-            '19102117245718799752',
-            '19102200031346624372',
-            '19102205155950766208',
-            '19102206580215148403',
-            '19102207550552486932',
-            '19102209053813239780',
-            '19102209231198864025',
-            '19102209272100118687',
-            '19102209533247137282',
-            '19102211512362739280',
-            '19102219411268037655',
-            '19102221483861648235',
-            '19102306480891622827',
-            '19102308545792664408',
-            '19102310511140736581',
-            '19102316035504908863',
-            '19102420251062628850',
-            'M2019102595T00000065',
-            '19102522034875217322',
-            '19102109331413056596',
-            '19102111293438739763',
-            '19102114200288571031',
-            '19102115282412706285',
-            '19102201344947673611',
-            '19102205244384275458',
-            '19102206593192339846',
-            '19102207462622437256',
-            '19102207502051327545',
-            '19102208205837316866',
-            '19102208352240487387',
-            '19102208475477993370',
-            '19102209094243951657',
-            '19102210485977927827',
-            '19102211143177638500',
-            '19102212071918467572',
-            '19102213204657995285',
-            '19102213464196071384',
-            '19102215085717529629',
-            '19102215414280707580',
-            '19102216450432228979',
-            '19102219405742399929',
-            '19102220040645976195',
-            '19102304301019625807',
-            '19102307023669531043',
-            '19102307451683883647',
-            '19102310511332261475',
-            '19102312175519353012',
-            '19102313045586928052',
-            '19102317453670298554',
-            '19102317540066285771',
-            '19102320035592945732',
-            '19102320200010976297',
-            '19102400432516386330',
-            '19102410235395666306',
-            '19102411375058701993',
-            '19102415022993036713',
-            '19102415092641211852',
-            'M2019102549E00000042',
-            '19102515464302221640',
-            '19102516031760507321',
-            '19102516035693247934',
-            '19102114240514631334',
-            '19102112232647637234',
-            '19102112475067287906',
-            '19102112520395305416',
-            '19102113554546984573',
-            '19102110192086334347',
-            '19102110135872051319',
-            'M2019102148P00000053',
-            '19102113141109193554',
-            'M2019102160I00000098',
-            'M2019102191K00000119',
-            '19102116135623368714',
-            '19102118021593308618',
-            '19102203402986375793',
-            '19102208263835793271',
-            '19102209003734334063',
-            'M2019102244T00000017',
-            'M2019102275T00000020',
-            'M2019102223J00000033',
-            '19102212411943055707',
-            '19102213205108439953',
-            'M2019102232Z00000062',
-            '19102213413459642358',
-            '19102214343594448765',
-            '19102216293866744869',
-            '19102218490927176578',
-            '19102220563019084374',
-            '19102300051760311299',
-            'M2019102371D00000021',
-            '19102308345202976471',
-            '19102308435895435875',
-            'M2019102326X00000057',
-            '19102312570179845217',
-            'M2019102382E00000068',
-            'M2019102323G00000074',
-            'M2019102386H00000077',
-            '19102317451054981999',
-            '19102317515971995108',
-            '19102317535190993001',
-            '19102318022060496835',
-            'M2019102312R00000114',
-            '19102319495696843729',
-            '19102319592092926519',
-            '19102406105078852988',
-            '19102407303926005994',
-            '19102407534291312251',
-            '19102408340752682943',
-            '19102410133202872150',
-            '19102410380990253672',
-            '19102413182145214971',
-            '19102413513340681401',
-            'M2019102498B00000084',
-            '19102418450470862378',
-            '19102420273182182114',
-            '19102420324236472228',
-            '19102420555858357699',
-            '19102421052784516615',
-            'M2019102540H00000035',
-            'M2019102584Q00000062',
-            '19102515461189425199',
-            '19102515570888741660',
-            '19102516372651416866',
-            '19102517275002601186',
-            'M2019102548E00000080',
-            '19102522095432302300',
-            'M2019102613O00000006',
-            'M2019102543D00000034',
-            '19102113142054929801',
-            '19102117541219883576',
-            'M2019102374T00000027',
-            '19102114014459871815',
-            '19102309054673044871',
-            '19102319140376196573',
-            'M2019102556I00000090',
-            '19102314535490482021',
         ];
 
         $res = DB::table('loan_order')
@@ -201,7 +76,7 @@ class TestController extends Controller
             echo $value->name.',';
             echo $value->ktp_number.',';
 
-            //检查通讯录在黑名单里的数量
+            //通讯录 app
             $user_device   = UserDevice::where(['uid' => $value->uid])->orderByDesc('id')->first();
             $phone_contact = json_decode(Mcrypter::decrypt($user_device->phone_contact), true);
             $app_list      = json_decode(Mcrypter::decrypt($user_device->app_list), true);
@@ -294,39 +169,7 @@ class TestController extends Controller
         }
     }
 
-    /**
-     * [curlPost 现金贷相关]
-     * @param  [type] $uid        [description]
-     * @param  [type] $ktp_number [description]
-     * @param  [type] $username   [description]
-     * @return [type]             [description]
-     */
-    public function curlPost($uid, $ktp_number, $username)
-    {
-        $post_data  = $this->getParam('app');
-        $url = env('RISK_URL') . '/gather/review/app?' . 'ktp_number=' . $ktp_number . '&username=' . rawurlencode($username);
 
-        $curl       = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_TIMEOUT, 30);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curl, CURLOPT_HEADER, 0);
-        curl_setopt($curl, CURLOPT_POST, 1);
-        curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
-        $data = curl_exec($curl);
-        curl_close($curl);
-        if ($data != false) {
-            $data = json_decode($data, true);
-            if (!empty($data['result_code']) && $data['result_code'] == 10000 && ($data['data']['total'] != 0 || !empty($data['data']['total']))) {
-
-                return $data;
-            } else {
-                return '201';
-            }
-        } else {
-            return '202';
-        }
-    }
 
     /**
      * [getParam 现金贷相关参数处理]
@@ -707,7 +550,7 @@ class TestController extends Controller
      */
     public function phoneMcrypter (){
 
-        $str = "6/UvjiqS5+nlbw9UdETuvFLOvPkFvmP/kt1FBV5yYvoig1RlTDSm4jP8x/ZvbkXc8nsHCi/yw+kgDX4g/o2We1jnzbOKRaO0+gRsE+66moAvplwBrfWzE72hsSyrAQR0xHXv+IM7hUFK7Gt6oKt8iol7/QsRbmTV/XiLyUn0Rpl1dAcMD9PA6xNagwY0Ve8JeCr2KdqWxNWmeOEko2EMiUmhAKRvYjjBP9+g6lT+mypT6eVae1VTBQwKSsadneIkWI7LKKR/hv7n4S0jyFkD999eIHfzndDaYuUznYSAeAgc8YhW9bl2aWVRupyYmA/g4ty8sWV93SkdJqPz1way47Y9M+f2GzsdRHa6amTdOtaSRKWOolsaUex51WPxcrwp14ltQwnmFXV+voVKTbq/yfX5v4R86We4xgxzm6EuDgG1R+Dp6fQVp72tdX6Um6aNZuiAvoI0AFDOiSCR4TzRJMtsE2DlCHXqBqR0uWGwQtJe/TDgvqfv0rWyxYLAqTsDetZ0mjxovgD/miDZkzw4oZ4S1/hFofEo5Axg+FjqSMjyuRWgbx/9WN1LxqCdMdGwLPVglwEJ3melHDlcuS/89jrDqxdWln7rixqvU7cWIjPjBAN/k+IVe2Fewfr+lkpUEb9R9lNxj1tHcM2cO1SsAIhBWh4Dt+t+5HESYe2vdrD9eJOLqDuAWicGBK2s1PS9n+DWobiCS9nPZYaMH/Br/GWrkUAw6wez4flNF7Uha/3jztQrwNszuGN93U4itUZnzgWzPPF2oGL+L8IsfL3DWnrpWRb4WwyUncjvk/v9QD45GrEffBvLd8qexbqJnaV6UDeSR6QdgCfmLwwNa3lrRNvJQMAONsObbu9Pps65cdA6ZW30cnm4mx14YNbreZT6NbyLffB4mVn6MirkcK3syCbuD2+a/yr0RZoqzs/pYw6CCfty5MakUjkG9OPMuAAY+cb3fa8fqaC00vVNnNO9xQwwkow4R7ELgM2JocZ8zEA1erOiiNUHPA54clyrbAZn+q5nQ9rYQi8ci/TMiuASfl6HQRRnro1xNDCdohL3/YpaAwGnmOjOVvigVNBkCSMEgHBoeqjBx2oU+bhtJGcZxw5zS513VBFhv0eGzIKz8sCpTt+8rTnNabUX9MB1oPth+r/RqY7lEGnmN2qsp7yuyu4IwkvoHu4ancuRGFtVtSxhwNyez/Gup/pZwhamqyw1oRfjfHDDXMMyJiXp5dXXXHNDGuIg6R+hJaBIAauD4GNvnMHY+Gs4UXI5U6FHx+8KNPPoE+lcB7u9fZJc6GnZxFqU3WBwzRIRid75VpOVasTFRg8HL0+R9pkX+oZIxXgBWfnW93DXhWDaTjlInmJNXSz569tJ3pU2AaT9BtyMOOrpxA2r6EmE/9WcIi5nEVZSKYYACjmQqdXI7PG8WO04BmsRyZan1dJe3JKmev/aWPYDw+HLOdWCWeb5tKQyTpDQ6BxExs7vVmVF9lvrMWs8H8sH1y1kWTPazBQzPBmSLsLulNtLJ8tlBesSjwFCkvYgh2+r4r5pSU5W7VY/y3swU+Jlje98lhs3L2secDyZ/K9u3tkf09I39w==";
+        $str = "Jiep4XUhW7pja0aphl+gf390MO28NUmO84yf+WKDMAAVwOqifpN5FDur1v0d+Ju7rNQSX49GwU8lAeFs9iwSUKR+WXpcTFM3mxYoIXmnSEfwjAY5JqIs4sBgj9eypSvcfu/YJQSeNA4Dl+kwgpMfEsQp88T8pc+UP3lb25QxBFOuxzlPHTRaQ24Guvw6Kqi9AZ8c1SV5iqsd0xy4yMFx1V0f6hgtTkQLvBjwxqfIO1X+p80wfVZclUHMf/ngesUKzRrLOk9Z6qd3SvqiMt75095qsO6CkOVF0zYdWJYRA7qeU+THofM1jm4JGXQyGdPSYFnjShdiNpUBC0jobmuiYoLL7HFTGYU+dtNJVH3CTb+3oPVxtDxzdKvRbrfkFVcRe7lsbEx1xt3B4h9uorzwp3s0ztFlF7mjizm409we5fzPrlre4e8ByiEzWwuC4V3vN28WBFjSFsQlBwDffTxtTVvizyLfUto+/oKxFfuSTUGoqtGM8YrVzfJ0+Gyaue9FBZ5Gi9HisKoJmlM3WNJ/J3bx+4GUYa3Gj2+wwDDExjVsPyHVg9su2WYGS6gduEJmx6GC3drLjSwReUSJKnd7lVJDY5jhJbf6Znsw/mxDToTz+xURk76X/izmykmQwHAXJHgoYO7B/r/aUON9CuKfIOJKAyAK1rjBRzge6sPZ9+lgeB6EeurhbvbHWfW";
 
         echo Mcrypter::decrypt($str);
         echo '<hr>';
@@ -722,38 +565,49 @@ class TestController extends Controller
      */
     public function OrderTrack ()
     {
+        /*
         $arr1 = [
             'M2019071471O00000067',
             'M2019071411F00000072',
             'M2019071348M00000115',
             'M2019071462Q00000034',
         ];
+        */
+
+        $arr1 = DB::select("SELECT order_number FROM `tb_loan_order` as a left join tb_loan_order_track as b on a.id = b.order_id where substr(loan_deadline,1,10) >= '2020-03-01' and substr(loan_deadline,1,10) <= '2020-03-07' and order_status = 11 and b.promise_time = ''");
+        $arr1 = array_column($arr1, 'order_number');
 
         $arr2 = [
-            80 => 0,
-            81 => 0,
-            82 => 0,
+            113 => 0,
+            115 => 0,
+            116 => 0,
         ];
 
         $arr = [];
         foreach ($arr1 as $key => &$value) {
+
             foreach ($arr2 as $k => &$v) {
-                if ($k == 82) {
-                    // $arr[$key]['order_number'] = $value;
-                    // $arr[$key]['user_id'] = $k;
+
+                if ($k == 116) {
+
+                    $arr[$key]['order_number'] = $value;
+                    $arr[$key]['user_id'] = $k;
+
                     $order_id = DB::table('loan_order')->where('order_number', $value)->first()->id;
                     DB::table('loan_order_track')->where('order_id', $order_id)->update(['admin_id'=>$k,'is_remind'=>0]);
                     $arr2 = [
-                        80 => 0,
-                        81 => 0,
-                        82 => 0,
+                        113 => 0,
+                        115 => 0,
+                        116 => 0,
                     ];
-
                     break;
                 }
+
                 if ($v == 0) {
-                    // $arr[$key]['order_number'] = $value;
-                    // $arr[$key]['user_id'] = $k;
+
+                    $arr[$key]['order_number'] = $value;
+                    $arr[$key]['user_id'] = $k;
+
                     $order_id = DB::table('loan_order')->where('order_number', $value)->first()->id;
                     DB::table('loan_order_track')->where('order_id', $order_id)->update(['admin_id'=>$k,'is_remind'=>0]);
                     $v = 1;
@@ -761,8 +615,9 @@ class TestController extends Controller
                 }
             }
         }
-        // echo '<pre>';
-        // print_r($arr);die;
+                echo '<pre>';
+                print_r($arr);
+                echo '<hr>';
     }
 
     /**
@@ -785,17 +640,36 @@ class TestController extends Controller
     }
 
     /**
-     * [dateDiff 两个日期的时间差]
-     * @param  string $time1 [description]
-     * @param  string $time2 [description]
-     * @return [type]        [description]
+     * [curlPost 远程调用现金贷相关]
+     * @param  [type] $uid        [description]
+     * @param  [type] $ktp_number [description]
+     * @param  [type] $username   [description]
+     * @return [type]             [description]
      */
-    public function dateDiff ($time1 = '', $time2 = '')
+    public function curlPost($uid, $ktp_number, $username)
     {
+        $post_data  = $this->getParam('app');
+        $url = env('RISK_URL') . '/gather/review/app?' . 'ktp_number=' . $ktp_number . '&username=' . rawurlencode($username);
 
-        $date1 = date_create($time1);
-        $date2 = date_create($time2);
+        $curl       = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_TIMEOUT, 30);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_HEADER, 0);
+        curl_setopt($curl, CURLOPT_POST, 1);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
+        $data = curl_exec($curl);
+        curl_close($curl);
+        if ($data != false) {
+            $data = json_decode($data, true);
+            if (!empty($data['result_code']) && $data['result_code'] == 10000 && ($data['data']['total'] != 0 || !empty($data['data']['total']))) {
 
-        return $diff = date_diff($date1,$date2);
+                return $data;
+            } else {
+                return '201';
+            }
+        } else {
+            return '202';
+        }
     }
 }

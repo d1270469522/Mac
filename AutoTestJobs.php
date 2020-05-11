@@ -26,8 +26,8 @@ use App\Models\UserIziData;
 use App\Models\LoanTrialPhone;
 
 use App\Service\OrderFactory;
-// use App\Server\Assign;  // Jobs
-use App\Service\Assign;  // Console
+use App\Server\Assign;  // Jobs
+// use App\Service\Assign;  // Console
 use App\Server\BlackOrderHandle;
 use App\Server\DateUtil;
 use App\Server\advance\ApiClientFile;
@@ -81,6 +81,16 @@ class AutoTestJobs extends Command
      * @return mixed
      */
     public function handle()
+    {
+        $this->info('测试信审分配');
+        $assignStatus = Assign::assign(1, 'phone', [['id' => 1]]);
+        $this->info('完事了');
+        // $this->info("发送短信...081316542924");
+        // OverMessage::repayment('081316542924', 20000000, 1);
+    }
+
+
+    public function fengkong ()
     {
 
         $this->info("发送短信...081316542924");

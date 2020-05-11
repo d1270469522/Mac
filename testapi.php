@@ -55,128 +55,164 @@
  * └─────┴────┴────┴───────────────────────┴────┴────┴────┴────┘ └───┴───┴───┘ └───────┴───┴───┘
  */
 
-// header("Content-type: text/html; charset=utf-8");
+
+
+// header("Content-type: application/json; charset=utf-8");
+header("Content-type: text/html; charset=utf-8");
 // header("Content-type: text/html; charset=gbk");
+echo '<pre>';
 
 
+$str = "Hello World";
+echo str_pad($str,30,".",STR_PAD_LEFT);die;
+
+
+
+
+
+
+/**===================    获取公钥   ================**
 
 $data = [
-    'id'     => 1,
-    'status' => 'ACTIVE',
+    'mobile'         =>'1111111111',
+    'credentialNo'   =>'1111111111',
+    'credentialType' =>'KTP',
+    'productIds'     =>[1],
 ];
 
-$data['appId'] = 'appId1';
-$data['nonce'] = 'd6tvz4UFIcuxdVhqKVUDj6enIHQ9WgBU';
+$data['appId'] = '112787023608';
+$data['nonce'] = '112787023608';
 
-ksort($data);
+$data1 = array_filter($data);
 
-$str = json_encode($data).'secret=abc';
+ksort($data1);
+
+echo '<pre>';
+print_r($data1);
+
+$str = json_encode($data1).'secret=RGFr5nPmCYjiSTzz';
 
 echo ($str);
 echo '<hr>';
-echo sha1($str);die;
+$sign = sha1($str);
+echo $sign;
+echo '<hr>';
 
 
+$data['sign'] = $sign;
+
+echo json_encode($data);
+die;
+
+
+
+/**===================    获取公钥   ================**
 // $a = file_get_contents('http://149.129.251.98:8099/Library/baijiayoumi/rsa_private_key.pem');
 print_r($a);die;
 
 
-/**===================    Kreditpedia  参数生成   ================**/
+/**===================    Kreditpedia  测试   ================**/
 
-$test_arr_001 = [
+
+$originKey = 'c1738990a469934118cc1880af47e9dd';
+$originIv  = '0af9d0aa4e0e74c0b47874a534a8c2a5';
+$key = hex2bin($originKey);
+$iv  = hex2bin($originIv);
+
+// 001 拉取借款金额和借款周期接口（合作方）
+$test_arr = [
     'mobile'      => '13878888888',
     'user_idcard' => '4201051989XXXXXXXX',
 ];
 
-$test_arr_002 = [
+// 002 获取借款金额、周期、利息，管理费等信息接口（合作方）
+$test_arr = [
     'mobile'             => '13878888888',
     'user_idcard'        => '4201051989XXXXXXXX',
-    'application_amount' => 800000,
+    'application_amount' => 1000000,
     'application_term'   => 7,
-    'term_unit'          => 1,
+    'term_unit'          => 1
 ];
 
-$test_arr_003 = [
-    'mobile'      => '13878888888',
-    'user_idcard' => '4201051989XXXXXXXX',
-    'user_name'   => 'nihao',
+// 003 可申请用户&附贷简化流程判断接口（合作方）
+$test_arr = [
+    'mobile'      => '81316542924',
+    'user_idcard' => '3502013001860003',
+    'user_name'   => 'DANIEL ARISANDY EKA PUTRA',
 ];
 
-$test_arr_004 = [
-    'order_info' => [
-        'order_no'           => '123456789',
-        'application_amount' => '1000000',
-        'application_term'   => 7,
-        'term_unit'          => 1,
-        'order_time'         => 1520072101,
+// 004 订单基础信息推送接口（合作方）
+$test_arr = [
+    "order_info" => [
+        "order_no"           => "123456789",
+        "application_amount" => 1000000,
+        "application_term"   => 7,
+        "term_unit"          => 1,
+        "order_time"         => 1520072101,
     ],
-    'base_info' => [
-        'user_name'                 => '张三',
-        'user_mobile'               => '13878888888',
-        'user_idcard'               => '421015192202022999',
-        'face_img_url'              => 'https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4022157416,1072029411&fm=26&gp=0.jpg',
-        'idcard_image_front'        => 'https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3499311072,2789073099&fm=26&gp=0.jpg',
-        'idcard_image_reverse_side' => 'https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1467242771,949293240&fm=26&gp=0.jpg',
-        'education'                 => 4,
-        'month_income'              => 1000000,
-        'religion'                  => 4,
-        'marital_status'            => 2,
-        'sex'                       => 1,
-        'birth_day'                 => '1992-03-12',
+    "base_info" => [
+        "user_name"                 => "张三",
+        "user_mobile"               => "13878888888",
+        "user_idcard"               => "4201051989XXXXXXXX",
+        "face_img_url"              => "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583753775433&di=170997ed3f297d8e7894aa9e802cb97a&imgtype=0&src=http%3A%2F%2Fa0.att.hudong.com%2F78%2F52%2F01200000123847134434529793168.jpg",
+        "idcard_image_front"        => "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583753775433&di=170997ed3f297d8e7894aa9e802cb97a&imgtype=0&src=http%3A%2F%2Fa0.att.hudong.com%2F78%2F52%2F01200000123847134434529793168.jpg",
+        "idcard_image_reverse_side" => "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583753775433&di=170997ed3f297d8e7894aa9e802cb97a&imgtype=0&src=http%3A%2F%2Fa0.att.hudong.com%2F78%2F52%2F01200000123847134434529793168.jpg",
+        "education"                 => 4,
+        "month_income"              => 100000,
+        "religion"                  => 4,
+        "marital_status"            => 2,
+        "sex"                       => 1,
+        "birth_day"                 => "1992-03-12",
     ],
-    'contact_info' => [
+    "contact_info" => [
         [
-            'emergencyRelation' => 3,
-            'emergencyName'     => 'anny',
-            'emergencyPhone'    => '18989365677',
+            "emergencyRelation" => 3,
+            "emergencyName"     => "anny",
+            "emergencyPhone"    => "18989365677"
         ],
         [
-            'emergencyRelation' => 1,
-            'emergencyName'     => 'tony',
-            'emergencyPhone'    => '18989365678',
-        ],
-    ],
+            "emergencyRelation" => 1,
+            "emergencyName"     => "tony",
+            "emergencyPhone"    => "18989365678"
+        ]
+    ]
 ];
 
-$test_arr_005 = [
+// 005 补充信息推送接口（合作方）
+$test_arr = [
     "order_no" => "123456789",
-
     "device_info" => [
         "device_id"   => "9774d56d682e549c",
-        "ip"          => "192.0.0.1",
+        "ip "         => "192.0.0.1",
         "longitude"   => "38.6518 ",
         "latitude"    => "104.07642",
-        "mac"         => "B8:B2:F8:A4:F6:5B",
+        "mac"         => "B8 => B2 => F8 => A4 => F6 => 5B",
         "imei"        => "354782081457389",
         "is_root"     => 1,
         "is_debug"    => 1,
         "is_gps_fake" => 1
     ],
-
     "address_info" => [
-        "address"          => "ACEH/KOTA BANDA ACEH/BANDA RAYA",
+        "address"          => " ACEH/KOTA BANDA ACEH/BANDA RAYA",
         "address_property" => 1,
         "live_time"        => 2
     ],
-
     "company_info" => [
         "has_work"           => 1,
         "work_type"          => 3,
-        "work_certificate"   => "https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4022157416,1072029411&fm=26&gp=0.jpg",
+        "work_certificate"   => "http => //xxxxxx",
         "company_name"       => "xxxxxx",
-        "company_address"    => "ACEH/KOTA BANDA ACEH/BANDA RAYA",
+        "company_address"    => " ACEH/KOTA BANDA ACEH/BANDA RAYA",
         "company_telephone"  => "12342443423",
         "company_member_num" => 200,
         "working_time"       => 2,
-        "email"               => " supercash0620@gmail.com"
+        "email"              => " supercash0620@gmail.com"
     ],
-
     "face_info" => [
-        "liveness_score" => 100,
-        "similarity"     => '69.0'
+        "liveness_score " => "100",
+        "similarity"      => "69.0"
     ],
-
-    "app_list" => json_encode([
+    "app_list" =>  [
         [
             "app_name"     =>  "Solusindo",
             "package_name" =>  "com.ecreditpal.solusindo",
@@ -187,9 +223,8 @@ $test_arr_005 = [
             "package_name" =>  "sogou.mobile.explorer",
             "version_name" =>  "5.24.6"
         ]
-    ]),
-
-    "contact_list" => json_encode([
+    ],
+    "contact_list" => [
         [
             "mobile" => "18989356622",
             "name"   => "lucy"
@@ -198,35 +233,115 @@ $test_arr_005 = [
             "mobile" => "18989356622",
             "name"   => "lucy"
         ]
-    ])
+    ]
+];
+
+// 006 获取支持开户行接口（合作方）
+$test_arr = [
+
+];
+
+// 007 绑卡接口（合作方）
+$test_arr = [
+    "order_no"        => "123456789",
+    "bank_account"    => "1234567890123123",
+    "open_bank_id"    => 1001,
+    "bank_user_name"  => "张三",
+    "bank_user_phone" => "13878888888"
+];
+
+// 008 获取合同接口（合作方）
+$test_arr = [
+    "application_amount" => 1000000,
+    "application_term"   => 7,
+    "term_unit"          => 1,
+    "contract_page"      => 1
+];
+
+// 011 拉取审批结论接口（合作方）
+$test_arr = [
+    "order_no" => "123456789"
+];
+
+// 012 拉取订单状态接口（合作方）
+$test_arr = [
+    "order_no" => ["123456789","223456789","323456789"]
 ];
 
 
+// 013 还款计划信息接口（合作方）
+$test_arr = [
+    "order_no"      =>  "123456789",
+    "repay_type "   =>  1,
+    "repay_bank "   =>  1005,
+    "request_type " =>  2,
+    "delay_term"    =>  7,
+    "delay_unit"    =>  1
+];
 
-$str = json_encode($test_arr_005);
+// 014 还款详情信息接口（合作方）
+$test_arr = [
+    "order_no"     => "123456789",
+    "repay_type"   => 1,
+    "repay_bank"   => 2001,
+    "repay_store"  => 2001,
+    "request_type" => 2,
+    "delay_term"   => 7,
+    "delay_unit"   => 1
+];
+
+$timestamp = 1583905021109;
+
+$str = json_encode($test_arr);
 
 // 加密
-$en_data = base64_encode(openssl_encrypt($str, "AES-128-CBC", 'testtesttesttest', OPENSSL_RAW_DATA, 'testtesttesttest'));
-print_r($en_data);
-echo '<hr>';
+$en_data = base64_encode(openssl_encrypt($str, "AES-128-CBC", $key, OPENSSL_RAW_DATA, $iv));
+// print_r($en_data);
+// echo '<hr>';
 
 // 解密
-$de_data = openssl_decrypt(base64_decode($en_data), "AES-128-CBC", 'testtesttesttest', OPENSSL_RAW_DATA, 'testtesttesttest');
-print_r($de_data);
-echo '<hr>';
+$de_data = openssl_decrypt(base64_decode($en_data), "AES-128-CBC", $key, OPENSSL_RAW_DATA, $iv);
+// print_r($de_data);
+// echo '<hr>';
+
 
 // 签名
-ksort($test_arr_005);
-$timestamp = 1575254404;
-echo md5('testtesttesttest' . '*|*' . json_encode($test_arr_005, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES) . '@!@' . $timestamp);die;
+ksort($test_arr);
+
+print_r($test_arr);
+echo '<hr>';
+
+$sign = md5($originKey . '*|*' . json_encode($test_arr, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES + JSON_PRESERVE_ZERO_FRACTION) . '@!@' . $timestamp);
+echo $sign;
+echo '<hr>';
+
+// $url = 'http://39.96.161.37/Kreditpedia/001.api';
+// $url = 'http://39.96.161.37/Kreditpedia/002.api';
+// $url = 'http://39.96.161.37/Kreditpedia/003.api';
+// $url = 'http://39.96.161.37/Kreditpedia/004.api';
+// $url = 'http://39.96.161.37/Kreditpedia/005.api';
+// $url = 'http://39.96.161.37/Kreditpedia/006.api';
+// $url = 'http://39.96.161.37/Kreditpedia/007.api';
+// $url = 'http://39.96.161.37/Kreditpedia/008.api';
+// $url = 'http://39.96.161.37/Kreditpedia/011.api';
+// $url = 'http://39.96.161.37/Kreditpedia/012.api';
+// $url = 'http://39.96.161.37/Kreditpedia/013.api';
+$url = 'http://39.96.161.37/Kreditpedia/014.api';
+
+$arr = [
+    'version'      => 1,
+    'partner_name' => 'Kreditpedia',
+    'appid'        => 202003119106,
+    'timestamp'    => $timestamp,
+    'sign'         => $sign,
+    'en_data'      => $en_data,
+];
+print_r($arr);
+echo json_encode($arr);
+echo '<hr>';
 
 
-
-/**===================    Kreditpedia 004.api   ================**/
-
-$url = 'http://39.96.161.37/Kreditpedia/004.api';
-
-$data = '{"version":"1","partner_name":"Kreditpedia","appid":"99","timestamp":"1575254404","sign":"f4cfa1fc873d79ae218974d06a9a59e1","en_data":"MeEnb5BIwX1REoDw+jhWGQ7/IzJt2Ds/6ItCwhzAUjRgMAI9bvvKMiuA2ogbwKoVZLoSoanNWLsGJbsYO7MFnoWITDqixuZS+l/Xlgs5e9bZejVFLRHWxfSL6H0upTbciqR5+qshAaZrpVU7qIGZTC++e4J4dnw4t5tIdcPMrVaXdDu1KmB66ZMJcXwG7erRmG0GTCwkl2xLwf2/lit8zULay/bzcuB6UZf18OCgaRAoI9fH54Sx8to2OYY5DRrtp61JWcdrvnrUgfMh5FJHW2GfglIhoUpWd+Ljbj6gzGrUDzcaUy5lj9pdzvbcvcFj5rCLeOZ73qXT+CtyxKvWasNaZoDHfyZU5Rpwm0rMSwQiJeru0VkW/EyK0m4l0HdWG8Xracb67hebtIP2d+VlVCv2xEQX2QiFfjiJil0X8ViL2b4t8li18HaEmO9quICw5ho45UirNKZ6XnxQyYrQLNlZ3EwT/cu9VuyGB+ePjzk0S5Ggsnt6AJ89zdH4CCQtkQijOlC4iv3G1yLBd6Y9W1vcVsYxu/TtvWxT6tKybmPKWPfgCLzSh1rIDQ71LKnoP7UpmC5FvXnigtMw8H/hjpUBSo8TjQ0wKxnM5tw3sABq7DBsuekEMG5vU53cUSsLGtKR6VB05BcJ4eSmiN5m2x1Xy7vSEqQP1t6jeymv+7biGacLAErAANE/tvwsacQwYl5ynpSx4WUKKVg83VXZ3nztWK1bFjYHpnuXfvMcijzVAQvSQMvXGGf5pOeEiH5+hAJA1HAIjPVoY2H7KBJHT6zouv47hynlJa7LaqOVyW4Yicgj6g6ghH2ljghoU6t7lYSPhoXBI8HAHc00lRWSUtAQTHqMrUr3+oknvJUdWXLb8W6BkgLI1XsCMoxd3as5ugTQ3TfdVwt/dqr02frSKgrFvFHhbYEmYPXYlgHDO3IYE1bTFZ+87o3+h4qv9kEANfAhW69GQuiA+Ul4SSvWV/slxAgOF+6ligB1/QPKiH2Dohnmj8yDGzGIBBdpkx8ng2OBPtivj87VDtNb7Y8WnccMqv5Dy+exVYWf67WZTHM2P+CswFOjFt7F6fab2oCLdWVId87tfJdEGYMk5Z6Pn3fVbfmYsw1g9eKNSWnHfumrPqJwOanCVi19tNqySVxHPIL1ZPKwqxgx+06qWMz7bwS1XjXqIMxf5rz8BxzjihU="}';
+$data = json_encode($arr);
 
 $res = curlPost($url, $data);
 
@@ -586,6 +701,26 @@ function curlGet ($url, $header)
 
 
 
+/**
+ * 过滤字符串
+ */
+function filter_array(&$arr, $values = ['', null, false, []])
+{
+    if (!is_array($arr)) {
+        return [];
+    }
+
+    foreach ($arr as $k => $v) {
+        if (is_array($v) && count($v) > 0) {
+            $arr[$k] = filter_array($v, $values);
+        }
+
+        if (in_array($v, $values, true)) {
+            unset($arr[$k]);
+        }
+    }
+    return $arr;
+}
 
 
 
