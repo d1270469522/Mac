@@ -682,13 +682,68 @@ ORDER BY tt.cc DESC
 
 
 # 销量前十的产品排序
-select t.cat_id,t.goods_num, top from (
+select t.cat_id,t.goods_num, top
+from
+(
     select t1.*, (
           select count(*) + 1 from order_goods t2
           where t2.cat_id = t1.cat_id and t2.goods_num > t1.goods_num
     ) top
     from order_goods t1
-) t where top <=10 order by t.cat_id, top;
+) t
+where top <=10 order by t.cat_id, top;
+
+SELECT *
+FROM `user_saving_order`
+WHERE SUBSTR( FROM_UNIXTIME( `add_time` ) , 1, 10 ) = '2020-05-11'
+AND user_id IN (
+    SELECT id
+    FROM user
+    WHERE SUBSTR( FROM_UNIXTIME( `reg_time` ) , 1, 10 ) = '2020-05-11'
+)
+
+
+#  后台加个“充值转化的模块”展示上面的数据
+select
+SUBSTR(FROM_UNIXTIME(uso.add_time), 1, 10) as '日期',
+COUNT(*) AS '总充值发起',
+COUNT(CASE WHEN (uso.status = 1) THEN 1 ELSE NUll END) AS '总完成充值',
+COUNT(CASE WHEN (uso.status = 1) THEN 1 ELSE NUll END) / COUNT(*) as '总充值率',
+COUNT(CASE WHEN (SUBSTR(FROM_UNIXTIME(uso.add_time), 1, 10) != SUBSTR(FROM_UNIXTIME(u.reg_time), 1, 10)) THEN 1 ELSE NUll END) AS '老用户发起',
+COUNT(CASE WHEN ((uso.status = 1) and (SUBSTR(FROM_UNIXTIME(uso.add_time), 1, 10) != SUBSTR(FROM_UNIXTIME(u.reg_time), 1, 10))) THEN 1 ELSE NUll END) AS '老用户完成',
+COUNT(CASE WHEN ((uso.status = 1) and (SUBSTR(FROM_UNIXTIME(uso.add_time), 1, 10) != SUBSTR(FROM_UNIXTIME(u.reg_time), 1, 10))) THEN 1 ELSE NUll END) /
+COUNT(CASE WHEN (SUBSTR(FROM_UNIXTIME(uso.add_time), 1, 10) != SUBSTR(FROM_UNIXTIME(u.reg_time), 1, 10)) THEN 1 ELSE NUll END) as '老用户充值率',
+COUNT(CASE WHEN (SUBSTR(FROM_UNIXTIME(uso.add_time), 1, 10) = SUBSTR(FROM_UNIXTIME(u.reg_time), 1, 10)) THEN 1 ELSE NUll END) AS '新用户发起',
+COUNT(CASE WHEN ((uso.status = 1) and (SUBSTR(FROM_UNIXTIME(uso.add_time), 1, 10) = SUBSTR(FROM_UNIXTIME(u.reg_time), 1, 10))) THEN 1 ELSE NUll END) AS '新用户完成',
+COUNT(CASE WHEN ((uso.status = 1) and (SUBSTR(FROM_UNIXTIME(uso.add_time), 1, 10) = SUBSTR(FROM_UNIXTIME(u.reg_time), 1, 10))) THEN 1 ELSE NUll END) /
+COUNT(CASE WHEN (SUBSTR(FROM_UNIXTIME(uso.add_time), 1, 10) = SUBSTR(FROM_UNIXTIME(u.reg_time), 1, 10)) THEN 1 ELSE NUll END) as '新用户充值率'
+from user_saving_order as uso
+left join user as u on  uso.user_id = u.id
+where SUBSTR(FROM_UNIXTIME(uso.add_time), 1, 10) between '2020-05-01' and '2020-05-15'
+GROUP BY SUBSTR(FROM_UNIXTIME(uso.add_time), 1, 10) DESC
+
+
+
+#========
+
+select
+d.Name as Department,
+e.Name as Employee,
+e.Salary as Salary
+from Employee as e left join Department as d
+on e.DepartmentId = d.Id
+where e.Id in
+(
+    select e1.Id
+    from Employee as e1 left join Employee as e2
+    on e1.DepartmentId = e2.DepartmentId and e1.Salary < e2.Salary
+    group by e1.Id
+    having count(distinct e2.Salary) <= 2
+)
+and e.DepartmentId in (select Id from Department)
+order by d.Id asc,e.Salary desc
+
+
 
 
 

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>董鹏飞_PHP工程师_简历</title>
+
+<style type="text/css">
+    /* 全局配置 */
+    body {
+        margin: 30px auto;
+        width: 80%;
+        font-size: 12px;
+        font-family: '微软雅黑';
+    }
+    /* 列表 li */
+    li {
+        padding: 4px 0;
+    }
+    td {
+        padding: 4px;
+    }
+    /* 顶部基本信息：联系方式等 h2 */
+    .basic-informations {
+        text-align: center;
+    }
+    /* 小标题 */
+    .subtitle{
+        background-repeat:no-repeat;
+        background-size: auto 100%;
+        padding: 3px 0 0 25px;
+    }
+    .subtitle.job-intentions{
+        background-image:url(./images/job-intentions.png);
+    }
+    .subtitle.personal-skills{
+        background-image:url(./images/personal-skills.png);
+    }
+    .subtitle.project-experiences{
+        background-image:url(./images/project-experiences.png);
+    }
+    .subtitle.work-experiences{
+        background-image:url(./images/work-experiences.png);
+    }
+    .subtitle.education-background{
+        background-image:url(./images/education-background.png);
+    }
+    .subtitle.self-assessment{
+        background-image:url(./images/self-assessment.png);
+    }
+    /* 求职意向 table */
+    .job-intentions-table {
+        margin: 0 20px;
+        width: 80%;
+        border-collapse: collapse;
+    }
+    /* 项目经验每一块 div */
+    .project-experiences-son {
+        border-bottom: dashed 1px #ccc;
+        margin: 0 20px;
+    }
+    /* 项目经验每一块 div 最后一个不加虚线 */
+    .project-experiences-son.bottom{
+        border: none;
+    }
+    /* 工作经历 */
+    .work-experiences-son, .education-background-son{
+        margin: 20px 30px;
+    }
+    /* 时间段 2020.04-至今 */
+    .time-phase {
+        display: inline-block;
+        width: 120px;
+        float: right;
+    }
+</style>
+
+<body>
+
+<!-- 个人简历 -->
+<h1 class="basic-informations">个人简历</h1>
+<h4 class="basic-informations">
+    董鹏飞&nbsp;&nbsp;&nbsp;&nbsp;
+    |&nbsp;&nbsp;&nbsp;&nbsp;
+    男&nbsp;&nbsp;&nbsp;&nbsp;
+    |&nbsp;&nbsp;&nbsp;&nbsp;
+    5&nbsp;年
+</h4>
+<h4 class="basic-informations">
+    Tel：130-5182-2580
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Email：1270469522@qq.com
+</h4>
+<!-- 个人简历 -->
+
+<!-- 求职意向 -->
+<h4 class="subtitle job-intentions">求职意向</h4><hr>
+<table class="job-intentions-table">
+    <tr>
+        <td>期望职业：PHP 工程师</td>
+        <td>期望薪资：面议</td>
+    </tr>
+    <tr>
+        <td>工作性质：全职</td>
+        <td>工作地点：北京</td>
+    </tr>
+    <tr>
+        <td>现居地址：北京-大兴</td>
+        <td>目前状况：在职-考虑机会</td>
+    </tr>
+</table>
+<!-- 求职意向 -->
+
+<!-- 个人技能 -->
+<h4 class="subtitle personal-skills">个人技能</h4><hr>
+<ul type="circle">
+    <li>熟练使用 PHP 语言，熟悉 Laravel、ThinkPHP 等主流框架。</li>
+    <li>熟练使用 HTML5+CSS3、jQuery、Redis 等技术。</li>
+    <li>深刻理解 MySQL 的设计与优化，如：索引、事务等。</li>
+    <li>熟练使用 Linux 常用操作，LNMP 环境搭建。</li>
+    <li>熟练使用 Git 和 SVN 等版本控制系统。</li>
+    <li>个人网站：https://www.tianjintou.top</li>
+    <li>GitHub：https://github.com/d1270469522</li>
+    <li>CSDN：https://blog.csdn.net/tianjintouliulang</li>
+</ul>
+<!-- 个人技能 -->
+
+<!-- 项目经验 -->
+<h4 class="subtitle project-experiences">项目经验</h4><hr>
+
+<div class="project-experiences-son">
+    <h4>1、操盘项目：今日智投<span class="time-phase">2020.04-至今</span></h4>
+    <p>项目简介：对接交易所，整合到本公司平台；用户可以建仓、平仓、跟单等。</p>
+    <p>技术栈：PHP、thinkPHP、MySQL</p>
+    <p>职责描述：</p>
+    <ul type="circle">
+        <li>操盘项目是老项目，本人原不属于该项目。</li>
+        <li>因 2020 年新冠疫情，海外市场暂停，参与开发操盘项目。</li>
+        <li>配合其它人员优化后台管理：用户管理、建仓平仓管理、充值管理等。</li>
+        <li>配合其它部门不定时出数据。</li>
+    </ul>
+</div>
+
+<div class="project-experiences-son">
+    <h4>2、海外市场<span class="time-phase">2019.02-2020.03</span></h4>
+    <p>项目简介：由于国情所致，全盘停掉国内该类项目，转向海外市场（印尼市场 ｜ 菲律宾市场），经营内容与国内相似；但是当地人的消费习惯和信仰等有较大的差异，致使项目流程有大幅重构。</p>
+    <p>技术栈：PHP、Laravel、Linux、MySQL</p>
+    <p>职责描述：</p>
+    <ul type="circle">
+        <li>根据当地情况（宗教信仰等），结合国内经验重新调整项目需求。</li>
+        <li>后台管理重构：审核流程改动篇幅较大（初审、电审、终审）。</li>
+        <li>客户端改动：如 UI 设计时不能出现违背信仰的图案等、当地没有支付宝和微信需要便利店或 ATM 还款等。</li>
+        <li>API 开发：配合客户端开发 API 接口；对接当地的三方接口（放款还款：DOKU 等）。</li>
+        <li>由于流量问题，对接贷超：CashCash、Kreditpedia、Uangcash等</li>
+    </ul>
+</div>
+
+<div class="project-experiences-son">
+    <h4>3、风控项目<span class="time-phase">2018.08-2019.04</span></h4>
+    <p>项目简介：该项目是关于现金贷的风控部分，风控在整个项目中属于较为特殊且重要的部分；风控的水平决定了用户质量的好坏。</p>
+    <p>技术栈：PHP、thinkPHP、Linux、MySQL</p>
+    <p>职责描述：</p>
+    <ul type="circle">
+        <li>根据整体项目需求，分析用户群体，初步制定较为简单且全面的规则风控：黑名单、年龄、住址等。</li>
+        <li>公司主营非研发风控，所以需要对接国内其它甲方的风控（一到两家）。</li>
+        <li>国内风控的核心数据是运营商数据，需获取：魔蝎、数聚魔盒、融360等。</li>
+        <li>整合自己和其它家的风控，形成新风控成为甲方向外对接；对接了共十几家乙方。</li>
+    </ul>
+</div>
+
+<div class="project-experiences-son">
+    <h4>4、急贷宝 ｜ 掌富贷 ｜ 趣花花 ｜ 等<span class="time-phase">2018.03-2018.12</span></h4>
+    <p>项目简介：这些项目为同类不同期项目，主要功能是面向用户的小额贷款。顶峰期每日下单量达 4500 左右，年度利润约 2 亿。</p>
+    <p>技术栈：PHP、thinkPHP、Linux、MySQL</p>
+    <p>职责描述：
+    <ul type="circle">
+        <li>根据项目需求进行分析，和竞品对比，制定开发思路和开发周期。</li>
+        <li>全权负责后台管理的所有开发，核心模块：用户管理、审核管理、放款管理、催熟管理、渠道管理。</li>
+        <li>负责部分客户端 API 接口开发以及其它第三方接口（短信、银行等）开发。</li>
+        <li>开发完成后，根据线下工作人员反馈，及时进行调整优化；根据其他部门（运营、市场等）要求，不定期出数据统计。</li>
+    </ul>
+</div>
+
+<div class="project-experiences-son">
+    <h4>5、客聚宝 CRM 管理软件（微信）<span class="time-phase">2017.05-2018.02</span></h4>
+    <p>项目简介：为了实现多平台打通，我们在微信公众号开发了与 PC、手淘相辅的商城，功能与手淘的互动任务有异曲同工之妙，同时开发了微信独有的特色功能，如：订单返现，红包发放等。</p>
+    <p>技术栈：PHP、smarty、MySQL</p>
+    <p>职责描述：</p>
+    <ul type="circle">
+        <li>参与项目的前期分析，制定微信迁徙的时间进度及功能的留存。</li>
+        <li>负责整个板块的迁徙（手淘 -> 微信）。</li>
+        <li>负责微信公众平台的开发以及公众号商户平台的注册开通，实现订单返现、红包发放以及证书下载等功能。</li>
+        <li>开发微信独有的特色活动，编写相关的 API 接口文件。</li>
+        <li>根据商家向公司客服反映的问题进行排查和修复，优化维护前期的功能。</li>
+        <li>编写相关开发文档，以便后续开发参考。</li>
+    </ul>
+</div>
+
+<div class="project-experiences-son">
+    <h4>6、客聚宝 CRM 管理软件（手淘）<span class="time-phase">2016.02-2018.02</span></h4>
+    <p>项目简介：为了实现多平台打通，我们在微信公众号开发了与 PC、手淘相辅的商城，功能与手淘的互动任务有异曲同工之妙，同时开发了微信独有的特色功能，如：订单返现，红包发放等。</p>
+    <p>技术栈：PHP、smarty、MySQL</p>
+    <p>职责描述：</p>
+    <ul type="circle">
+        <li>参与项目分析，配合项目组长进行工作的分配，进行建表等前期工作。</li>
+        <li>负责首页的活动列表展示，以及相关信息的发布，对不同会员的信息进行展示。</li>
+        <li>负责前台活动的列表及详情的展示，在用户参加活动后，获取用户参加的信息，统计参加记录；并根据统计结果发放相对应的权益。</li>
+        <li>优化登陆注册功能，根据淘宝的 cookie 添加唯一标识。</li>
+        <li>根据商家向公司客服反映的问题进行排查和修复，优化维护前期的功能。</li>
+        <li>编写相关开发文档，以便后续开发参考。</li>
+    </ul>
+</div>
+
+<div class="project-experiences-son bottom">
+    <h4>7、客聚宝 CRM 管理软件（PC）<span class="time-phase">2016.02-2018.02</span></h4>
+    <p>项目简介：客聚宝是为零售品牌和商家提供数据驱动的精准智能 Eco-CRM 系统，它除了具备传统 CRM 功能外，更关注全渠道数据归集、自动智能运营营销、客户互动连接、基于大数据技术和机器学习的用户数据生态建设。</p>
+    <p>技术栈：PHP、smarty、MySQL</p>
+    <p>职责描述：</p>
+    <ul type="circle">
+        <li>根据产品经理的原型分析项目的功能需求，进行建表等前期工作。</li>
+        <li>开发后台活动，商家可以设置前台的活动需求，添加新的活动；对后台以往设置的活动进行列表展示和管理；统计每个活动所有用户的参加记录；对个别活动添加审核功能，商家审核后进行相关权益的发放；提供独立链接以便商家在手淘和微信设置子菜单填写链接。</li>
+        <li>优化会员级别，根据会员级别的不同，用户参加活动可以得到相对应的权益；通过对会员信息的整理，商家可以对每个会员有清晰的了解。</li>
+        <li>优化积分系统，与会员级别息息相关，起到相辅相成的作用；记录每个会员的积分明细，商家可以进行查看，并进行删除、修改等操作。 cookie 添加唯一标识。</li>
+        <li>根据商家向公司客服反映的问题进行排查和修复，优化维护前期的功能。</li>
+        <li>编写相关开发文档，以便后续开发参考。</li>
+    </ul>
+</div>
+<!-- 项目经验 -->
+
+<!-- 工作经历 -->
+<h4 class="subtitle work-experiences">工作经历</h4><hr>
+<p class="work-experiences-son">
+    北京零壹畅想科技有限公司
+    <span class="time-phase">2018.03-至今</span>
+</p>
+<p class="work-experiences-son">
+    北京客度科技有限公司
+    <span class="time-phase">2016.02-2018.02</span>
+</p>
+<!-- 工作经历 -->
+
+<!-- 教育背景 -->
+<h4 class="subtitle education-background">教育背景</h4><hr>
+<p class="education-background-son">
+    中北大学
+    <span class="time-phase">2012.09-2016.06</span>
+</p>
+<!-- 教育背景 -->
+
+<!-- 自如评价 -->
+<h4 class="subtitle self-assessment">自如评价</h4><hr>
+<ul type="circle">
+    <li>具有很好的需求分析能力，能快速理解业务需求。</li>
+    <li>具有较强的学习能力和独立解决问题的能力，对自己不熟悉的领域能快速的学习并掌握。</li>
+    <li>工作责任心强，能承受高强度的工作压力。</li>
+    <li>有很好的团队协调能力，能很好的处理同事之间的关系。</li>
+</ul>
+<!-- 自如评价 -->
+</body>
+</html>

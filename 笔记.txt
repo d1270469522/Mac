@@ -132,6 +132,38 @@
 
         https://panjiachen.github.io/vue-element-admin-site/zh/guide/
 
+    视频转 Gif：
+
+        https://ezgif.com/video-to-gif/ezgif-7-2013b31d0aa7.mp4
+
+    http 转 https：
+
+        https://certbot.eff.org/lets-encrypt/centosrhel7-nginx
+
+    confirm 弹窗：
+
+        https://github.com/craftpip/jquery-confirm
+
+    leetcode 题库：
+
+        https://leetcode-cn.com
+
+    百码云：
+
+        https://www.microeco.net
+
+    laravel-admin 后台文档：
+
+        https://laravel-admin.org
+
+    支付宝沙箱测试：
+
+        https://openhome.alipay.com/platform/appDaily.htm?tab=account
+
+    虚拟 URL：
+
+        http://requestbin.net
+
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -286,6 +318,27 @@ laravel社区：
         账号：rdsdb_root
         密码：1@AbED#4%eA4y03&45$5F7*d8D
 
+        新增线上只读库账号 zhitou_rdsdev_pr
+        密码同老账号 zhitou_rdsdev
+
+        1$7&MA4Dd8F2Nkw#D3
+
+    菲律宾：
+        http://47.94.235.248:8088/2phpmyadmin2/
+        root
+        localR@@T
+        数据库 uangbagus_pro
+
+        47.94.235.248
+        /srv/cdn
+        cdn.gpeso.com
+
+        /srv/api
+        api.gpeso.com
+
+        /srv/console
+        console.gpeso.com
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Git仓库：
@@ -304,6 +357,11 @@ Git仓库：
     智投BOSS：https://e.coding.net/lihuangde/jinrizhitou_admin.git
     智投API：https://e.coding.net/lihuangde/jinrizhitou_api.git
 
+    菲律宾的代码，要部署一份到248测试环境
+    https://e.coding.net/lihuangde/UangBagus-api-ph.git
+    https://e.coding.net/lihuangde/UangBagus-Jobs-ph.git
+    https://e.coding.net/lihuangde/UangBagus-cdn-ph.git
+    https://e.coding.net/lihuangde/UangBagus-console-ph.git
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -519,6 +577,10 @@ Nginx 配置位置：
 
         /usr/local/software/nginx/1.14.2/conf/conf.d/rc
 
+    47.94.235.248（操盘测试）
+
+        /usr/local/nginx/conf/vhost
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Git 新建仓库，上传远程：
@@ -647,7 +709,7 @@ Git 删除远程分支：
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-查看某个文件的修改历史
+Git 查看某个文件的修改历史
 
     1、在git中查看历史的命令主要是git log，要查看某个文件的修改历史可以这样：
 
@@ -668,12 +730,63 @@ Git 删除远程分支：
     4、然后使用 git show命令查看完整的提交内容。
 
 
-查看历史中的文件内容
+Git 查看历史中的文件内容
 
     1、当我们使用 git log 命令找到了某次提交，并且想看看这次提交时文件的完整内容。
        这时，我们需要使用 git show 命令：
 
         $ git show xxxxx:filename
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+git stash
+
+    参考：https://www.cnblogs.com/tocy/p/git-stash-reference.html
+
+    发现有一个类是多余的，想删掉它又担心以后需要查看它的代码，想保存它但又不想增加一个脏的提交。这时就可以考虑 git stash。
+
+    1、git stash（stash 当前修改）
+
+        会把所有未提交的修改（包括暂存的和非暂存的）都保存起来，用于后续恢复当前工作目录。
+        需要说明一点，stash 是本地的，不会通过 git push 命令上传到g it server 上。
+        实际应用中推荐给每个 stash 加一个 message，用于记录版本，
+        使用 git stash save取代git stash命令。示例如下：
+
+        $ git stash save "test-cmd-stash"
+
+    2. 重新应用缓存的 stash
+
+        git stash pop
+
+        可以通过 git stash pop 命令恢复之前缓存的工作目录
+        这个指令将缓存堆栈中的第一个 stash 删除，并将对应修改应用到当前的工作目录下。
+
+        git stash apply
+
+        你也可以使用 git stash apply 命令，将缓存堆栈中的 stash 多次应用到工作目录中，但并不删除 stash 拷贝。
+        在使用 git stash apply 命令时可以通过名字指定使用哪个 stash，默认使用最近的 stash（即 stash@{0}）。
+
+    3. 查看现有 stash
+
+        git stash list
+
+        可以使用 git stash list 命令，一个典型的输出如下：
+        $ git stash list
+        stash@{0}: WIP on master: 049d078 added the index file
+        stash@{1}: WIP on master: c264051 Revert "added file_size"
+        stash@{2}: WIP on master: 21d80a5 added number to log
+
+    4. 移除 stash
+
+        git stash drop
+
+        可以使用 git stash drop 命令，后面可以跟着 stash 名字。下面是一个示例：
+        $ git stash drop stash@{0}
+        Dropped stash@{0} (364e91f3f268f0900bc3ee613f9f733e82aaed43)
+
+        git stash clear
+
+        或者使用git stash clear命令，删除所有缓存的stash。
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -789,7 +902,7 @@ Mac本地开发环境：
 
         https://www.cnblogs.com/meng1314-shuai/p/8335140.html
 
-    Mac 下 nginx 重启：
+    Mac 下 nginx 重启：（版本替换成自己的）
 
         /usr/local/Cellar/nginx/1.17.1/bin/nginx -s reload
 
@@ -804,6 +917,143 @@ Mac本地开发环境：
     Mac 配置的环境变量才生效：
 
         source ~/.bash_profile
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Mac本地开发环境：（Nginx）
+
+    参考：https://www.cnblogs.com/meng1314-shuai/p/8335140.html
+
+    1、打开终端，习惯性命令：
+
+        brew update
+
+    2、查询要安装的软件是否存在：
+
+        brew search nginx
+
+    3、这里我们多执行一步“废”命令，不过有利于我们后面的配置：
+
+        brew info nginx
+
+        Not installed：nginx 在本地还未安装
+        From：nginx 的来源
+        Docroot：默认为 /usr/local/var/www，
+        在/usr/local/etc/nginx/nginx.conf 配置文件中默认端口被配置为8080从而使nginx运行时不需要加 sudo，
+        nginx将在/usr/local/etc/nginx/servers/目录中加载所有文件，以及我们可以通过最简单的命令 'nginx' 来启动nginx。
+
+    4、正式开始安装：
+
+        brew install nginx
+
+    5、查看 nginx 安装目录（是否如info所说）：　
+
+        open /usr/local/etc/nginx/    // 配置目录
+
+        open /usr/local/Cellar/nginx  // 安装目录
+
+    6、启动nginx，终端输入如下命令：
+
+        nginx
+
+    7、nginx的配置文件吧（nginx.conf）:
+
+        vim /usr/local/etc/nginx/nginx.conf
+
+        http 里面增加：
+
+            # 开启目录文件列表
+            autoindex on;
+            # 显示出文件的确切大小，单位是bytes
+            autoindex_exact_size off;
+            # 显示的文件时间为文件的服务器时间
+            autoindex_localtime on;
+            #设置字符集
+            charset utf-8,gbk;
+
+    8、server 配置：
+
+        server {
+            .
+            .
+            .
+
+            location / {
+                root   /Users/zhangsan/projects/;
+                index index.php index.html index.htm;
+            }
+            .
+            .
+            .
+            location ~ \.php$ {
+                root           /Users/zhangsan/projects/;
+                fastcgi_pass   127.0.0.1:9000;
+                fastcgi_index  index.php;
+                fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+                include        fastcgi_params;
+            }
+            .
+            .
+            .
+        }
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Mac本地开发环境：（php-fpm）
+
+    Mac 配置 php-fpm 时出现'/private/etc/php-fpm.conf': No such file or directory (2)
+
+    参考：https://www.cnblogs.com/lilei9110/p/6255877.html
+
+    1、Mac 自带 php-fpm，在终端执行 php-fpm，会报如下错误：
+
+        ERROR: failed to open configuration file '/private/etc/php-fpm.conf': No such file or directory (2)
+        ERROR: failed to load configuration file '/private/etc/php-fpm.conf'
+        ERROR: FPM initialization failed
+
+    2、错误信息显示，不能打开配置文件，cd /private/etc，发现没有 php-fpm.conf 文件，但是有 php-fpm.conf.default 文件。这个文件是默认配置，我们可以复制一份，改名为 php-fpm.conf，然后再根据需要改动配置。
+
+        cp /private/etc/php-fpm.conf.default /private/etc/php-fpm.conf
+
+    3、执行 php-fpm，再次报错：
+
+        ERROR: failed to open error_log (/usr/var/log/php-fpm.log): No such file or directory (2)
+        ERROR: failed to post process the configuration
+        ERROR: FPM initialization failed
+
+    4、错误信息显示，不能打开错误日志文件。cd /usr/var/log 发现根本没有这个目录，甚至连 var 目录都没有，加上为了避免权限问题，干脆配置到 /usr/local/var/log 目录。
+
+        修改 php-fpm.conf error_log 配置为 /usr/local/var/log/php-fpm.log，并把 user 和 group 改为和当前用户一样。
+
+    5、执行 php-fpm，再次报错：
+
+        NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+        NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+
+    6、于是 sudo php-fpm，再次报错：
+
+        ERROR: unable to bind listening socket for address '127.0.0.1:9000': Address already in use (48)
+        ERROR: FPM initialization failed
+
+    7、编辑 php-fpm.conf，修改 listen 为 127.0.0.1:9999。
+
+    执行 php-fpm -t，这个世界终于清净了！
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+php-fpm 在mac 中重启方式
+
+    1、查看php-fpm端口是否在被php-fpm使用
+
+        sudo lsof -i:9000
+
+    2、一般修改 php.ini 文件后经常需要重启php-fpm
+
+        sudo  killall  php-fpm   关闭
+
+    3、再输入 sudo lsof -i:9000 就会发现php-fpm没有打印对应端口
+
+        sudo  php-fpm    重启
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -1675,10 +1925,96 @@ Linux 修改主机名
     简单的说 export 用于定义一个模块，import 用于引入一个模块。
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Nginx 服务器默认不支持 pathinfo
+
+    如果出现错误可以使用下面方法：【模块不存在:admin.php】
+
+    在需要 pathinfo 支持的程序中(如thinkphp),则无法支持 '/index.php/Home/Index/index' 这种网址.
+
+    典型配置
+
+        location ~ \.php$ {
+            root           html;
+            fastcgi_pass   127.0.0.1:9000;
+            fastcgi_index  index.php;
+            fastcgi_param  SCRIPT_FILENAME  $DOCUMENT_ROOT$fastcgi_script_name;
+            include        fastcgi_params;
+        }
+
+    支持pathinfo
+
+        location ~ \.php(.*)$ { # 正则匹配.php后的 pathinfo 部分
+            root html;
+            fastcgi_pass   127.0.0.1:9000;
+            fastcgi_index  index.php;
+            fastcgi_param  SCRIPT_FILENAME  $DOCUMENT_ROOT$fastcgi_script_name;
+            fastcgi_param  PATH_INFO $1;   # 把 pathinfo 部分赋给 PATH_INFO 变量
+            include        fastcgi_params;
+        }
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Mac 本机安装 PHP
+
+    1、php -v
+
+    2、下载对应版本
+
+    3、进入 pcntl
+
+    4、phpize
+
+        执行phpize中出现Cannot find autoconf.错误
+        解决方法也很简单，安装个autoconf即可。
+
+        brew install autoconf
+        brew install m4
+
+    5、configure
+
+        fatal error: 'php.h' file not found 错误的解决办法
+
+        解决办法如下：
+
+        sudo ln -s /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include /usr/include
+
+        这里注意一下，你使用的系统版本号。
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+laravel-shop 部署到线上出现的问题
+
+    参考：https://blog.csdn.net/qq_39436397/article/details/98974342
+
+    1、composer 出错
+
+        找到对应 composer.json 删除相应的 一行代码；
+        找到对应 composer.lock 删除对应的 多行代码；
+
+    2、laravel-shop The Mix manifest does not exist.前端错误
+
+        1、如没有安装node.js，先安装
+        2、查看版本
+            [root@localhost /]# node -v
+                v10.9.0
+            [root@localhost /]# npm -v
+                6.2.0
+        3、npm install --no-bin-links
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+yarn 安装：
+
+    https://yarn.bootcss.com/docs/install/#centos-stable
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Elasticsearch 删除所有的索引
+
+    参考：https://blog.csdn.net/Sely_Lou/article/details/84438103
+
+    curl -XDELETE http://ip:9200/_all
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

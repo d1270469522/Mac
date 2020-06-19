@@ -63,13 +63,56 @@ header("Content-type: text/html; charset=utf-8");
 echo '<pre>';
 
 
-$str = "Hello World";
+function quickSort($arr)
+{
+    $len = count($arr);
+    if ($len <= 1) {
+        return $arr;
+    }
+    $base = $arr[0];
+    $left = $right = [];
+    for ($i = 1; $i < $len; $i++) {
+        if ($base > $arr[$i]) {
+            $left[] = $arr[$i];
+        } else {
+            $right[] = $arr[$i];
+        }
+    }
+
+    $left = quickSort($left);
+    $right = quickSort($right);
+    return array_merge($left, [$base], $right);
+}
+
+
+function quickSort2($arr)
+{
+    $len = count($arr);
+    if ($len <= 1) {
+        return $arr;
+    }
+    $base = $arr[0];
+    $left = $right = [];
+    for ($i = 1; $i < $len; $i++) {
+        if ($arr[$i] < $base) {
+            $left[] = $arr[$i];
+        } else {
+            $right[] = $arr[$i];
+        }
+    }
+
+    $left = quickSort2($left);
+    $right = quickSort2($right);
+
+    return array_merge($left, [$base], $right);
+}
+// $arr = [2,4,1,3,7,9,8,6,5];
+$arr = [4,5,3,1,2];
+print_r(quickSort2($arr));die;
+
+
+
 echo str_pad($str,30,".",STR_PAD_LEFT);die;
-
-
-
-
-
 
 /**===================    获取公钥   ================**
 
