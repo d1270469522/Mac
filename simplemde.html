@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+</head>
+
+
+<body>
+  <textarea id="aa"></textarea>
+</body>
+<script>
+var simplemde = new SimpleMDE({
+  //自动聚焦：如果设置为true，则自动聚焦编辑器。默认为 false。
+  autofocus: false,
+  // 保存正在编写的文本，并将在以后加载。提交包含表单的文本时，它将忘记该文本。
+  autosave: {
+    //如果设置为true，则自动保存文本。默认为false。
+    enabled: false,
+    //必须设置唯一的字符串标识符，以便SimpleMDE可以自动保存。这与您网站上其他地方的SimpleMDE的其他实例相区分。
+    uniqueId: "10001",
+    //保存之间的延迟，以毫秒为单位。默认为10000（10s）。
+    delay: 1000,
+  },
+  // 定制样式文本块的某些按钮的行为。
+  blockStyles: {
+    // bold   粗体：可以设置为**或__。默认为**。
+    // code   代码：可设置 ```或~~~。默认为```。
+    // italic 斜体：可以设置为*或_。  默认为*。
+  },
+  // 要使用的textarea的DOM元素。默认为页面上的第一个文本区域。
+  element: document.getElementById("aa"),
+  // 如果设置为true，则强制将SimpleMDE中所做的文本更改立即存储在原始文本区域中。默认为false。
+  forceSync: false,
+  // 要隐藏的图标名称的数组。可用于隐藏默认显示的特定图标，而无需完全自定义工具栏。
+  hideIcons: [
+    // "guide", "heading"
+  ],
+  // 默认为 true，如果设置为false，则使用空格而不是制表符缩进。
+  indentWithTabs: true,
+  // 自定义编辑器的初始值
+  initialValue: "Hello world!",
+  // 自定义某些插入文本的按钮的行为。带有两个元素的数组。
+  // 第一个元素是在光标或突出显示之前插入的文本，
+  // 第二个元素将在之后插入文本。
+  // 例如，这是默认链接值：["[", "](http://)"]。
+  insertTexts: {
+    horizontalRule: ["", "\n\n-----\n\n"],
+    image: ["![](http://", ")"],
+    link: ["[", "](http://)"],
+    table: ["", "\n\n| Column 1 | Column 2 | Column 3 |\n| -------- | -------- | -------- |\n| Text     | Text      | Text     |\n\n"],
+  },
+  // 如果设置为false，则禁用换行。默认为true。
+  lineWrapping: false,
+  // 调整设置以在编辑（而非预览）期间解析Markdown
+  parsingConfig: {
+    // 如果设置为true，则将呈现标头后没有空格的标题#。默认为false
+    allowAtxHeaderWithoutSpace: false,
+    // 如果设置为false，将不处理GFM删除线语法。默认为true
+    strikethrough: false,
+    // 如果设置为true，则使下划线成为分隔单词的定界符。默认为false
+    underscoresBreakWords: true,
+  },
+  // placeholder 提示语
+  placeholder: "Type here...",
+  // 用于解析纯文本Markdown并返回HTML的自定义函数。用户预览时使用
+  previewRender: function(plainText) {
+    return customMarkdownParser(plainText); // Returns HTML from a custom parser
+  },
+  // 用于解析纯文本Markdown并返回HTML的自定义函数。用户预览时使用
+  previewRender: function(plainText, preview) { // Async method
+    setTimeout(function(){
+      preview.innerHTML = customMarkdownParser(plainText);
+    }, 250);
+
+    return "Loading...";
+  },
+  // 如果设置为true，则会显示一个JS警报窗口，要求提供链接或图像URL。默认为false
+  promptURLs: true,
+  // 调整用于在预览（而非编辑）期间解析Markdown的设置
+  renderingConfig: {
+    // 如果设置为false，则禁用解析GFM单行中断。默认为true
+    singleLineBreaks: false,
+    // 如果设置为true，将使用highlight.js突出显示。默认为false。要使用此功能，您必须在页面上包含Highlight.js
+    // 例如，包括js和CSS文件，例如：
+    // https://cdn.jsdelivr.net/highlight.js/latest/highlight.min.js
+    // https://cdn.jsdelivr.net/highlight.js/latest/styles/github.min.css
+    codeSyntaxHighlighting: true,
+  },
+  // 与此实例相关联的键盘快捷方式
+  shortcuts: {
+    drawTable: "Cmd-Alt-T"
+  },
+  // 要显示的图标名称的数组。可用于显示默认情况下隐藏的特定图标，而无需完全自定义工具栏。
+  showIcons: ["code", "table"],
+  // 如果设置为false，则禁用拼写检查器。默认为true
+  spellChecker: false,
+  // 如果设置为false，则隐藏状态栏。默认为内置状态栏项目的数组
+  status: false,
+  // 您可以设置要包括的状态栏项目的数组，以及排列的顺序。
+  status: ["autosave", "lines", "words", "cursor"], // Optional usage
+  // 您甚至可以定义自己的自定义状态栏项目。
+  status: ["autosave", "lines", "words", "cursor", {
+    className: "keystrokes",
+    defaultValue: function(el) {
+      this.keystrokes = 0;
+      el.innerHTML = "0 Keystrokes";
+    },
+    onUpdate: function(el) {
+      el.innerHTML = ++this.keystrokes + " Keystrokes";
+    }
+  }], // Another optional usage, with a custom status bar item that counts keystrokes
+  // 如果设置为false，CodeMirror-selectedtext则从选定的行中删除类。默认为true
+  styleSelectedText: false,
+  // 如果设置，请自定义标签大小。默认为2
+  tabSize: 4,
+  // 如果设置为false，则隐藏工具栏。
+  toolbar: false,
+  // 如果设置为false，禁用工具栏按钮的提示。默认为true
+  toolbarTips: false,
+});
+</script>

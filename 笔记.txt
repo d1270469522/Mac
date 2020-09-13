@@ -28,6 +28,49 @@
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+日程表（2020-08-05起执行）
+
+1、6点起起床，洗漱，准备出发；
+
+2、6点半，开始跑步（沿兴旺大街）[跑步 1 小时]；
+
+3、7点半回来，吃早饭（巫山烤鱼早餐）[吃饭半小时]；
+
+4、8点回来，开始看书（整理博客，社区学习，练习写字，整理金句）；
+
+5、11点做饭
+
+6、12点吃饭，休息到2点；
+
+7、2点开始看书（整理博客，社区学习，练习写字，整理金句）；
+
+8、6点做饭；
+
+9、6点半吃饭，休息到7点半；
+
+10、7点半，锻炼（哑铃、小区单杠）[1~2小时]；
+
+11、9点左右，看看书；
+
+12、10点半洗漱，准备睡觉；
+
+13、11点睡觉。
+
+附录：
+
+1、个人博客要完善；
+2、买的课程，全部重新做一遍；
+3、筛选婚纱照拍摄公司；
+4、要练字；
+5、学英语；
+6、学唱歌？
+7、服务器找时间整理；
+8、电脑看情况是否需要整理？
+
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 
 
 有用的网站：
@@ -35,6 +78,10 @@
     17素材：
 
         https://www.17sucai.com/
+
+    素材牛：
+
+        https://www.sucainiu.com/recharge.html
 
     懒人图库：
 
@@ -227,6 +274,12 @@ laravel社区：
 极光推送：
 
     地址：https://www.jiguang.cn/
+    账号：1270469522@qq.com
+    密码：D********（通用）
+
+Oracle：
+
+    地址：https://www.oracle.com/
     账号：1270469522@qq.com
     密码：D********（通用）
 
@@ -2016,6 +2069,87 @@ Elasticsearch 删除所有的索引
 
     curl -XDELETE http://ip:9200/_all
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ES 索引
+
+    启动：
+
+        sudo systemctl restart elasticsearch.service
+
+    检测：
+
+        curl http://127.0.0.1:9200/
+
+    查看中文分词：
+
+        sudo /usr/share/elasticsearch/bin/elasticsearch-plugin list
+
+    关闭：
+
+        sudo systemctl disable elasticsearch.service
+
+    删除：
+
+        curl -XDELETE http://localhost:9200/_all?pretty
+
+    创建：
+
+        curl -XPUT http://localhost:9200/products?pretty
+
+    类型：
+
+curl -H'Content-Type: application/json' -XPUT http://localhost:9200/products/_mapping/_doc?pretty -d'{
+  "properties": {
+    "type": { "type": "keyword" } ,
+    "title": { "type": "text", "analyzer": "ik_smart" },
+    "long_title": { "type": "text", "analyzer": "ik_smart" },
+    "category_id": { "type": "integer" },
+    "category": { "type": "keyword" },
+    "category_path": { "type": "keyword" },
+    "description": { "type": "text", "analyzer": "ik_smart" },
+    "price": { "type": "scaled_float", "scaling_factor": 100 },
+    "on_sale": { "type": "boolean" },
+    "rating": { "type": "float" },
+    "sold_count": { "type": "integer" },
+    "review_count": { "type": "integer" },
+    "skus": {
+      "type": "nested",
+      "properties": {
+        "title": { "type": "text", "analyzer": "ik_smart", "copy_to": "skus_title" },
+        "description": { "type": "text", "analyzer": "ik_smart", "copy_to": "skus_description" },
+        "price": { "type": "scaled_float", "scaling_factor": 100 }
+      }
+    },
+    "properties": {
+      "type": "nested",
+      "properties": {
+        "name": { "type": "keyword" },
+        "value": { "type": "keyword"},
+        "search_value": { "type": "keyword" }
+      }
+    }
+  }
+}'
+
+    命令：
+
+        php artisan es:sync-products
+
+    查看：
+
+        curl http://localhost:9200/products?pretty
+
+    关闭：
+
+        curl -XPOST http://localhost:9200/products/_close?pretty
+
+    开启：
+
+        curl -XPOST http://localhost:9200/products/_open?pretty
+
+    查看索引 index 列表
+
+        curl http://localhost:9200/_cat/indices?v
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -2042,5 +2176,90 @@ Elasticsearch 删除所有的索引
     .:::'         :::::::::::::'             ':::.
  ``````':.         ::::::::::'                 ':::.
                     '.:::::'                   ':'':::..
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+日程表（2020-08-05起执行）
+
+1、6点起起床，洗漱，准备出发；
+
+2、6点半，开始跑步（沿兴旺大街）[跑步 1 小时]；
+
+3、7点半回来，吃早饭（巫山烤鱼早餐）[吃饭半小时]；
+
+4、8点回来，开始看书（整理博客，社区学习，练习写字，整理金句）；
+
+5、11点做饭
+
+6、12点吃饭，休息到2点；
+
+7、2点开始看书（整理博客，社区学习，练习写字，整理金句）；
+
+8、6点做饭；
+
+9、6点半吃饭，休息到7点半；
+
+10、7点半，锻炼（哑铃、小区单杠）[1~2小时]；
+
+11、9点左右，看看书；
+
+12、10点半洗漱，准备睡觉；
+
+13、11点睡觉。
+
+附录：
+
+1、个人博客要完善；
+2、买的课程，全部重新做一遍；
+3、筛选婚纱照拍摄公司；
+4、要练字；
+5、学英语；
+6、学唱歌？
+7、服务器找时间整理；
+8、电脑看情况是否需要整理？
+
+---------
+
+2020-08-05
+
+6点起床，
+6点17出门，
+6点47到达「兴旺公园」，
+7点10往回走，
+7点40到「巫山烤鱼」吃早餐，
+8点10回家，
+80点20洗澡，
+8点40洗完，
+9点10去了厕所；
+上午看了电影《流浪地球》；
+洗了衣服；
+
+12点吃饭，
+1点50睡觉
+3点15醒来玩游戏
+4点30看书
+6点做饭
+8点锻炼
+10点玩游戏
+12点睡觉
+
+---------
+
+2020-08-06
+
+6点～9点20：起床、跑步、吃饭、洗澡、上厕所；
+9点20～11点看抖音；
+11点看婚纱照，学习；
+
+
+
+
+
+
+
+
+
+
+
+
 
 

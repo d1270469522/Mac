@@ -1,19 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-cn">
 <head>
-    <title></title>
+    <meta charset="UTF-8">
+    <title>SimpleMarkDownEditor-Demo</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/weui/1.1.1/style/weui.min.css">
+    <link rel="stylesheet" href="https://simplemde.com/stylesheets/stylesheet.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <style>
+        .CodeMirror {height: 500px;/*SimpleMDE的高度*/}
+    </style>
 </head>
 <body>
-    <div id="test">
-        111
-    </div>
+
+<section class="main-content">
+    <h1>添加文章</h1>
+    <input id="name" type="text" class="weui-input" placeholder="请输入标题" required autofocus>
+    <br/><br/>
+    <textarea id="detail"></textarea>
+    <a href="javascript:void(0);" id="submit" class="weui-btn weui-btn_primary">添加</a>
+</section>
+
+<script src="//cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<script>
+    //http://api.jquery.com/jQuery.ajax/
+    //初始化SimpleMDE
+    var simplemde = new SimpleMDE({
+        autosave: {
+            enabled: true,
+            uniqueId: "MyUniqueID",
+            delay: 1000
+        },
+        status: ["autosave", "lines", "words"],
+        spellChecker: false,
+        element: document.getElementById("detail"),
+        promptURLs: true,
+        toolbar: [
+            "bold", "italic", "strikethrough", "heading", "code", "quote", "unordered-list",
+            "ordered-list", "clean-block", "link", "image", "table", "horizontal-rule", "preview", "side-by-side", "fullscreen", "guide",
+            {
+                name: "uploadImage",//自定义按钮
+                action: function customFunction(editor) {
+                    console.log(editor);
+                },
+                className: "fa fa-star",
+                title: "Upload Image"
+            }
+        ]
+    });
+    //store
+    $("#submit").on('click', function () {
+        console.log(simplemde.value());
+
+    });
+</script>
 </body>
 </html>
-<script type="text/javascript">
-
-async function hello() {
-  return greeting = await Promise.resolve("Hello");
-};
-
-hello().then(alert);
-</script>
