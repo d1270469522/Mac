@@ -1,0 +1,16 @@
+C:\D\github\jinrizhitou_api\Application\Home\Model\AiTaoapiModel
+在userSaving 中设置
+C:\D\github\jinrizhitou_api\Application\Home\Controller\PayController
+支付页面跳转相关的 
+C:\D\github\jinrizhitou_task\src\Handler\AiTao\PullRechargePush
+日常拉活配置在这里面配置 （一天一次）
+C:\D\github\jinrizhitou_task\src\Handler\AiTao\PushMessage
+配置推送信息发送接口在这配置 （每分钟执行一次）
+C:\D\github\jinrizhitou_task\src\Handler\AiTao\Getimei
+这个接口是获取昨天的OPPO\VIVO要跑的定时脚本任务（每天获取昨天）为了统计方便暂时关闭
+ C:\D\github\jinrizhitou_api\Application\Home\Controller\CustomerController\login
+只有这个地方能同时获取imei 和user_id 
+C:\D\github\jinrizhitou_api\Application\Home\ImeiChannelController
+这个地方一般在获取OAID和开始的IMEI信息  在这可以组装IMEI/user_id/OAID 信息
+C:\D\github\jinrizhitou_api\Application\Home\Common\Sendimei
+当有需要发送的时候通过这个位置发送

@@ -1,0 +1,10 @@
+-- 添加问卷的信息log表
+CREATE TABLE IF NOT EXISTS `questionnaire` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `var` text,
+  `version` int(11) NOT NULL,
+  KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='调查问卷';
+-- 问卷内容信息
+INSERT INTO `setting` (`key_str`, `var_str`) VALUES ('questionnaire', '[{"is_radio":1,"title":"您是通过什么途径下载今日智投软件？","option":["在其他类似APP操作过，自己搜索","看到广告很吸引","周围人的推荐","其他"]},{"is_radio":1,"title":"您在使用金融APP的时候希望得到什么样的服务？","option":["账户资金的安全保障","商品咨询和订购建议的推送","价格走势图的实时性和便捷性","其他"]},{"is_radio":1,"title":"您下载APP的目的？","option":["防止资产缩水","获取资产的稳定增值","短时间快速获取高额收益","活动吸引"]},{"is_radio":1,"title":"您第一次会订购多少金额的商品？","option":["5-50","52-100","101-300","301以上"]},{"is_radio":1,"title":"您在使用APP购买/预约商品时曾今遇到过的什么问题？","option":["没有经验，不知道如何赚钱","对APP的订购流程不是很理解","充值提现遇到问题","其他"]},{"is_radio":0,"title":"您有什么想吐槽今日之智投APP？","option":["页面旧，文字小，反应慢","APP订购规则不清除","服务费太贵","其他"]}]');

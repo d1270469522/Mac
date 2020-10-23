@@ -1,0 +1,5 @@
+SELECT u.user_id,g.pro_name,g.unit_price,u.goods_id  FROM user_order AS u 
+LEFT JOIN goods AS g ON g.goods_id = u.goods_id
+WHERE u.liqui_time>=1572192000 AND  u.liqui_time<1572710400
+AND g.pro_name LIKE '小麦'
+GROUP BY u.user_id

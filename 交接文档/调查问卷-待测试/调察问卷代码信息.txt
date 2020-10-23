@@ -1,0 +1,6 @@
+C:\D\github\jinrizhitou_api\Application\Home\Controller\ActiveController.php 
+373 调查问卷 show_questionnaire 方法
+
+C:\D\github\jinrizhitou_api\Application\Home\View\Active\show_questionnaire.html 
+进行文件展示，已经做好简单屏幕自适应可以直接使用 
+

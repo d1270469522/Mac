@@ -1,0 +1,1 @@
+INSERT INTO `zhitou_dev`.`yw_admin_menu`(`title`, `pid`, `sort`, `url`, `hide`, `status`, `published`, `update_time`, `is_dev`, `icon_class`) VALUES ( '登陆页广告图片', 350, 3, 'landingwheel/img_list', 0, 1, 0, 0, 0, '');

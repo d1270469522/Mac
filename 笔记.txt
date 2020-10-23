@@ -211,6 +211,14 @@
 
         http://requestbin.net
 
+    婚礼纪
+
+        https://www.zhizuoh5.com/store/index/type/1.html
+
+    背景音乐
+
+        https://www.tukuppt.com/peiyueso/hunli/m108.html
+
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -282,6 +290,67 @@ Oracle：
     地址：https://www.oracle.com/
     账号：1270469522@qq.com
     密码：D********（通用）
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+左闯skypay的代码（api仓库）
+
+    app/Http/Controllers/SkypayController.php
+    app/Helper/functions.php
+    app/Service/Bank/Skypay.php
+
+支付通道测试环境后台
+    http://test.skypay.ph
+    账号: ByteDream
+    密码 : ByteDream
+
+菲律宾
+
+GIT
+    https://e.coding.net/lihuangde/UangBagus-api-ph.git
+    https://e.coding.net/lihuangde/UangBagus-Jobs-ph.git
+    https://e.coding.net/lihuangde/UangBagus-cdn-ph.git
+    https://e.coding.net/lihuangde/UangBagus-console-ph.git
+
+
+数据库
+    http://47.94.235.248:8088/2phpmyadmin2/
+    root
+    localR@@T
+    数据库 uangbagus_pro
+
+
+测试服务器
+    47.94.235.248
+    asdf@1234$#@!
+
+CDN路径 /srv/cdn
+    http://phcdn.jiexiangtech.com
+
+API路径 /srv/api
+    http://phapi.jiexiangtech.com
+
+BOSS路径 /srv/console
+    http://phconsole.jiexiangtech.com
+
+BOSS系统
+    http://phconsole.jiexiangtech.com
+    账号 admin
+    密码 admin123456
+
+任务路径 /srv/jobs
+    root用户
+        * * * * * /usr/bin/php /srv/jobs/schedule:run >> /home/dev_user01/job.log
+    dev_user01 用户
+        * * * * * /usr/bin/php /srv/console/artisan schedule:run
+
+    /usr/bin/php /srv/jobs/artisan AutoRiskControlJobs 风控
+    /usr/bin/php /srv/jobs/artisan AutoNewRisk 模型分
+
+    /usr/bin/php /srv/jobs/artisan AutoTrackRemindJobs 客服提醒
+    /usr/bin/php /srv/jobs/artisan AutoTrackJobs 催收派单
+    /usr/bin/php /srv/jobs/artisan AutoPushAndSmsJobs 短信提醒
+
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -648,9 +717,13 @@ Git 新建仓库，上传远程：
 
 Git打tag：
 
-    1、列出已有的tag：git tag
+    1、列出已有的tag：
 
-    2、加上-l命令可以使用通配符来过滤tag：git tag -l 'v1.*'
+        git tag
+
+    2、加上-l命令可以使用通配符来过滤tag：
+
+        git tag -l 'v1.*'
 
     3、新建tag：git tag v1.0
 

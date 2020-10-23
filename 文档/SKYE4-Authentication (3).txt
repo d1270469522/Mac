@@ -1,0 +1,31 @@
+﻿测试环境：
+=======================================================
+callerName : ByteDream
+userName: bytedream@skypay
+Encrypt Key : A34C7A04EEEC4A91
+Authentication  : B7ACB61A-7326-4066-8316-854BF9BC3A62
+
+第3章Prefix : SKE4
+第4章Prefix : SKYE4
+
+http://test.skypay.ph
+账号: ByteDream
+密码 : ByteDream
+
+=======================================================
+生产环境：
+
+callerName : ByteDream
+userName: bytedream@skypay
+Encrypt Key : DA05D5FF644E47F9
+Authentication  : 01300BFE-F23F-4E80-8C2A-9C794F811F99
+
+第3章Prefix : SKE4
+第4章Prefix : SKYE4
+
+https://api1.skypay.ph
+账号: ByteDream
+密码 : ByteDream
+
+
+=======================================================
