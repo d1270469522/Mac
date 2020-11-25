@@ -352,6 +352,31 @@ BOSS系统
     /usr/bin/php /srv/jobs/artisan AutoPushAndSmsJobs 短信提醒
 
 
+产品配置明细
+借款周期10天，利息利率1%，手续费率26%
+逾期罚款利率5%  逾期罚息2%
+
+借款金额3000p，到手金额2220p，应还金额3300p
+
+公式1 手续费 = 借款金额 * 手续费率
+公式2 到手金额 = 借款金额 - 手续费
+公式3 应还金额 = 借款金额 + 借款金额 * 利息利率 * 借款天数
+公式4 逾期应还金额 = 应还金额 + 逾期罚款 + 逾期利息 * 逾期天数
+
+
+手续费780p，手续费率26%
+手续费 =3000 * 26% = 780
+到手金额 =3000-780 = 2220
+应还金额=3000+3000*1% * 10=3300p （借款周期10天，利息1%，）
+
+逾期一天 逾期罚款 3000*5%=150，逾期利息3000*2%*1=60
+逾期一天应还 3300+150+60 =3510p
+
+逾期二天 逾期罚款 3000*5%=150，逾期利息3000*2%*2=120
+逾期二天应还 3300+150+120 =3570p
+
+根据 loan_order 表中 platform 查询 investment_big_user 表中 channel_id
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 后台管理：
@@ -715,6 +740,20 @@ Git 新建仓库，上传远程：
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+Git 每次拉取的时候，都需输入账号密码
+
+    很简单，只要两步骤就能实现：
+
+    1.在~/.gitconfig目录下多出一个文件，用来记录你的密码和帐号
+
+        git config --global credential.helper store
+
+    2.再最后输入一次正确的用户名和密码，就可以成功的记录下来，这是最后一次麻烦啦！
+
+        git pull
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 Git打tag：
 
     1、列出已有的tag：
@@ -770,7 +809,7 @@ Git打tag：
 
 Git 版本回退：
 
-    1. 使⽤用 git log 命令历史版本记录回退版本 
+    1. 使⽤用 git log 命令历史版本记录回退版本
 
         git reset --hard f6a7c803a6931a9eca011d4e097389e0845cbe49
 
@@ -2224,6 +2263,25 @@ curl -H'Content-Type: application/json' -XPUT http://localhost:9200/products/_ma
 
         curl http://localhost:9200/_cat/indices?v
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ 在Mac下显示所有文件
+
+显示所有隐藏文件：
+
+第一个命令：defaults write com.apple.finder AppleShowAllFiles TRUE
+回车后，迫使系统将用户资源库里Preferences文件夹里com.apple.finder.plist文件中AppleShowAllFiles参数值改成TRUE
+第二个命令：killall Finder 中断Finder进程，刷新视图
+
+1 defaults write com.apple.finder AppleShowAllFiles  TRUE
+2 killall Finder
+
+
+
+不显示隐藏文件：
+
+1 defaults write com.apple.finder AppleShowAllFiles  FALSE
+2 killall Finder
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
