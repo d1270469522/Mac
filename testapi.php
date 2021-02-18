@@ -56,9 +56,32 @@
  */
 
 
+$arr = [
+    '9' => '0',
+    '4' => '2',
+    '5' => '1',
+    '7' => '5',
+    '8' => '4',
+    '3' => '6',
+    '1' => '3',
+    '0' => '8',
+    '6' => '7',
+    's' => '111',
+    'e' => '7',
+    'b' => '8',
+    'qq' => 'qq',
+    'aa' => 'aa',
+    'we' => 'qw',
+    'f' => 'f',
+];
+
+print_r(ksort($arr));
+
+echo '<pre>';
+print_r($arr);
+die;
 
 // header("Content-type: application/json; charset=utf-8");
-header("Content-type: text/html; charset=utf-8");
 // header("Content-type: text/html; charset=gbk");
 echo '<pre>';
 

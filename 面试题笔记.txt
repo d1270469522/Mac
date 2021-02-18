@@ -1,0 +1,12 @@
+
+1、MySQL数据库面试题（2020最新版）
+
+    https://blog.csdn.net/ThinkWon/article/details/104778621
+
+2、数据一致性
+
+    https://blog.csdn.net/xiexiaojing/article/details/101442578
+
+3、mysql事务
+
+    https://www.jianshu.com/p/081a3e208e32

@@ -26,52 +26,270 @@
 │ Ctrl│    │Alt │         Space         │ Alt│    │    │Ctrl│ │ ← │ ↓ │ → │ │   0   │ . │←─┘│
 └─────┴────┴────┴───────────────────────┴────┴────┴────┴────┘ └───┴───┴───┘ └───────┴───┴───┘
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-日程表（2020-08-05起执行）
-
-1、6点起起床，洗漱，准备出发；
-
-2、6点半，开始跑步（沿兴旺大街）[跑步 1 小时]；
-
-3、7点半回来，吃早饭（巫山烤鱼早餐）[吃饭半小时]；
-
-4、8点回来，开始看书（整理博客，社区学习，练习写字，整理金句）；
-
-5、11点做饭
-
-6、12点吃饭，休息到2点；
-
-7、2点开始看书（整理博客，社区学习，练习写字，整理金句）；
-
-8、6点做饭；
-
-9、6点半吃饭，休息到7点半；
-
-10、7点半，锻炼（哑铃、小区单杠）[1~2小时]；
-
-11、9点左右，看看书；
-
-12、10点半洗漱，准备睡觉；
-
-13、11点睡觉。
-
-附录：
-
-1、个人博客要完善；
-2、买的课程，全部重新做一遍；
-3、筛选婚纱照拍摄公司；
-4、要练字；
-5、学英语；
-6、学唱歌？
-7、服务器找时间整理；
-8、电脑看情况是否需要整理？
-
-
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+后台管理：
 
+    国内系统（测试）
+
+        地址：http://testboss.zfd.kdcaopan.com
+        账号：admin
+        密码：Hsb@@123456
+
+    国内系统（正式）
+
+        地址：http://syspro.dai.zhangfujr.com
+        账号：admin
+        密码：Hsb@@123456
+
+    印尼系统（测试）：
+
+        地址：http://39.96.161.37:8080
+        账号：admin
+        密码：gojet@2019
+
+    印尼系统（正式）：
+
+        地址：http://149.129.251.98:8082
+        账号：admin
+        密码：gojet@2019
+
+    KSP
+
+        job.makmurabadiin.com
+        cdn.makmurabadiin.com
+        api.makmurabadiin.com
+        console.makmurabadiin.com
+
+    智投测试BOSS：
+
+        地址：http://testztadmin2.jiexiangtech.com/
+        账号：admin@heshuibar.com
+        密码：zhang235
+
+    智投正式BOSS：
+
+        地址：http://ztadmin.67network.com
+        账号：yls
+        密码：ygh123456@
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+数据库：
+
+    急贷宝 | 掌富贷 | SAAS
+
+        地址：http://59.110.46.55/2phpmyadmin2
+        账号：rdsdb_root
+        密码：1@AbED#4%eA4y03&45$5F7*d8D
+
+    SAAS ⻛风控地址  | 回调数据
+
+        地址：http://59.110.46.55/1phpmyadmin1/
+        账号：paydaydb_root
+        密码：D#4%eA4y01@AbE3&48D5$5F7*d
+
+    海外测试：
+
+        地址：http://www.jiexiangtech.com/2phpmyadmin2
+        账号：root
+        密码：localR@@T
+
+    海外正式：
+
+        地址：http://149.129.251.98:8082/2phpmyadmin2
+        账号：rds_root
+        密码：LHm1$2Hm1$*d3Ab&b5#1
+
+    海外 KSP：
+
+        地址：http://149.129.251.98:8082/2phpmyadmin2
+        账号：rds_root
+        密码：LHm1$2Hm1$*d3Ab&b5#1
+        库名：uangbagus_ksp_pro
+
+    操盘：（测试库zhitou_dev）
+
+        地址：http://59.110.24.151/phpmyadmin21
+        账号：rdsdb_root
+        密码：1@AbED#4%eA4y03&45$5F7*d8D
+
+        新增线上只读库账号 zhitou_rdsdev_pr
+        密码同老账号 zhitou_rdsdev
+
+        1$7&MA4Dd8F2Nkw#D3
+
+    菲律宾：
+        http://47.94.235.248:8088/2phpmyadmin2/
+        root
+        localR@@T
+        数据库 uangbagus_pro
+
+        47.94.235.248
+        /srv/cdn
+        cdn.gpeso.com
+
+        /srv/api
+        api.gpeso.com
+
+        /srv/console
+        console.gpeso.com
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Git仓库：
+
+    急贷宝boss：git@101.201.154.89:/data/git/maibei7-admin.git
+    急贷宝api： git@101.201.154.89:/data/git/maibei7-backend.git
+
+    掌富贷boss：git@101.201.154.89:/data/git/maibei-admin.git
+    掌富贷api： git@101.201.154.89:/data/git/maibei-backend.git
+
+    海外项⽬boss：https://git.coding.net/lihuangde/UangBagus-console.git
+    海外项目api： https://git.coding.net/lihuangde/UangBagus-api.git
+    海外项目jobs：https://git.dev.tencent.com/lihuangde/UangBagus-Jobs.git
+
+    牛牛BOSS：https://e.coding.net/lihuangde/niuniu-admin.git
+    智投BOSS：https://e.coding.net/lihuangde/jinrizhitou_admin.git
+    智投API：https://e.coding.net/lihuangde/jinrizhitou_api.git
+
+    菲律宾的代码，要部署一份到248测试环境
+    https://e.coding.net/lihuangde/UangBagus-api-ph.git
+    https://e.coding.net/lihuangde/UangBagus-Jobs-ph.git
+    https://e.coding.net/lihuangde/UangBagus-cdn-ph.git
+    https://e.coding.net/lihuangde/UangBagus-console-ph.git
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+服务器登陆：
+
+    急贷宝 | 掌富贷 | saas
+
+        地址: 59.110.46.55
+        账号: root
+        密码: 5#H1b&L3#siz*he&lAnm
+
+    saas⻛控服务器 | 51易易借
+
+        地址: 47.94.235.248
+        账号: root
+        密码: asdf.123456
+
+    海外项⽬（测试）：
+
+        地址: 39.96.161.37
+        账号: root
+        密码: asdf.123456
+
+    海外项⽬（正式）：
+
+        地址：149.129.251.98
+        账号：dev_user01
+        密码：15*TB5@1m1$FoN#d4F9
+        位置：/srv/console/
+
+    海外项⽬（KSP）：
+
+        地址：149.129.247.105
+        账号：dev_user01
+        密码：15*TB5@1m1$FoN#d4F9
+        位置：/srv/wwwroot/
+
+    智投服务器（测试）：
+
+        地址：47.94.235.248
+        账号：root
+        密码：asdf.1234!@#$
+        路径：/data/wwwroot/zttest/jinrizhitou_admin/
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+skypay的代码（api仓库）
+
+    app/Http/Controllers/SkypayController.php
+    app/Helper/functions.php
+    app/Service/Bank/Skypay.php
+
+支付通道测试环境后台
+    http://test.skypay.ph
+    账号: ByteDream
+    密码 : ByteDream
+
+菲律宾
+
+GIT
+    https://e.coding.net/lihuangde/UangBagus-api-ph.git
+    https://e.coding.net/lihuangde/UangBagus-Jobs-ph.git
+    https://e.coding.net/lihuangde/UangBagus-cdn-ph.git
+    https://e.coding.net/lihuangde/UangBagus-console-ph.git
+
+
+数据库
+    http://47.94.235.248:8088/2phpmyadmin2/
+    root
+    localR@@T
+    数据库 uangbagus_pro
+
+
+测试服务器
+    47.94.235.248
+    asdf@1234$#@!
+
+CDN路径 /srv/cdn
+    http://phcdn.jiexiangtech.com
+
+API路径 /srv/api
+    http://phapi.jiexiangtech.com
+
+BOSS路径 /srv/console
+    http://phconsole.jiexiangtech.com
+
+BOSS系统
+    http://phconsole.jiexiangtech.com
+    账号 admin
+    密码 admin123456
+
+任务路径 /srv/jobs
+    root用户
+        * * * * * /usr/bin/php /srv/jobs/schedule:run >> /home/dev_user01/job.log
+    dev_user01 用户
+        * * * * * /usr/bin/php /srv/console/artisan schedule:run
+
+    /usr/bin/php /srv/jobs/artisan AutoRiskControlJobs 风控
+    /usr/bin/php /srv/jobs/artisan AutoNewRisk 模型分
+
+    /usr/bin/php /srv/jobs/artisan AutoTrackRemindJobs 客服提醒
+    /usr/bin/php /srv/jobs/artisan AutoTrackJobs 催收派单
+    /usr/bin/php /srv/jobs/artisan AutoPushAndSmsJobs 短信提醒
+
+
+产品配置明细
+借款周期10天，利息利率1%，手续费率26%
+逾期罚款利率5%  逾期罚息2%
+
+借款金额3000p，到手金额2220p，应还金额3300p
+
+公式1 手续费 = 借款金额 * 手续费率
+公式2 到手金额 = 借款金额 - 手续费
+公式3 应还金额 = 借款金额 + 借款金额 * 利息利率 * 借款天数
+公式4 逾期应还金额 = 应还金额 + 逾期罚款 + 逾期利息 * 逾期天数
+
+
+手续费780p，手续费率26%
+手续费 =3000 * 26% = 780
+到手金额 =3000-780 = 2220
+应还金额=3000+3000*1% * 10=3300p （借款周期10天，利息1%，）
+
+逾期一天 逾期罚款 3000*5%=150，逾期利息3000*2%*1=60
+逾期一天应还 3300+150+60 =3510p
+
+逾期二天 逾期罚款 3000*5%=150，逾期利息3000*2%*2=120
+逾期二天应还 3300+150+120 =3570p
+
+根据 loan_order 表中 platform 查询 investment_big_user 表中 channel_id
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 有用的网站：
 
@@ -290,268 +508,6 @@ Oracle：
     地址：https://www.oracle.com/
     账号：1270469522@qq.com
     密码：D********（通用）
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-左闯skypay的代码（api仓库）
-
-    app/Http/Controllers/SkypayController.php
-    app/Helper/functions.php
-    app/Service/Bank/Skypay.php
-
-支付通道测试环境后台
-    http://test.skypay.ph
-    账号: ByteDream
-    密码 : ByteDream
-
-菲律宾
-
-GIT
-    https://e.coding.net/lihuangde/UangBagus-api-ph.git
-    https://e.coding.net/lihuangde/UangBagus-Jobs-ph.git
-    https://e.coding.net/lihuangde/UangBagus-cdn-ph.git
-    https://e.coding.net/lihuangde/UangBagus-console-ph.git
-
-
-数据库
-    http://47.94.235.248:8088/2phpmyadmin2/
-    root
-    localR@@T
-    数据库 uangbagus_pro
-
-
-测试服务器
-    47.94.235.248
-    asdf@1234$#@!
-
-CDN路径 /srv/cdn
-    http://phcdn.jiexiangtech.com
-
-API路径 /srv/api
-    http://phapi.jiexiangtech.com
-
-BOSS路径 /srv/console
-    http://phconsole.jiexiangtech.com
-
-BOSS系统
-    http://phconsole.jiexiangtech.com
-    账号 admin
-    密码 admin123456
-
-任务路径 /srv/jobs
-    root用户
-        * * * * * /usr/bin/php /srv/jobs/schedule:run >> /home/dev_user01/job.log
-    dev_user01 用户
-        * * * * * /usr/bin/php /srv/console/artisan schedule:run
-
-    /usr/bin/php /srv/jobs/artisan AutoRiskControlJobs 风控
-    /usr/bin/php /srv/jobs/artisan AutoNewRisk 模型分
-
-    /usr/bin/php /srv/jobs/artisan AutoTrackRemindJobs 客服提醒
-    /usr/bin/php /srv/jobs/artisan AutoTrackJobs 催收派单
-    /usr/bin/php /srv/jobs/artisan AutoPushAndSmsJobs 短信提醒
-
-
-产品配置明细
-借款周期10天，利息利率1%，手续费率26%
-逾期罚款利率5%  逾期罚息2%
-
-借款金额3000p，到手金额2220p，应还金额3300p
-
-公式1 手续费 = 借款金额 * 手续费率
-公式2 到手金额 = 借款金额 - 手续费
-公式3 应还金额 = 借款金额 + 借款金额 * 利息利率 * 借款天数
-公式4 逾期应还金额 = 应还金额 + 逾期罚款 + 逾期利息 * 逾期天数
-
-
-手续费780p，手续费率26%
-手续费 =3000 * 26% = 780
-到手金额 =3000-780 = 2220
-应还金额=3000+3000*1% * 10=3300p （借款周期10天，利息1%，）
-
-逾期一天 逾期罚款 3000*5%=150，逾期利息3000*2%*1=60
-逾期一天应还 3300+150+60 =3510p
-
-逾期二天 逾期罚款 3000*5%=150，逾期利息3000*2%*2=120
-逾期二天应还 3300+150+120 =3570p
-
-根据 loan_order 表中 platform 查询 investment_big_user 表中 channel_id
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-后台管理：
-
-    国内系统（测试）
-
-        地址：http://testboss.zfd.kdcaopan.com
-        账号：admin
-        密码：Hsb@@123456
-
-    国内系统（正式）
-
-        地址：http://syspro.dai.zhangfujr.com
-        账号：admin
-        密码：Hsb@@123456
-
-    印尼系统（测试）：
-
-        地址：http://39.96.161.37:8080
-        账号：admin
-        密码：gojet@2019
-
-    印尼系统（正式）：
-
-        地址：http://149.129.251.98:8082
-        账号：admin
-        密码：gojet@2019
-
-    KSP
-
-        job.makmurabadiin.com
-        cdn.makmurabadiin.com
-        api.makmurabadiin.com
-        console.makmurabadiin.com
-
-    智投测试BOSS：
-
-        地址：http://testztadmin2.jiexiangtech.com/
-        账号：admin@heshuibar.com
-        密码：zhang235
-
-    智投正式BOSS：
-
-        地址：http://ztadmin.67network.com
-        账号：yls
-        密码：ygh123456@
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-数据库：
-
-    急贷宝 | 掌富贷 | SAAS
-
-        地址：http://59.110.46.55/2phpmyadmin2
-        账号：rdsdb_root
-        密码：1@AbED#4%eA4y03&45$5F7*d8D
-
-    SAAS ⻛风控地址  | 回调数据
-
-        地址：http://59.110.46.55/1phpmyadmin1/
-        账号：paydaydb_root
-        密码：D#4%eA4y01@AbE3&48D5$5F7*d
-
-    海外测试：
-
-        地址：http://www.jiexiangtech.com/2phpmyadmin2
-        账号：root
-        密码：localR@@T
-
-    海外正式：
-
-        地址：http://149.129.251.98:8082/2phpmyadmin2
-        账号：rds_root
-        密码：LHm1$2Hm1$*d3Ab&b5#1
-
-    海外 KSP：
-
-        地址：http://149.129.251.98:8082/2phpmyadmin2
-        账号：rds_root
-        密码：LHm1$2Hm1$*d3Ab&b5#1
-        库名：uangbagus_ksp_pro
-
-    操盘：（测试库zhitou_dev）
-
-        地址：http://59.110.24.151/phpmyadmin21
-        账号：rdsdb_root
-        密码：1@AbED#4%eA4y03&45$5F7*d8D
-
-        新增线上只读库账号 zhitou_rdsdev_pr
-        密码同老账号 zhitou_rdsdev
-
-        1$7&MA4Dd8F2Nkw#D3
-
-    菲律宾：
-        http://47.94.235.248:8088/2phpmyadmin2/
-        root
-        localR@@T
-        数据库 uangbagus_pro
-
-        47.94.235.248
-        /srv/cdn
-        cdn.gpeso.com
-
-        /srv/api
-        api.gpeso.com
-
-        /srv/console
-        console.gpeso.com
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-Git仓库：
-
-    急贷宝boss：git@101.201.154.89:/data/git/maibei7-admin.git
-    急贷宝api： git@101.201.154.89:/data/git/maibei7-backend.git
-
-    掌富贷boss：git@101.201.154.89:/data/git/maibei-admin.git
-    掌富贷api： git@101.201.154.89:/data/git/maibei-backend.git
-
-    海外项⽬boss：https://git.coding.net/lihuangde/UangBagus-console.git
-    海外项目api： https://git.coding.net/lihuangde/UangBagus-api.git
-    海外项目jobs：https://git.dev.tencent.com/lihuangde/UangBagus-Jobs.git
-
-    牛牛BOSS：https://e.coding.net/lihuangde/niuniu-admin.git
-    智投BOSS：https://e.coding.net/lihuangde/jinrizhitou_admin.git
-    智投API：https://e.coding.net/lihuangde/jinrizhitou_api.git
-
-    菲律宾的代码，要部署一份到248测试环境
-    https://e.coding.net/lihuangde/UangBagus-api-ph.git
-    https://e.coding.net/lihuangde/UangBagus-Jobs-ph.git
-    https://e.coding.net/lihuangde/UangBagus-cdn-ph.git
-    https://e.coding.net/lihuangde/UangBagus-console-ph.git
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-服务器登陆：
-
-    急贷宝 | 掌富贷 | saas
-
-        地址: 59.110.46.55
-        账号: root
-        密码: 5#H1b&L3#siz*he&lAnm
-
-    saas⻛控服务器 | 51易易借
-
-        地址: 47.94.235.248
-        账号: root
-        密码: asdf.123456
-
-    海外项⽬（测试）：
-
-        地址: 39.96.161.37
-        账号: root
-        密码: asdf.123456
-
-    海外项⽬（正式）：
-
-        地址：149.129.251.98
-        账号：dev_user01
-        密码：15*TB5@1m1$FoN#d4F9
-        位置：/srv/console/
-
-    海外项⽬（KSP）：
-
-        地址：149.129.247.105
-        账号：dev_user01
-        密码：15*TB5@1m1$FoN#d4F9
-        位置：/srv/wwwroot/
-
-    智投服务器（测试）：
-
-        地址：47.94.235.248
-        账号：root
-        密码：asdf.1234!@#$
-        路径：/data/wwwroot/zttest/jinrizhitou_admin/
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -2383,7 +2339,46 @@ curl -H'Content-Type: application/json' -XPUT http://localhost:9200/products/_ma
 
 
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+日程表（2020-08-05起执行）
+
+1、6点起起床，洗漱，准备出发；
+
+2、6点半，开始跑步（沿兴旺大街）[跑步 1 小时]；
+
+3、7点半回来，吃早饭（巫山烤鱼早餐）[吃饭半小时]；
+
+4、8点回来，开始看书（整理博客，社区学习，练习写字，整理金句）；
+
+5、11点做饭
+
+6、12点吃饭，休息到2点；
+
+7、2点开始看书（整理博客，社区学习，练习写字，整理金句）；
+
+8、6点做饭；
+
+9、6点半吃饭，休息到7点半；
+
+10、7点半，锻炼（哑铃、小区单杠）[1~2小时]；
+
+11、9点左右，看看书；
+
+12、10点半洗漱，准备睡觉；
+
+13、11点睡觉。
+
+附录：
+
+1、个人博客要完善；
+2、买的课程，全部重新做一遍；
+3、筛选婚纱照拍摄公司；
+4、要练字；
+5、学英语；
+6、学唱歌？
+7、服务器找时间整理；
+8、电脑看情况是否需要整理？
 
 
 
