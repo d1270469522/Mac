@@ -29,7 +29,12 @@
  *            ::::``:::::::::'        .:::.
  *           ::::'   ':::::'       .::::::::.
  *         .::::'      ::::     .:::::::'::::.
- *        .:::'       :::::  .:::::::::' ':::::.
+ *        .:::'       :::::  .:::::::::' ':::::.1、题型、题目为必填项
+2、题型分别是：单选打分题、多选打分题、评价题、NPS题、单行文本、多行文本。
+3、正确答案：单个字母（A-L）请与答案字母相对应
+4、单选题、多选题最多支持12个选项,评价题评价分值请写入选项A内
+5、建议将所有输入框格式调整为文本格式，防止导入时Excel自动处理数据，影响数据准确性
+6、导入时请将模板中的示例删除后再导入，请勿修改模板表头，本行文字为提示文字，导入时请勿删除
  *       .::'        :::::.:::::::::'      ':::::.
  *      .::'         ::::::::::::::'         ``::::.
  *  ...:::           ::::::::::::'              ``::.
@@ -55,50 +60,127 @@
  * └─────┴────┴────┴───────────────────────┴────┴────┴────┴────┘ └───┴───┴───┘ └───────┴───┴───┘
  */
 
-
-$arr = [
-    '9' => '0',
-    '4' => '2',
-    '5' => '1',
-    '7' => '5',
-    '8' => '4',
-    '3' => '6',
-    '1' => '3',
-    '0' => '8',
-    '6' => '7',
-    's' => '111',
-    'e' => '7',
-    'b' => '8',
-    'qq' => 'qq',
-    'aa' => 'aa',
-    'we' => 'qw',
-    'f' => 'f',
-];
-
-print_r(ksort($arr));
-
 echo '<pre>';
-print_r($arr);
+
+$str = '/apps/www/pc/bin/queue/mail.php';
+
+$a = strpos($str, 'mail.php');
+var_dump($a);
 die;
 
-// header("Content-type: application/json; charset=utf-8");
-// header("Content-type: text/html; charset=gbk");
-echo '<pre>';
-
-$indexName = 'test_2_3333-444';
-
-
-
-
-
-if (!preg_match('~_(\d+)$~', $indexName, $m)) {
-    $m[1] = 0;
+/*
+观察者接口
+*/
+interface InterfaceObserver
+{
+    function onListen($sender, $args);
+    function getObserverName();
 }
 
-print_r($m);die;
+// 可被观察者接口
+interface InterfaceObservable
+{
+    function addObserver($observer);
+    function removeObserver($observer_name);
+}
+
+// 观察者抽象类
+abstract class Observer implements InterfaceObserver
+{
+    protected $observer_name;
+
+    function getObserverName()
+    {
+        return $this->observer_name;
+    }
+
+    function onListen($sender, $args)
+    {
+
+    }
+}
+
+// 可被观察类
+abstract class Observable implements InterfaceObservable
+{
+    protected $observers = array();
+
+    public function addObserver($observer)
+    {
+        if ($observer instanceof InterfaceObserver){
+            $this->observers[] = $observer;
+        }
+    }
+
+    public function removeObserver($observer_name)
+    {
+        foreach ($this->observers as $index => $observer){
+            if ($observer->getObserverName() === $observer_name){
+                array_splice($this->observers, $index, 1);
+                return;
+            }
+        }
+    }
+}
+
+// 模拟一个可以被观察的类
+class A extends Observable
+{
+    public function addListener($listener)
+    {
+        foreach ($this->observers as $observer){
+            $observer->onListen($this, $listener);
+        }
+    }
+}
+
+// 模拟一个观察者类
+class B extends Observer
+{
+    protected $observer_name = 'B';
+
+    public function onListen($sender, $args)
+    {
+        print_r($sender);
+        echo "<br>";
+        print_r($args);
+        echo "<br>";
+    }
+}
+
+// 模拟另外一个观察者类
+class C extends Observer
+{
+    protected $observer_name = 'C';
+
+    public function onListen($sender, $args)
+    {
+        print_r($sender);
+        echo "<br>";
+        print_r($args);
+        echo "<br>";
+    }
+}
+
+$a = new A();
+
+// 注入观察者
+$a->addObserver(new B());
+$a->addObserver(new C());
+
+// 可以看到观察到的信息
+$a->addListener('B');
+$a->addListener('qqq');
+
+// 移除观察者
+$a->removeObserver('B');
+die;
 
 
-echo str_pad($str,30,".",STR_PAD_LEFT);die;
+phpinfo();die;
+
+
+
 
 /**===================    获取公钥   ================**
 

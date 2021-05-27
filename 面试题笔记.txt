@@ -10,3 +10,13 @@
 3、mysql事务
 
     https://www.jianshu.com/p/081a3e208e32
+
+
+
+1、redis面试题（各种数据类型，使用场景，示例）
+
+    https://blog.csdn.net/qq_41063141/article/details/104545690
+
+2、《进大厂系列》系列-Redis常见面试题（带答案）
+
+    https://zhuanlan.zhihu.com/p/91539644
