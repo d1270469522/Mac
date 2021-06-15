@@ -29,18 +29,6 @@
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-一点知识
-
-    测试环境：
-
-        地址：https://el1.talentyun.com/index.html#!/
-        编号：1234
-        账号：18310218298
-        密码：123456
-
-    测试数据库：
-
-        mongodb://chat:KWzDF7DxysuxTmRsPlICrAGR@39.96.44.215:27017/chat?authSource=chat
 
 
 
@@ -61,6 +49,21 @@
 
 
 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+1、洋葱（lks）同步
+2、新风向（特区、德康）同步
+3、涂鸦（tuya）同步
+4、闯关地图，加权限
+5、360度评估
+6、一对一评价
+7、线下训练时长
+8、带教项目管理
+9、51cto 课程同步
+10、微问管理
+11、测评（问卷星）
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -88,16 +91,12 @@ homestead 的相关命令
     sudo pecl channel-update pecl.php.net
 
 
-
-
-
-
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 天眼风控：
 
-super
-super2019
+    super
+    super2019
 
 后台管理：
 
@@ -581,181 +580,6 @@ Oracle：
     地址：https://www.oracle.com/
     账号：1270469522@qq.com
     密码：D********（通用）
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-添加新平台：
-
-    1、boss 后台添加 platform；
-
-    2、tb_product 表添加2条记录；
-
-    INSERT INTO `tb_product` (`own_platform`, `user_type`, `min_amount`, `max_amount`, `range`, `normal_type`, `normal_rate`, `loan_period`, `loan_days`, `overdue_rate`, `charge_type`, `charge_rate`, `repayment_charge_rate`, `template_id`, `status`, `created_at`, `updated_at`) VALUES
-    ('RupiahSuper', 2, 800000, 1600000, 200000, 2, '0.008', 1, 7, '0.05', 1, '0.300', '0.000', 2, 1, '2019-09-18 05:28:01', '2019-09-18 05:28:01'),
-    ('RupiahSuper', 1, 800000, 1600000, 200000, 2, '0.008', 1, 7, '0.05', 1, '0.300', '0.000', 2, 1, '2019-09-18 05:28:01', '2019-09-18 05:28:01');
-
-    3、添加支付通道；
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-上架：传包（七牛云）：
-
-    地址：https://portal.qiniu.com/
-    账号：hanyaokeji@126.com
-    密码：ycwl.1234
-
-    步骤：
-        1 对象存储，存储空间列表点击uangbagus
-        2 点内容管理->上传文件
-        3 设置路径前缀:  apk/    选择文件上传
-        4 上传成功列表最上面一条 复制外链，发给相关的人
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-增加推广渠道：
-
-
-    1 后台渠道列表，增加渠道Loueme2
-
-    2 将连接补全字段（追加&referrer=pid%3DLoueme2%26anid%3Dadmob）
-
-        https://play.google.com/store/apps/details?id=co.dompetemas.cepat&referrer=pid%3D  Loueme2  %26anid%3Dadmob
-        https://play.google.com/store/apps/details?id=com.kspgemilangusahaberdikari.rupiahsuper&referrer=pid%3DWhite%26anid%3Dadmob
-
-    3 问一下这个渠道是否只推白名单
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-ab面的切换：
-
-    api下 .env文件，最后一行
-
-    SIDEB_ARR = ["UangPohon1.0.1","UangCepatMax1.0.6","UangCepatMax1.0.7","UangPetir1.0.1","UangCheetah1.0.3","UangPetir1.0.3","UangMitra1.0.3","UangMitra1.0.4","UangMitra1.0.8","DompetBus1.0.8","DompetRaja1.0.3"]
-
-    a -> b 添加 【包名 版本号】记账面
-    a <- b 删除 【包名 版本号】现金贷
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-隐私链接：
-
-    地址：/home/wwwroot/default/protocol/
-
-        cp DompetEmas.html UangParty.html
-
-    最终生成的链接：http://jiexiangtech.com/protocol/DompetEmas.html
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-删除注册：
-
-    update `tb_user_basic_info` set `phone_number`='05574670577',`phone`='05574670577' WHERE uid in(SELECT user_id FROM tb_user_access WHERE `platform`='RupiahSuper' and `phone`='85574670577');
-
-    update `tb_user_access` set `phone` ='05574670577' WHERE `platform`='RupiahSuper' and `phone`='85574670577';
-
-    delete FROM `tb_order_refuse_time` WHERE `ktp_number`='3713291402910005';
-    delete FROM `tb_refuse_delay_record` WHERE `ktp_number`='3713291402910005';
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-执行计划任务：
-
-    /usr/bin/php /data/wwwroot/UangBagus-console/artisan AutoOrderStatus
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-图片服务器 | 文件系统：
-
-    查找进程：
-
-        ps -ef | grep fdfs
-
-    停止tracker和storage：
-
-        /usr/local/fastdfs-5.05/stop.sh  /etc/fdfs/storage.conf
-        /usr/local/fastdfs-5.05/stop.sh  /etc/fdfs/tracker.conf
-
-    编辑配置文件：
-
-        vim /etc/fdfs/storage.conf
-        vim /etc/fdfs/tracker.conf
-
-    启动tracker和storage：
-
-        /usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf
-        /usr/bin/fdfs_storaged /etc/fdfs/storage.conf
-
-    重启tracker和storage：
-
-        /usr/local/fastdfs-5.05/restart.sh /usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf
-        /usr/local/fastdfs-5.05/restart.sh /usr/bin/fdfs_storaged /etc/fdfs/storage.conf
-
-    监控状态：
-
-        fdfs_monitor /etc/fdfs/storage.conf
-
-    文件上传：
-
-        fdfs_test /etc/fdfs/client.conf upload /root/图片/zidana.jpg
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-印尼业务，如果图片服务如果出现异常无法上传，可切到B方案
-线上服务器直接FTP修改以下文件名
-
-    /srv/cdn/app/Http/Controllers/UploadController.php
-    改成
-    /srv/cdn/app/Http/Controllers/UploadController.php1
-
-
-    /srv/cdn/app/Http/Controllers/UploadController.php.bak
-    改成
-    /srv/cdn/app/Http/Controllers/UploadController.php
-
-B方案已测试，没有问题
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-工作周报：
-
-    @all 研发周报发新邮箱
-    操盘业务@张志超 @原罪 @.Lamar
-    lihuangde@bit-dream.cn
-    抄送 lijinge@bit-dream.cn
-
-    印尼业务@董鹏飞 @A-OK @焱
-    lihuangde@bit-dream.cn
-    抄送 lijinge@bit-dream.cn
-
-    菲律宾业务 @左闯 @郑
-    lijinge@bit-dream.cn
-    抄送 lihuangde@bit-dream.cn
-
-    周报每周按时发不要漏，和绩效有关务必重视
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-df -h  查看剩余空间
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-Nginx 配置位置：
-
-    正式
-
-        /usr/local/software/nginx-1.15.3/conf/conf.d
-
-    测试
-
-        /usr/local/nginx/conf/vhost
-
-    KSP
-
-        /usr/local/software/nginx/1.14.2/conf/conf.d/rc
-
-    47.94.235.248（操盘测试）
-
-        /usr/local/nginx/conf/vhost
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
