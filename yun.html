@@ -12,6 +12,7 @@
         padding-bottom: 30px;
         background-color: #F0FFFF;
         width: 800px;
+        border: 1px solid #ccc;
     }
     table {
         border-collapse: collapse;
@@ -35,20 +36,29 @@
     img {
         width: 100%;
     }
+    a {
+        color: green;
+        text-decoration: none;
+    }
+
+    a:VISITED {
+        color: green;
+    }
+
+    a:HOVER {
+        text-decoration: none;
+    }
 </style>
 
 <body>
 
     <h1 style="text-align: center;">云南旅游攻略</h1>
 
-
     <h2>一、行程安排</h2>
     <hr>
-
-
     <h3>【前往：1天】【返程：1天】</h3>
     <h3>【石林：1天】【洱海：1天】【苍山 + 丽江古城：1天】【玉龙雪山：1天】【泸沽湖：1天】</h3>
-    <h3>【总共：7天】</h3>
+    <h3>【总共：7天】<a href="#img001">【整体路线图(1)】</a><a href="#img002">【整体路线图(2)】</a></h3>
     <table>
         <thead>
             <tr>
@@ -80,6 +90,7 @@
                 </td>
                 <td>
                     <p>石林门票：130 元 / 人</p>
+                    <h3><a href="#img003">【石林示例图(3)】</a></h3>
                 </td>
             </tr>
             <tr>
@@ -102,6 +113,8 @@
                 <td>
                     <p>洱海游船：140 元 / 人</p>
                     <p>花语牧场：30 元 / 人（吉普车）</p>
+                    <h3><a href="#img004">【洱海示例图(4)】</a></h3>
+                    <h3><a href="#img005">【洱海示例图(5)】</a></h3>
                 </td>
             </tr>
             <tr>
@@ -119,6 +132,10 @@
                 </td>
                 <td>
                     <p>感通索道：120 元 / 人（含苍山门票和索道）</p>
+                    <h3><a href="#img006">【苍山示例图(6)】</a></h3>
+                    <h3><a href="#img007">【苍山示例图(7)】</a></h3>
+                    <h3><a href="#img010">【丽江古城图(10)】</a></h3>
+                    <h3><a href="#img011">【丽江古城图(11)】</a></h3>
                 </td>
             </tr>
             <tr>
@@ -138,6 +155,9 @@
                     <p>进山费：100 元 / 人</p>
                     <p>冰川大索道：120 元 / 人</p>
                     <p>束河古镇：30 元 / 人</p>
+                    <h3><a href="#img008">【玉龙雪山图(8)】</a></h3>
+                    <h3><a href="#img009">【玉龙雪山图(9)】</a></h3>
+                    <h3><a href="#img012">【束河古镇图(12)】</a></h3>
                 </td>
             </tr>
             <tr>
@@ -158,6 +178,9 @@
                 <td>
                     <p>泸沽湖门票：100 元 / 人</p>
                     <p>猪槽船：30 - 100 元 / 人（视距离远近）</p>
+                    <h3><a href="#img013">【泸沽湖示例图(13)】</a></h3>
+                    <h3><a href="#img014">【泸沽湖示例图(14)】</a></h3>
+                    <h3><a href="#img015">【泸沽湖示例图(15)】</a></h3>
                 </td>
             </tr>
             <tr>
@@ -173,7 +196,6 @@
     <h2>二、预计费用</h2>
     <hr>
     <br>
-
     <table>
         <thead>
             <tr>
@@ -220,7 +242,6 @@
             </tr>
         </tbody>
     </table>
-
     <br>
 
     <h2>三、注意事项</h2>
@@ -274,50 +295,49 @@
 
     <h2>四、图片示例</h2>
     <hr>
-
-    <h2>1、云南游玩路线图（第 1 张 / 共 2 张）</h2>
+    <h2 id="img001">1、云南游玩路线图（第 1 张 / 共 2 张）</h2>
     <p><img src="images/yunnan/all_1.jpeg"></p>
 
-    <h2>2、云南游玩路线图（第 2 张 / 共 2 张）</h2>
+    <h2 id="img002">2、云南游玩路线图（第 2 张 / 共 2 张）</h2>
     <p><img src="images/yunnan/all_2.jpeg"></p>
 
-    <h2>3、石林游玩路线图（第 1 张 / 共 1 张）</h2>
+    <h2 id="img003">3、石林游玩路线图（第 1 张 / 共 1 张）</h2>
     <p><img src="images/yunnan/shilin.jpeg"></p>
 
-    <h2>4、大理洱海游玩路线图（第 1 张 / 共 2 张）</h2>
+    <h2 id="img004">4、大理洱海游玩路线图（第 1 张 / 共 2 张）</h2>
     <p><img src="images/yunnan/erhai_1.jpeg"></p>
 
-    <h2>5、大理洱海游玩路线图（第 2 张 / 共 2 张）</h2>
+    <h2 id="img005">5、大理洱海游玩路线图（第 2 张 / 共 2 张）</h2>
     <p><img src="images/yunnan/erhai_2.jpeg"></p>
 
-    <h2>6、大理苍山游玩路线图（第 1 张 / 共 2 张）</h2>
+    <h2 id="img006">6、大理苍山游玩路线图（第 1 张 / 共 2 张）</h2>
     <p><img src="images/yunnan/cangshan_1.jpeg"></p>
 
-    <h2>7、大理苍山游玩路线图（第 2 张 / 共 2 张）</h2>
+    <h2 id="img007">7、大理苍山游玩路线图（第 2 张 / 共 2 张）</h2>
     <p><img src="images/yunnan/cangshan_2.jpeg"></p>
 
-    <h2>8、丽江古城游玩路线图（第 1 张 / 共 2 张）</h2>
+    <h2 id="img008">8、丽江古城游玩路线图（第 1 张 / 共 2 张）</h2>
     <p><img src="images/yunnan/lijiang_1.jpeg"></p>
 
-    <h2>9、丽江古城游玩路线图（第 2 张 / 共 2 张）</h2>
+    <h2 id="img009">9、丽江古城游玩路线图（第 2 张 / 共 2 张）</h2>
     <p><img src="images/yunnan/lijiang_2.jpeg"></p>
 
-    <h2>10、玉龙雪山游玩路线图（第 1 张 / 共 2 张）</h2>
+    <h2 id="img010">10、玉龙雪山游玩路线图（第 1 张 / 共 2 张）</h2>
     <p><img src="images/yunnan/xueshan_1.jpeg"></p>
 
-    <h2>11、玉龙雪山游玩路线图（第 2 张 / 共 2 张）</h2>
+    <h2 id="img011">11、玉龙雪山游玩路线图（第 2 张 / 共 2 张）</h2>
     <p><img src="images/yunnan/xueshan_2.jpeg"></p>
 
-    <h2>12、束河古镇游玩路线图（第 1 张 / 共 1 张）</h2>
+    <h2 id="img012">12、束河古镇游玩路线图（第 1 张 / 共 1 张）</h2>
     <p><img src="images/yunnan/shuhe_1.jpeg"></p>
 
-    <h2>13、泸沽湖游玩路线图（第 1 张 / 共 3 张）</h2>
+    <h2 id="img013">13、泸沽湖游玩路线图（第 1 张 / 共 3 张）</h2>
     <p><img src="images/yunnan/luguhu_1.jpeg"></p>
 
-    <h2>14、泸沽湖游玩路线图（第 2 张 / 共 3 张）</h2>
+    <h2 id="img014">14、泸沽湖游玩路线图（第 2 张 / 共 3 张）</h2>
     <p><img src="images/yunnan/luguhu_2.jpeg"></p>
 
-    <h2>15、泸沽湖游玩路线图（第 3 张 / 共 3 张）</h2>
+    <h2 id="img015">15、泸沽湖游玩路线图（第 3 张 / 共 3 张）</h2>
     <p><img src="images/yunnan/luguhu_3.jpeg"></p>
 
 
