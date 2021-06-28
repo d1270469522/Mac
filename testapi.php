@@ -49,6 +49,83 @@
  */
 
 
+class test
+{
+
+    // 精神支配纬度【选项类型】
+    const WAIXIANG = 'E'; // 外向
+    const NEIXIANG = 'I'; // 内向
+
+    // 认识世界纬度【选项类型】
+    const GANJUE = 'S'; // 感觉
+    const ZHIJUE1 = 'N'; // 直觉
+
+    // 判断事物纬度【选项类型】
+    const SIWEI = 'T'; // 思维
+    const QINGGAN = 'F'; // 情感
+
+    // 生活态度纬度【选项类型】
+    const PANDUAN = 'J'; // 判断
+    const ZHIJUE2 = 'P'; // 知觉
+
+    protected $ervey_num = [
+        'E' => 0, // 外向【数量】
+        'I' => 0, // 内向【数量】
+        'S' => 0, // 感觉【数量】
+        'N' => 0, // 直觉【数量】
+        'T' => 0, // 思维【数量】
+        'F' => 0, // 情感【数量】
+        'J' => 0, // 判断【数量】
+        'P' => 0, // 知觉【数量】
+    ];
+
+
+    public function t ()
+    {
+        $this->ervey_num[self::NEIXIANG] ++;
+        $this->ervey_num[self::NEIXIANG] ++;
+        $this->ervey_num[self::NEIXIANG] ++;
+
+        return $this->ervey_num[self::NEIXIANG];
+    }
+
+}
+// $class = new test();
+
+// echo $class->t();die;
+
+
+
+
+
+
+
+// if (0 >= 0) {
+//     echo 1;die;
+// } else {
+//     echo 2;die;
+// }
+
+
+
+
+$a = [
+    0 => 0,
+    1 => 0,
+];
+
+
+if ($a[0] >= $a[1]) {
+    echo 3;die;
+} else {
+    echo 4;die;
+}
+
+
+
+
+
+
 
 
 require_once 'vendor/autoload.php';
