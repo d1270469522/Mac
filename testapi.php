@@ -48,6 +48,64 @@
 └─────┴────┴────┴───────────────────────┴────┴────┴────┴────┘ └───┴───┴───┘ └───────┴───┴───┘
  */
 
+#打开目录浏览。
+autoindex on;
+
+#默认为off，显示的文件时间为GMT时间。
+#改为on后，显示的文件时间为文件的服务器时间。
+autoindex_localtime on;
+
+#默认为on，显示出文件的确切大小，单位是bytes。
+#改为off后，显示出文件的大概大小，单位是kB或者MB或者GB。
+autoindex_exact_size off;
+
+#解决中文乱码问题。
+charset utf-8,gbk;
+
+
+        server_name  www.tianjintou.top;
+
+        location / {
+            root   /data/www/html;
+            index  index.html index.htm index.php;
+        }
+
+        location ~ \.php$ {
+            fastcgi_pass 127.0.0.1:9000;
+            fastcgi_index index.php;
+            fastcgi_param SCRIPT_FILENAME /data/www/html/$fastcgi_script_name;
+            include fastcgi_params;
+        }
+
+include conf.d/*.conf;
+
+
+server {
+    listen       80;
+    server_name  wp.tianjintou.top;
+
+    location / {
+        root   /data/www/html/wordpress/;
+        index  index.html index.htm index.php;
+    }
+
+    location ~ \.php$ {
+        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME /data/www/html/wordpress/$fastcgi_script_name;
+        include fastcgi_params;
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

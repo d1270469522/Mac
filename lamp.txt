@@ -1,0 +1,903 @@
+    yum update -y
+
+    yum install -y wget
+
+    yum install -y gcc gcc++ gcc-c++ make zlib zlib-devel pcre pcre-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel openssl openssl-devel openldap openldap-devel nss_ldap openldap-clients openldap-servers bison autoconf libXpm libXpm-devel wget
+
+
+
+    创建 Mysql 用户组, 用户
+
+        参考网址 https://www.cnblogs.com/zhongguiyao/p/9165917.html
+
+        [1] 创建组
+
+            groupadd -r mysql
+
+        [2] 创建用户
+
+            useradd -r -g mysql -d /usr/local/mysql -M mysql
+
+    进入压缩包下载目录
+
+        cd /usr/local/src/
+
+    下载 Mysql 压缩包
+
+        参考网址 https://dev.mysql.com/downloads/mysql/ [根据需要下载所需版本, 没有需要的, 可以下载最新稳定版本]
+
+        wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.34-linux-glibc2.12-i686.tar.gz [将版本替换成自己的版本]
+
+    解压到指定目录
+
+        tar -zxvf mysql-5.7.34-linux-glibc2.12-i686.tar.gz -C /usr/local/
+
+        参数说明 -C 指定目录
+
+    文件夹名字改为 mysql
+
+        mv /usr/local/mysql-5.7.34-linux-glibc2.12-i686 /usr/local/mysql
+
+    创建 data 目录
+
+        mkdir /usr/local/mysql/data/
+
+    授权目录和用户
+
+        chown -R mysql:mysql /usr/local/mysql
+        chmod -R 755 /usr/local/mysql
+
+    初始化 & 安装
+
+        /usr/local/mysql/bin/mysqld --initialize --user=mysql --datadir=/usr/local/mysql/data --basedir=/usr/local/mysql
+
+        记录密码
+
+        最后一行会有默认生成的密码 n2ta1yWih9
+
+        A temporary password is generated for root@localhost: n2ta1yWih9
+
+    复制启动脚本到资源目录
+
+        cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
+
+    增加可执行权限
+
+        chmod +x /etc/init.d/mysqld
+
+    将 mysqld 服务加入到系统服务 & 设置开机自启
+
+        chkconfig --add mysqld
+        chkconfig mysqld on
+
+    修改 my.cnf 无效
+
+        避免不必要的错误发生
+
+        mv /etc/my.cnf /etc/my.cnf.bak
+
+    启动 mysqld
+
+        service mysqld start
+
+    进入 mysql
+
+        /usr/local/mysql/bin/mysql -uroot -p
+
+    修改密码 & 刷新权限
+
+        ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';
+        FLUSH PRIVILEGES;
+
+    SSH 远程登陆 & 刷新权限
+
+        GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;
+        FLUSH PRIVILEGES;
+
+    查看权限
+
+        SHOW GRANTS FOR 'root'@'%';
+        QUIT;
+
+    设置 mysql 环境变量
+
+        vim ~/.bash_profile
+
+        # 在最后一行加上
+
+        export PATH=$PATH:/home/uusama/mysql/bin
+
+    附录说明
+
+        官网说明: http://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html
+
+        用户权限管理主要有以下作用
+
+            1. 可以限制用户访问哪些库, 哪些表
+            2. 可以限制用户对哪些表执行 SELECT, CREATE, DELETE, DELETE, ALTER 等操作
+            3. 可以限制用户登录的 IP 或域名
+            4. 可以限制用户自己的权限是否可以授权给别的用户
+
+        ALL PRIVILEGES
+
+            表示将所有权限授予给用户. 也可指定具体的权限, 如: SELECT, CREATE, DROP 等.
+
+        ON
+
+            表示这些权限对哪些数据库和表生效, 格式: 数据库名.表名, 这里写 "*" 表示所有数据库, 所有表.
+            如果我要指定将权限应用到 test 库的 user 表中, 可以这么写: test.user
+
+        TO
+
+            将权限授予哪个用户. 格式: "用户名"@"登录IP 或 域名". %表示没有限制, 在任何主机都可以登录.
+            比如: "yangxin"@"192.168.0.%", 表示 yangxin 这个用户只能在 192.168.0 IP 段登录
+
+        IDENTIFIED BY
+
+            指定用户的登录密码
+
+        WITH GRANT OPTION
+
+            表示允许用户将自己的权限授权给其它用户
+
+            可以使用 GRANT 给用户添加权限, 权限会自动叠加, 不会覆盖之前授予的权限,
+            比如你先给用户添加一个 SELECT 权限, 后来又给用户添加了一个INSERT权限, 那么该用户就同时拥有了 SELECT 和 INSERT 权限.
+
+
+
+
+
+
+
+
+    安装 Nginx
+
+
+    安装 Nginx 依赖
+
+        yum update -y
+        yum install -y gcc pcre pcre-devel zlib zlib-devel openssl openssl-devel wget
+
+        [1] gcc:
+
+        是一个开源编译器集合, 用于处理各种各样的语言: C, C++, Java, Ada等.
+        在 Linux 世界中是最通用的编译器, 支持大量处理器: x86, AMD64, PowerPC, ARM, MIPS 等.
+
+        [2] pcre 和 pcre-devel:
+
+        Nginx 的 Rewrite 模块和 HTTP 核心模块会使用到 PCRE 正则表达式语法.
+        因此 Nginx 编译需要使用 PCRE (Perl Compatible Regular Expression) 库.
+        需要安装 pcre 和 pcre-devel, pcre 提供编译版本的库,pcre-devel 提供开发阶段的头文件和编译项目的源代码.
+
+        [3] zlib:
+
+        库提供了压缩算法, 在 Nginx 的各种模块中需要使用 gzip 压缩, 因此需要安装 zlib 库和 zlib-devel (zlib 源代码).
+
+        [4] openssl:
+
+        项目是一个协作开发健壮的, 商业级的, 全功能的执行于安全套接层 (SSL v2/v3) 和传输层安全 (TLS v1) 的协议, 也是一个完整强壮的通用加密库.
+        在 Nginx 中如果服务器需要提供安全网页则会用到 openssl 库, 因此需要安装它的库文件和它的开发安装包.
+
+        [5] wget:
+
+        是一个下载文件的工具, 它用在命令行下. 对于 Linux 用户是必不可少的工具, 我们经常要下载一些软件或从远程服务器恢复备份到本地服务器.
+        wget 支持 HTTP,HTTPS 和 FTP 协议, 可以使用 HTTP 代理. 所谓的自动下载是指, wget 可以在用户退出系统的之后在后台执行.
+        这意味这你可以登录系统, 启动一个 wget 下载任务, 然后退出系统, wget 将在后台执行直到任务完成
+        wget 可以跟踪HTML页面上的链接依次下载来创建远程服务器的本地版本, 完全重建原始站点的目录结构. 这又常被称作 "递归下载" .
+        wget 非常稳定, 它在带宽很窄的情况下和不稳定网络中有很强的适应性.
+        如果是由于网络的原因下载失败, wget会不断的尝试, 直到整个文件下载完毕.
+        如果是服务器打断下载过程, 它会再次联到服务器上从停止的地方继续下载.
+        这对从那些限定了链接时间的服务器上下载大文件非常有用.
+
+    创建 Nginx 用户组, 用户
+
+        参考网址 https://www.cnblogs.com/zhongguiyao/p/9165917.html
+
+        [1] 创建组
+
+        groupadd -r nginx
+
+        [2] 创建用户
+
+        useradd -r -g nginx -s /sbin/nologin -d /usr/local/nginx -M nginx
+
+    进入压缩包下载目录
+
+        cd /usr/local/src
+
+    下载 Nginx 压缩包
+
+        参考网址 http://nginx.org/download/ [根据需要下载所需版本, 没有需要的, 可以下载最新稳定版本]
+
+        wget http://nginx.org/download/nginx-1.17.6.tar.gz [将版本替换成自己的版本]
+
+    解压 Nginx 压缩包
+
+        tar -vzxf nginx-1.17.6.tar.gz
+
+    进入 Nginx 文件夹:
+
+        cd nginx-1.17.6
+
+    编译 [根据自己需要, 添加编译其他选项]
+
+        ./configure --group=nginx --user=nginx --prefix=/usr/local/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --http-client-body-temp-path=/tmp/nginx/client_body --http-proxy-temp-path=/tmp/nginx/proxy --http-fastcgi-temp-path=/tmp/nginx/fastcgi --lock-path=/var/lock/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-pcre --with-mail --with-mail_ssl_module
+
+        编译选项说明
+
+        --group=nginx [指定启动nginx进程的默认用户组;set non-privileged group for worker processes]
+        --user=nginx [指定启动nginx进程的默认用户;set non-privileged user for worker processes]
+        --prefix=/usr/local/nginx [nginx安装路径]
+        --sbin-path=/usr/sbin/nginx [nginx二进制执行文件路径]
+        --conf-path=/etc/nginx/nginx.conf [nginx配置文件存放位置]
+        --error-log-path=/var/log/nginx/error.log [错误日志文件路径]
+        --http-log-path=/var/log/nginx/access.log [设置http访问日志文件路径]
+        --pid-path=/var/run/nginx.pid [nginx.pid文件路径(pid文件包含进程的标识符）]
+        --http-client-body-temp-path=/tmp/nginx/client_body [设定http客户端请求临时文件路径]
+        --http-proxy-temp-path=/tmp/nginx/proxy [设定http代理临时文件路径]
+        --http-fastcgi-temp-path=/tmp/nginx/fastcgi [设定http fastcgi临时文件路径]
+        --lock-path=/var/lock/nginx [指向lock文件（nginx.lock）（安装文件锁定, 防止安装文件被别人利用, 或自己误操作. ）]
+        --with-http_stub_status_module [启用ngx_http_stub_status_module支持（获取nginx自上次启动以来的工作状态）]
+        --with-http_ssl_module [启用ngx_http_ssl_module支持（使支持https请求, 需已安装openssl）]
+        --with-http_gzip_static_module [启用ngx_http_gzip_static_module支持（在线实时压缩输出数据流）]
+        --with-pcre [启用pcre库]
+        --with-mail [启用POP3/IMAP4/SMTP代理模块支持]
+        --with-mail_ssl_module [启用ngx_mail_ssl_module支持]
+
+    安装 Nginx
+
+        make && make install
+
+    创建文件夹 (http 相关存放)
+
+        mkdir /tmp/nginx/
+
+    检测 Nginx 配置文件是否正确
+
+        nginx -t
+
+    启动 Nginx 服务
+
+        nginx
+
+    通过 nginx -s 控制 Nginx 服务
+
+        nginx -s stop [停止服务]
+        nginx -s quit [退出服务]
+        nginx -s reopen [重新打开日志文件]
+        nginx -s reload [重新加载配置文件]
+
+    实现 Nginx 开机自启
+
+        参考网址 https://www.nginx.com/resources/wiki/start/topics/examples/redhatnginxinit/
+
+        vim /etc/init.d/nginx
+
+        添加下面内容
+        ==============================
+        #!/bin/sh
+        #
+        # nginx - this script starts and stops the nginx daemon
+        #
+        # chkconfig: - 85 15
+        # description: NGINX is an HTTP(S) server, HTTP(S) reverse \
+        # proxy and IMAP/POP3 proxy server
+        # processname: nginx
+        # config: /etc/nginx/nginx.conf
+        # config: /etc/sysconfig/nginx
+        # pidfile: /var/run/nginx.pid
+
+        # Source function library.
+        . /etc/rc.d/init.d/functions
+
+        # Source networking configuration.
+        . /etc/sysconfig/network
+
+        # Check that networking is up.
+        [ "$NETWORKING" = "no" ] && exit 0
+
+        nginx="/usr/sbin/nginx"
+        prog=$(basename $nginx)
+
+        NGINX_CONF_FILE="/etc/nginx/nginx.conf"
+
+        [ -f /etc/sysconfig/nginx ] && . /etc/sysconfig/nginx
+
+        lockfile=/var/lock/subsys/nginx
+
+        make_dirs() {
+        # make required directories
+        user=`$nginx -V 2>&1 | grep "configure arguments:.*--user=" | sed 's/[^*]*--user=[]∗[]∗.*/\1/g' -`
+        if [ -n "$user" ]; then
+        if [ -z "`grep $user /etc/passwd`" ]; then
+        useradd -M -s /bin/nologin $user
+        fi
+        options=`$nginx -V 2>&1 | grep 'configure arguments:'`
+        for opt in $options; do
+        if [ `echo $opt | grep '.*-temp-path'` ]; then
+        value=`echo $opt | cut -d "=" -f 2`
+        if [ ! -d "$value" ]; then
+        # echo "creating" $value
+        mkdir -p $value && chown -R $user $value
+        fi
+        fi
+        done
+        fi
+        }
+
+        start() {
+        [ -x $nginx ] || exit 5
+        [ -f $NGINX_CONF_FILE ] || exit 6
+        make_dirs
+        echo -n $"Starting $prog: "
+        daemon $nginx -c $NGINX_CONF_FILE
+        retval=$?
+        echo
+        [ $retval -eq 0 ] && touch $lockfile
+        return $retval
+        }
+
+        stop() {
+        echo -n $"Stopping $prog: "
+        killproc $prog -QUIT
+        retval=$?
+        echo
+        [ $retval -eq 0 ] && rm -f $lockfile
+        return $retval
+        }
+
+        restart() {
+        configtest || return $?
+        stop
+        sleep 1
+        start
+        }
+
+        reload() {
+        configtest || return $?
+        echo -n $"Reloading $prog: "
+        killproc $prog -HUP
+        retval=$?
+        echo
+        }
+
+        force_reload() {
+        restart
+        }
+
+        configtest() {
+        $nginx -t -c $NGINX_CONF_FILE
+        }
+
+        rh_status() {
+        status $prog
+        }
+
+        rh_status_q() {
+        rh_status >/dev/null 2>&1
+        }
+
+        case "$1" in
+        start)
+        rh_status_q && exit 0
+        $1
+        ;;
+        stop)
+        rh_status_q || exit 0
+        $1
+        ;;
+        restart|configtest)
+        $1
+        ;;
+        reload)
+        rh_status_q || exit 7
+        $1
+        ;;
+        force-reload)
+        force_reload
+        ;;
+        status)
+        rh_status
+        ;;
+        condrestart|try-restart)
+        rh_status_q || exit 0
+        ;;
+        *)
+        echo $"Usage: $0 {start|stop|status|restart|condrestart|try-restart|reload|force-reload|configtest}"
+        exit 2
+        esac
+        ==============================
+
+    增加可执行权限
+
+        chmod +x /etc/init.d/nginx
+
+    将 Nginx 服务加入到系统服务 & 设置开机自启
+
+        chkconfig --add nginx
+        chkconfig nginx on
+
+
+
+
+
+
+
+
+
+
+    安装 PHP
+
+
+    依赖安装
+
+        yum update -y
+
+        yum install -y gcc gcc++ gcc-c++ make zlib zlib-devel pcre pcre-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel openssl openssl-devel openldap openldap-devel nss_ldap openldap-clients openldap-servers bison autoconf libXpm libXpm-devel wget
+
+        yum install -y sqlite-devel
+
+        yum install -y oniguruma oniguruma-devel
+
+    创建 PHP 用户组, 用户
+
+        参考网址 https://www.cnblogs.com/zhongguiyao/p/9165917.html
+
+        [1] 创建组
+
+        groupadd -r php
+
+        [2] 创建用户
+
+        useradd -r -g php -s /sbin/nologin -d /usr/local/php -M php
+
+
+    PHP 语法分析器re2c [编译 PHP 的时候用到, 提前安装]
+
+    编译的时候出现报错信息
+
+    configure: WARNING: You will need re2c 0.13.4 or later if you want to regenerate PHP parsers.
+
+    通过 yum 安装版本过低, 需要源码安装
+
+    卸载
+
+    yum remove -y re2c
+
+    依赖安装
+
+    yum install -y automake libtool
+
+    进入压缩包下载目录
+
+    cd /usr/local/src/
+
+    下载 re2c 压缩包
+
+    参考网址 http://re2c.org/ [根据需要下载所需版本, 没有需要的, 可以下载最新稳定版本]
+
+    wget https://github.com/skvadrik/re2c/archive/1.2.1.tar.gz [将版本替换成自己的版本]
+    https://github.com/skvadrik/re2c/archive/refs/tags/2.1.1.tar.gz
+
+    解压 re2c 压缩包
+
+    tar -zxvf 1.2.1.tar.gz
+
+    进入 re2c 目录
+
+    cd re2c-1.2.1
+
+    创建 m4 文件夹 [下一步用到]
+
+    mkdir m4
+
+    构建 re2c
+
+    autoreconf -i -W all
+
+    编译 re2c
+
+    ./configure
+
+    安装 re2c
+
+    make && make install
+
+    安装 Cmake [安装 libzip 的时候用到, 提前安装]
+
+    卸载
+
+    yum remove -y cmake
+
+    进入压缩包下载目录
+
+    cd /usr/local/src
+
+    下载
+
+    参考网址:https://cmake.org/download/ [根据需要下载所需版本, 没有需要的, 可以下载最新稳定版本]
+
+    wget https://github.com/Kitware/CMake/releases/download/v3.16.0-rc4/cmake-3.16.0-rc4.tar.gz [将版本替换成自己的版本]
+         https://github.com/Kitware/CMake/releases/download/v3.21.0-rc1/cmake-3.21.0-rc1.tar.gz
+
+    解压
+
+    tar -zxvf cmake-3.16.0-rc4.tar.gz
+
+    进入
+
+    cd cmake-3.16.0-rc4
+
+    安装编译
+
+    ./bootstrap && make && make install
+
+    安装 libzip [编译 PHP 的时候用到, 提前安装]
+
+    卸载
+
+    yum remove -y libzip
+
+    进入压缩包下载目录
+
+    cd /usr/local/src
+
+    下载
+
+    参考网址: https://libzip.org/download/
+
+    wget https://libzip.org/download/libzip-1.5.2.tar.gz
+         https://libzip.org/download/libzip-1.8.0.tar.gz
+
+    解压
+
+    tar -zxvf libzip-1.5.2.tar.gz
+
+    进入
+
+    cd libzip-1.5.2
+
+    创建 build 文件夹 & 进入
+
+    mkdir build && cd build
+
+    执行 cmake
+
+    cmake ..
+
+    安装
+
+    make && make install
+
+    修改 ld.so.conf [编译 PHP 的时候用到, 提前处理]
+
+    可能会出现要求开启 --enable-opcache=on 的错误提示
+
+    PHP 源码安装执行 configure 报错 error:
+
+    off_t undefined; check your library configuration
+
+    编辑 ld.so.conf
+
+    vim /etc/ld.so.conf
+
+    添加如下几行
+
+    /usr/local/lib64
+    /usr/local/lib
+    /usr/lib
+    /usr/lib64
+
+    使之生效
+
+    ldconfig -v
+
+    进入压缩包下载目录
+
+    cd /usr/local/src
+
+    下载 PHP 压缩包
+
+    参考网址 https://www.php.net/downloads.php [根据需要下载所需版本, 没有需要的, 可以下载最新稳定版本]
+
+    wget https://www.php.net/distributions/php-7.3.12.tar.gz [将版本替换成自己的版本]
+         https://www.php.net/distributions/php-8.0.7.tar.gz
+
+
+    解压 PHP 压缩包
+
+    tar -zxvf php-7.3.12.tar.gz
+
+    进入 PHP 文件夹
+
+    cd php-7.3.12
+
+    编译 PHP [根据自己需要, 添加编译其他选项]
+
+    <<-- 以下内容在此版本无效 -->>
+
+    --with-libmbfl
+    --enable-gd-jis-conv
+    --enable-gd-native-ttf [开启gd库原有字体]
+    --with-mcrypt [是php里面重要的加密支持扩展库, linux环境下该库在默认情况下不开启]
+
+    <<-- 以上内容在此版本无效 -->>
+
+    ./configure --prefix=/usr/local/php --exec-prefix=/usr/local/php --bindir=/usr/local/php/bin --sbindir=/usr/local/php/sbin --includedir=/usr/local/php/include --libdir=/usr/local/php/lib/php --mandir=/usr/local/php/php/man --with-config-file-path=/usr/local/php/etc --with-mysql-sock=/var/run/mysql/mysql.sock --with-mhash --with-openssl --with-mysqli=shared,mysqlnd --with-pdo-mysql=shared,mysqlnd --with-gd --with-iconv --with-zlib --enable-zip --enable-inline-optimization --disable-debug --disable-rpath --enable-shared --enable-xml --enable-bcmath --enable-shmop --enable-sysvsem --enable-mbregex --enable-mbstring --enable-ftp --enable-pcntl --enable-sockets --with-xmlrpc --enable-soap --without-pear --with-gettext --enable-session --with-curl --with-jpeg-dir --with-freetype-dir --enable-opcache --enable-fpm --with-fpm-user=nginx --with-fpm-group=nginx --without-gdbm --enable-fast-install --disable-fileinfo
+
+    --prefix=/usr/local/php [php安装的根目录]
+    --exec-prefix=/usr/local/php [php执行文件所在目录]
+    --bindir=/usr/local/php/bin [php/bin目录]
+    --sbindir=/usr/local/php/sbin [php/sbin目录]
+    --includedir=/usr/local/php/include [php包含文件所在目录]
+    --libdir=/usr/local/php/lib/php [php/lib目录]
+    --mandir=/usr/local/php/php/man [php/man目录]
+    --with-config-file-path=/usr/local/php/etc [php的配置目录]
+    --with-mysql-sock=/var/run/mysql/mysql.sock [php的Unix socket通信文件]
+    --with-mhash [Mhash是基于离散数学原理的不可逆向的php加密方式扩展库, 其在默认情况下不开启]
+    --with-openssl [OpenSSL 是一个安全套接字层密码库]
+    --with-mysqli=shared,mysqlnd [php依赖mysql库]
+    --with-pdo-mysql=shared,mysqlnd [php依赖mysql库]
+    --with-gd [gd库]
+    --with-iconv [关闭iconv函数, 种字符集间的转换]
+    --with-zlib [zlib是提供数据压缩用的函式库]
+    --enable-zip [打开对zip的支持]
+    --enable-inline-optimization [优化线程]
+    --disable-debug [关闭调试模式]
+    --disable-rpath [关闭额外的运行库文件]
+    --enable-shared [启用动态库]
+    --enable-xml [开启xml扩展]
+    --enable-bcmath [打开图片大小调整,用到zabbix监控的时候用到了这个模块]
+    --enable-shmop [共享内存]
+    --enable-sysvsem [内存共享方案]
+    --enable-mbregex [开启多字节正则表达式的字符编码. ]
+    --enable-mbstring [开启多字节字符串函数]
+    --enable-ftp [开启ftp]
+    --enable-pcntl [PHP的进程控制支持实现了Unix方式的多进程创建]
+    --enable-sockets [开启套节字]
+    --with-xmlrpc [打开xml-rpc的c语言]
+    --enable-soap [开启简单对象访问协议简单对象访问协议]
+    --without-pear [开启php扩展与应用库]
+    --with-gettext [开户php在当前域中查找消息]
+    --enable-session [允许php会话session]
+    --with-curl [允许curl扩展]
+    --with-jpeg-dir [指定jpeg安装目录yum安装过后不用再次指定会自动找到]
+    --with-freetype-dir [指定freetype安装目录yum安装过后不用再次指定会自动找到]
+    --enable-opcache [开启使用opcache缓存]
+    --enable-fpm [开启fpm]
+    --with-fpm-user=nginx [php-fpm的用户]
+    --with-fpm-group=nginx [php-fpm的用户组]
+    --without-gdbm [数据库函数使用可扩展散列和类似于标准UNIX dbm的工作]
+    --enable-fast-install [为快速安装优化]
+    --disable-fileinfo [因为服务器内存不足1G, 禁用]
+
+
+
+
+    PHP 安装
+
+    make && make install
+
+    查看编译安装后的 PHP 目录
+
+    ll /usr/local/php
+
+    添加 PHP 配置文件
+
+    将php源码编译目录下的 `php.ini-production` 拷贝到php安装目录下的 `etc` 目录下
+
+    cp /usr/local/src/php-7.3.12/php.ini-production /usr/local/php/etc/php.ini
+
+    添加 php-fpm 服务到系统配置目录 /etc/init.d
+
+    cp /usr/local/src/php-8.0.7/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm
+
+    设置 PHP 开机启动
+
+    修改系统配置目录下的 `php-fpm` 文件可执行权限
+
+    chmod +x /etc/init.d/php-fpm
+
+    将系统配置目录下的 `php-fpm` 添加到 `系统服务`
+
+    chkconfig --add php-fpm
+
+    设置 `php-fpm` `系统服务` 为开机启动
+
+    chkconfig php-fpm on
+
+    检测 php-fpm 系统服务是否启动成功
+
+    chkconfig --list | grep php-fpm
+
+    添加 php-fpm 配置文件
+
+    cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf
+
+    添加 www.conf 配置文件
+
+    cp /usr/local/php/etc/php-fpm.d/www.conf.default /usr/local/php/etc/php-fpm.d/www.conf
+
+    添加 PHP 安装目录到系统环境变量
+
+    创建并打开文件 php.sh
+
+    vim /etc/profile.d/php.sh
+
+    添加内容如下:
+
+    export PATH=$PATH:/usr/local/php/bin/:/usr/local/php/sbin/
+
+    使用source立即生效刚刚添加的php环境变量
+
+    source /etc/profile.d/php.sh
+
+    设置 PHP 日志目录和 php-fpm 运行进程的 ID 文件目录
+
+    创建 `php-fpm` 日志目录
+
+    mkdir -p /var/log/php-fpm/
+
+    修改 `php-fpm` 日志目录的所属用户和组
+
+    chown -R nginx:nginx /var/log/php-fpm/
+
+    创建 `php-fpm` 进程的 ID (php-fpm.sock) 文件运行目录
+
+    mkdir -p /var/run/php-fpm/
+
+    修改 `php-fpm` 进程的 ID (php-fpm.sock) 文件运行目录的所属用户和组
+
+    chown -R nginx:nginx /var/run/php-fpm/
+
+    修改session的目录配置
+
+    创建 `session` 存放目录
+
+    mkdir -p /var/lib/php/session/
+
+    修改 `session` 存放目录的所属用户和组
+
+    chown -R nginx:nginx /var/lib/php
+
+    打开 `php.ini` 文件
+
+    vim /usr/local/php/etc/php.ini
+
+    找到 `session.save_path` 修改为如下内容:
+
+    session.save_path = "/var/lib/php/session"
+
+    修改 PHP 扩展目录所在位置
+
+    打开 `php.ini` 配置文件
+
+    vim /usr/local/php/etc/php.ini
+
+    设置 PHP 扩展安装目录所在位置 [找到自己的改一下]
+
+    extension_dir = "/usr/local/php/lib/php/extensions/no-debug-non-zts-20200930"
+
+    修改服务器所在时区
+
+    打开 `php.ini` 文件
+
+    vim /usr/local/php/etc/php.ini
+
+    找到 `timezone` 修改时区如下
+
+    date.timezone = PRC
+
+    PRC 就是英文 People's Republic of China, 中华人民共和国
+
+    开启 OPcache
+
+    修改 `php.ini` 配置文件
+
+    vim /usr/local/php/etc/php.ini
+
+    开启OPcache, 跳转到文件的最后一行 (shift + g), 输入以下内容:
+
+    zend_extension=opcache.so;
+
+    开启 mysqli 扩展
+
+    修改 `php.ini` 配置文件
+
+    vim /usr/local/php/etc/php.ini
+
+    开启 `mysqli` 扩展, 找到 `extension` 位置, 输入以下内容 [共 3 行]
+
+    ; For UNIX OS open mysqli extension
+    extension=mysqli.so
+    extension=pdo_mysql.so
+
+    测试 PHP 的配置文件是否无误
+
+    php-fpm -t
+
+    NOTICE: configuration file /usr/local/php/etc/php-fpm.conf test is successful
+
+    启动 PHP 系统服务
+
+    systemctl start php-fpm.service
+
+    查看 PHP 系统服务状态
+
+    systemctl status php-fpm.service
+
+    CLI 查看 PHP 版本信息
+
+    php -v
+
+    修改 Nginx 配置文件使之使用 Nginx 反向 PHP 解释器
+
+    vim /etc/nginx/nginx.conf
+
+    server {
+    listen 80;
+    server_name www.test.com;
+
+    .
+    .
+    .
+
+    location / {
+    root /data/www/html;
+    index index.php index.html index.htm;
+    }
+
+    .
+    .
+    .
+
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+    root /data/www/html;
+    }
+
+    location ~ ^/(images|javascript|js|css|flash|media|static)/ {
+    expires 30d;
+    }
+
+    .
+    .
+    .
+
+    location ~ \.php$ {
+    # root html;
+    fastcgi_pass 127.0.0.1:9000;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME /data/www/html/$fastcgi_script_name;
+    include fastcgi_params;
+    }
+
+    .
+    .
+    .
+
+    location ~ /\.ht {
+    deny all;
+    }
+    }
+
+    重新加载 Nginx 配置
+
+    systemctl reload nginx.service
+
+    创建根目录
+
+    mkdir -p /data/www/html
+
+    测试
+
+    vim /data/www/html/index.php
+
+    输入内容
+
+    <?php
+
+    phpinfo();
+    ————————————————
+    版权声明：本文为CSDN博主「天尽头流浪」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+    原文链接：https://blog.csdn.net/tianjintouliulang/article/details/103298360
