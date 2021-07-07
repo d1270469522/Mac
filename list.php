@@ -1,128 +1,101 @@
 <?php
 
-class data {
-    //数据
-    private $data;
+    class Queue
+    {
+        private $head; //队头
+        private $tail; //队尾
+        private $queue = [0=>'此位禁用']; // 存储队列 array('0'=>'队尾')
+        private $maxsize; //最大数
 
-    public function __construct($data){
+        // 构造函数
+        public function __construct($size)
+        {
+            $this->initQ($size);
+        }
 
-        $this -> data = $data;
-        echo $this -> data . ":哥进队了！<br>";
-    }
+        // 初始化队列
+        private function initQ($size)
+        {
+            $this->head = 0;
+            $this->tail = 0;
+            $this->maxsize = $size;
+            echo '初始化队列：<br>';
+            print_r($this->queue);
+        }
 
-    public function getData(){
+        // 判断队空
+        public function QIsEmpty()
+        {
+            return $this->head == $this->tail;
+        }
 
-        return $this -> data;
-    }
-    public function __destruct(){
-        echo $this -> data . "：哥走了！<br>";
-    }
-}
+        // 判断队满
+        public function QIsFull()
+        {
+            return ($this->head - $this->tail) === $this->maxsize;
+        }
 
+        // 入队
+        public function InQ($param)
+        {
+            if ($this->QIsFull()) {
 
-class queue{
+                echo $param . ': 队列已满，请等待！<br>';
+            } else {
 
-    protected $front;//队头
-    protected $rear;//队尾
-    protected $queue = array('0'=>'队尾');//存储队列
-    protected $maxsize;//最大数
+                $this->head++;
 
-    public function __construct($size){
-
-        $this -> initQ($size);
-    }
-
-    //初始化队列
-    private function initQ($size){
-
-        $this -> front   = 0;
-        $this -> rear    = 0;
-        $this -> maxsize = $size;
-    }
-
-    //判断队空
-    public function QIsEmpty(){
-
-        return $this -> front == $this -> rear;
-    }
-
-    //判断队满
-    public function QIsFull(){
-
-        return ($this -> front - $this -> rear) == $this -> maxsize;
-    }
-
-    // //获取队首数据
-    // public function getFrontDate(){
-
-    //     return $this -> queue[$this -> front] -> getData();
-    // }
-
-    //入队
-    public function InQ($data){
-
-        if($this -> QIsFull()){
-
-            echo $data.":我一来咋就满了！（队满不能入队，请等待！）<br>";
-        } else {
-
-            $this -> front++;
-            for($i = $this -> front; $i > $this -> rear; $i--){
-
-                // echo $data;
-                if($this -> queue[$i]){
-
-                    unset($this -> queue[$i]);
+                // 入队的时候，把队列一次向前挤
+                for ($i = $this->head; $i > $this->tail; $i--) {
+                    $this->queue[$i] = $this->queue[$i - 1];
                 }
-                $this -> queue[$i] = $this -> queue[$i - 1];
+
+                // 队尾是新数据
+                $this->queue[$this->tail + 1] = $param;
+                echo $param . ': 入队成功！[ 排在第 ' . $this->head . ' 位 ]<br>';
+                print_r($this->queue);
             }
+        }
 
-            $this -> queue[$this -> rear + 1] = new data($data);
-            print_r($this -> queue);
-            echo $this -> front;
-            echo '入队成功！<br>';
+        // 出队
+        public function OutQ(){
+
+            if($this->QIsEmpty()){
+
+                echo '警告: 队列已空！<br>';
+            } else{
+
+                echo $this->queue[$this->head] . ': 出队成功！<br>';
+                unset($this->queue[$this->head]);
+                $this->head--;
+                print_r($this->queue);
+            }
         }
     }
 
-    //出队
-    public function OutQ(){
 
-        if($this -> QIsEmpty()){
+    echo '<pre>';
+    $queue=new Queue(3);
+    echo '<hr>';
+    $queue->InQ('唐僧');
+    echo '<hr>';
+    $queue->InQ('孙悟空');
+    echo '<hr>';
+    $queue->InQ('猪八戒');
+    echo '<hr>';
+    $queue->InQ('沙和尚');
+    echo '<hr>';
+    $queue->OutQ();
+    echo '<hr>';
+    $queue->InQ('沙和尚');
+    echo '<hr>';
+    $queue->OutQ();
+    echo '<hr>';
+    $queue->OutQ();
+    echo '<hr>';
+    $queue->OutQ();
+    echo '<hr>';
+    $queue->OutQ();
+    echo '<hr>';
+    $queue->OutQ();
 
-            echo "队空不能出队！<br>";
-        } else{
-
-            unset($this -> queue[$this -> front]);
-            $this -> front--;
-            print_r($this -> queue);
-            echo $this -> front;
-            echo "出队成功！<br>";
-        }
-    }
-}
-echo "<pre>";
-$q=new queue(3);
-$q->InQ("小苗");
-echo "<hr>";
-$q->InQ('马帅');
-echo "<hr>";
-$q->InQ('溜冰');
-echo "<hr>";
-$q->InQ('张世佳');
-echo "<hr>";
-$q->OutQ();
-echo "<hr>";
-$q->InQ("周瑞晓");
-echo "<hr>";
-$q->OutQ();
-echo "<hr>";
-$q->OutQ();
-echo "<hr>";
-$q->OutQ();
-echo "<hr>";
-$q->OutQ();
-echo "<hr>";
-$q->OutQ();
-echo "<hr>";
-$q->OutQ();
-echo "<hr>";

@@ -48,120 +48,70 @@
 └─────┴────┴────┴───────────────────────┴────┴────┴────┴────┘ └───┴───┴───┘ └───────┴───┴───┘
  */
 
+https://el1.talentyun.com/index.html
+https://el1.talentyun.com
 
 
 
 
 
+echo '<pre>';
+print_r($s);die;
 
+$ffmpeg = FFMpeg::create(array(
 
+    'ffmpeg.binaries'  => '/usr/local/ffmpeg/bin/ffmpeg',//服务器ffmpeg安装路径下的文件
 
+    'ffprobe.binaries' => '/usr/local/ffmpeg/bin/ffprobe'//服务器ffmpeg安装路径下的文件
 
+));
 
+$videoname = config('kj_url')."/uploads/video/".$info->getSaveName();//视频地址
 
+$video = $ffmpeg->open($videoname);
 
+$frame = $video->frame(TimeCode::fromSeconds(1));//获取第几帧
 
+$filename = time().".jpg";//获取图片命名
 
+$frame->save($filename);//获取图片
 
+$dirname = date("Ymd");//设置日期文件夹
 
+if (!is_dir("uploads/video/img/$dirname")){//是否已有文件夹
 
+    mkdir("uploads/video/img/$dirname");//没有则新建文件夹
 
-
-/*
-#打开目录浏览。
-autoindex on;
-
-#默认为off，显示的文件时间为GMT时间。
-#改为on后，显示的文件时间为文件的服务器时间。
-autoindex_localtime on;
-
-#默认为on，显示出文件的确切大小，单位是bytes。
-#改为off后，显示出文件的大概大小，单位是kB或者MB或者GB。
-autoindex_exact_size off;
-
-#解决中文乱码问题。
-charset utf-8,gbk;
-
-// include conf.d/*.conf;
-
-通用
-server {
-    listen       80;
-    server_name  typecho.tianjintou.top;
-
-    location / {
-        root   /data/www/html/typecho/;
-        index  index.html index.htm index.php;
-    }
-
-    location ~ \.php$ {
-        fastcgi_pass 127.0.0.1:9000;
-        fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME /data/www/html/typecho/$fastcgi_script_name;
-        include fastcgi_params;
-    }
 }
 
+copy($filename,"uploads/video/img/$dirname/$filename"); //拷贝到新目录
 
-server {
-    listen       80;
-    server_name  typecho.tianjintou.top;
-
-    root         /data/www/html/typecho/;
-    index        index.html index.htm index.php;
-
-    location / {
-        try_files $uri $uri/ /index.php?$query_string;
-        # try_files $uri $uri/ /index.php$is_args$args;
-        # try_files $uri $uri/ /index.php/$uri;
-
-        if ( !-e $request_filename){
-            rewrite ^/(.*)$ /index.php?r=$1 last;
-        }
-
-        if (!-e $request_filename) {
-            rewrite ^(.*)$ /index.php$1 last;
-        }
-    }
-
-    location ~ \.php(.*)$ { # 正则匹配.php后的 pathinfo 部分
-        fastcgi_pass   127.0.0.1:9000;
-        fastcgi_index  index.php;
-        fastcgi_param  SCRIPT_FILENAME  $DOCUMENT_ROOT$fastcgi_script_name;
-        # fastcgi_param SCRIPT_FILENAME /data/www/html/typecho/$fastcgi_script_name;
-        fastcgi_param  PATH_INFO $1;   # 把 pathinfo 部分赋给 PATH_INFO 变量
-        include        fastcgi_params;
-    }
-}
-
-server {
-    listen       80;
-    server_name  typecho.tianjintou.top;
-
-    location / {
-        root   /data/www/html/typecho/;
-        index  index.html index.htm index.php;
-    }
-
-    location ~ \.php(.*)$ {
-        root          /data/www/html/typecho;
-        fastcgi_pass  127.0.0.1:9000;
-        fastcgi_index  index.php;
-        fastcgi_split_path_info  ^(.+\.php)(.*)$;
-        fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        fastcgi_param  PATH_INFO $fastcgi_path_info;
-        include fastcgi_params;
-    }
-}
-
-备注：
-
-1. ~ \.php改为~ \.php(.*)，因为要接收.php后面的参数，不能让它被当做目录处理。
-2. 添加fastcgi_split_path_info，该参数后面需指定正则表达式，而且必须要有两个捕获，第一个捕获将会重新赋值给$fastcgi_script_name，第二个捕获将会重新赋值给$fastcgi_path_info。
-3. 添加fastcgi_param PATH_INFO，值为$fastcgi_path_info。
+unlink($filename); //删除旧目录下的文件
 
 
-phpinfo();die;
+
+
+
+
+
+/**
+ * 视频截图
+    $dir = '/data/www/html/default/images/ffmpeg/';
+    $video = 'http://www.tianjintou.top/default/images/ffmpeg/test.mp4';
+    $video = $dir . 'test.mp4';
+    $str = "ffmpeg -i " . $video . " -y -f mjpeg -ss 1 -t 0.001 -s 348*470 " . $dir . 'test.jpg';
+    echo $str . '<hr>';
+    $bool = exec($str);
+    var_dump($bool);
+*/
+
+
+
+
+
+
+
+
 
 /**
  * CURL 请求 POST
